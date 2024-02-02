@@ -165,6 +165,8 @@ console.log(person.name);
 // console.log(selectedColors);
 //to select a specific array value select it by index ex. (selectedColors[0]) which shows red in the console.
 
+let fruits = [`apple`, `orange`, `banana`];
+
 
 
 
