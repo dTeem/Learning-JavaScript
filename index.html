@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-practice</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+
+        <label>/////////////// USER INPUT //////////////////</label><br>
+        <label>Enter your name:</label><br>
+        <input type="text" id="myText"><br>
+        <button type="button" id="myButton">Submit</button>
+        <br>
+        <label id="myLabel"></label>
+    </section>
+
+    <section>
+        <label>/////////////// USING CONST //////////////////</label><br>
+        <h3>Get the Circumference of a circle</h3>
+        <label for="">Radius:</label>
+        <input name="" id="radiusValue"><br>
+        <button type="button" id="radBtn">Submit</button>
+        <button type="button" id="radClearBtn">Clear</button><br><br>
+        <label for="">The Circumference is: </label>
+        <label for="" id="circValue">...</label><br><br>
+
+        <label>------------------------------</label><br>
+        <h3>Discount Calculator</h3>
+        <label for="">Amount: </label>
+        <input id="itemAmount"><br><br>
+        <label for="">Discount: </label>
+        <input id="itemDiscount"><br><br>
+        <button id="computeBtn">Compute</button>
+        <button id="clearComputeBtn">Clear</button><br><br>
+        <label>Your total is: </label>
+        <label id="totalPurchase">...</label>
+    </section>
+
+
+    <section>
+        <label>/////////////// HYPOTHENUS NUMBER //////////////////</label><br>
+        <label id="sideA">Side A:</label>
+        <input type="text" id="aTextBox"><br>
+
+        <label id="sideB">Side B:</label>
+        <input type="text" id="bTextBox"><br>
+        <button type="button" id="submitButton">Submit</button>
+        <button type="button" id="hypoClearBtn">Clear</button><br><br>
+
+        <label for="">Side C:</label>
+        <label id="sideC"> ...</label><br>
+    </section>
+
+    <section>
+        <label>/////////////// COUNTER NUMBER //////////////////</label><br>
+        <div class="counter_container">
+            <label id="countLabel">0</label><br>
+            <div class="btns">
+                <button id="decreaseBtn">decrease</button>
+                <button id="increaseBtn">increase</button>
+                <button id="resetBtn">reset</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <label>/////////////// DICE ROLL //////////////////</label><br>
+        <div id="rollDice">
+            <label id="xLabel">0</label><br>
+            <label id="yLabel">0</label><br>
+            <label id="zLabel">0</label><br><br>
+            <button type="button" id="roll">Roll</button>
+            <button id="resetRoll">reset</button>
+        </div>
+    </section>
+
+    
+    <section>
+        <label>/////////////// SLICE METHOD //////////////////</label><br>
+        <label>Insert Full Name:</label><br>
+        <input type="text" id="fullName">
+        <button type="button" id="nameBtn">Submit</button><br>
+        <label>First Name: </label>
+        <label id="fName"></label><br>
+        <label>Last Name: </label>
+        <label id="lName"></label><br>
+        <button type="button" id="clearSlice">Clear</button>
+    </section>
+
+    <section>
+        <label>/////////////// IF STATEMENT //////////////////</label><br>
+        <input placeholder="Insert Age" id="myAge"><br>
+        <button type="button" id="ageBtn">Submit</button>
+        <button type="button" id="resetAgeBtn">Reset</button><br>
+        <label id="ageStatus">...</label>
+    </section>
+
+    <section>
+        <label for="myCheckBox">Subscribe</label>
+        <input type="checkbox" id="myCheckBox"><br>
+
+        <label for="visaBtn">Visa</label>
+        <input type="radio" name="card" id="visaBtn">
+
+        <label for="masterCardBtn">MasterCard</label>
+        <input type="radio" name="card" id="masterCardBtn">
+
+        <label for="paypalBtn">PayPal</label>
+        <input type="radio" name="card" id="paypalBtn"><br>
+
+        <button id="subButton">Submit</button>
+        <button id="clearStatus">Clear</button>
+        <label id="subStatus"></label><br>
+        <label id="cardStatus"></label>
+    </section>
+
+    <section>
+        <label>///////////// TERNARY OPERATOR ////////////////</label><br>
+        <h3>Get 30% Discount on items $100 and up</h3>
+        <label for="">Amount: </label>
+        <input id="purchaseAmount"><br><br>
+        <button id="compBtn">Compute</button>
+        <button id="clearCompBtn">Clear</button><br><br>
+        <label>Your total is: </label>
+        <label id="totalAmount">...</label>
+    </section>
+
+    <section>
+        <label>/////////////// SWITCH STATEMENT //////////////////</label><br>
+        <input type="text" placeholder="Enter Grade" id="myGrade"><br>
+        <button type="button" id="gradeBtn">Grade Result</button><br>
+        <label id="myResult">...</label>
+    </section>
+
+    <section>
+        <label>/////////////// DO WHILE LOOP //////////////////</label><br>
+        <label for="">Enter your username: </label>
+        <input type="text" name="" id="user"><br>
+        <label for="">Enter your password: </label>
+        <input type="text" name="" id="pass"><br>
+        <button id="whileBtn">Submit</button>
+        <button id="clearWhileBtn">Clear</button>
+    </section>
+
+    <section>
+        <label>///////////// NUMBER GUESSING GAME ///////////////</label><br>
+        <!-- <label for="" id="gameTxt"></label><br>
+        <input name="" id="myGuess"><br> -->
+        <button id="guessBtn">Play</button>
+        <button id="againBtn" onclick="game()">Play Again</button><br><br>
+        <!-- <label for="">The Correct Number is: </label>
+        <label for="" id="theAnswer">...</label> -->
+
+    </section>
+
+    <section>
+        <label>//////////// TEMPERATURE CONVERSION ///////////</label><br><br>
+        <form>
+            <input type="number" id="tempNumber" value="0"><br>
+
+            <input type="radio" id="toFahr" name="unit">
+            <label class="unitText" for="toFahr">Celsius ➡ Fahrenheit</label><br>
+
+            <input type="radio" id="toCels" name="unit">
+            <label class="unitText" for="toCels">Fahrenheit ➡ Celsius</label><br><br>
+
+            <button class="convert-button" type="button" onclick="convert()">Submit</button><br><br>
+            <label class="temp-result" id="tempResult"></label>
+        </form>
+
+    </section>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
