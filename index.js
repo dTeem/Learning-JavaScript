@@ -124,9 +124,15 @@ let lastName = null; // used to clear the value of variable
 */
 
 
+// --------------------- METHOD CHAINING -----------------------
+//method chaining - calling one method after another in one continous line
+/*
+let text = "bro";
 
+let letter = text.charAt(0).toUpperCase().trim();
 
-
+console.log(letter);
+*/
 
 
 // ================= Examples Of Reference Variables ================
@@ -134,6 +140,7 @@ let lastName = null; // used to clear the value of variable
 // ----------- OBJECTS -----------
 // to assign object literal use {} you can place 1 or more value pairs inside
 
+/*
 let person = {
     name: 'Tim',
     age: 21
@@ -148,6 +155,7 @@ person['name'] = 'Teem';
 
 
 console.log(person.name);
+*/
 
 //----------- ARRAY ------------
 // array    -   a variable like structure that can hold more than 1 value
@@ -165,14 +173,86 @@ console.log(person.name);
 // console.log(selectedColors);
 //to select a specific array value select it by index ex. (selectedColors[0]) which shows red in the console.
 
-let fruits = [`apple`, `orange`, `banana`];
 
-testing 
+let fruits = ["apple", "orange", "banana", "coconut", "strawberry"];
+
+fruits.sort();
+// sort()           -   to sort the array alphabetically 
+// sort().reverse() -   to sort aplhabetically in reverse order
+
+for (let i = 0; i < fruits.length; i++) {
+    // console.log(fruits[i]);
+}
+
+
+// -------------- SPREAD OPERATOR ----------------------
+// spread operator  -   allows an iterable as an array
+//  [...]               or string to be expanded into separate
+//                      elements (unpacks the elements)
+//                      you can also assign it to a new variable
+//                      after you use spread operator
+
+
+let numbers = [1, 2, 3, 4, 5];
+
+//let maximum = Math.max(numbers); //<-- this will show as NaN in the console
+//                                      since the numbers in the array are not
+//                                      individually selected.
+
+let maximum = Math.max(...numbers); //<- this will show in the console the
+//                                      largest number in the array
+
+// console.log(maximum);
+
+let nameSpread = "Tim";
+// let letterSpread = [...nameSpread]; //<- this will show ['T', 'i', 'm']
+let letterSpread = [...nameSpread].join("-"); //<- this will show T-i-m
+
+// console.log(letterSpread);
+
+
+let vegetables = ["carrots", "celery", "potatoes"];
+
+// let foods = [...fruits, ...vegetables];
+
+// console.log(foods); // <- this will show all the values inside the array
+// ['apple', 'banana', 'coconut', 'orange', 'strawberry', 'carrots', 'celery', 'potatoes']
+
+// you can also add another value inside the new array
+let foods = [...fruits, ...vegetables, "eggs", "milk"];
+
+// console.log(foods); // <- ['apple', 'banana', 'coconut', 'orange', 'strawberry', 'carrots', 'celery', 'potatoes', 'eggs', 'milk']
+
+
+// -------------- REST PARAMETERS ----------------------
+// rest parameters  -   allow a function work with a variable number of
+// [...rest]            arguments by bundling them into an array
 
 
 
-// ---------- PERDFORMING A TASK FUNCTION -----------
+
+    //ex.
+    function openFridge(...foods) {
+        console.log(foods);
+    }
+
+    const food1 = "pizza";
+    const food2 = "burger";
+    const food3 = "hotdog";
+    const food4 = "sushi";
+    const food5 = "ramen";
+
+    // openFridge(food1, food2, food3, food4, food5); //<- this will show as an
+                                                   // array of ['pizza', 'burger', 'hotdog', 'sushi', 'ramen']
+
+
+
+
+
+
+// ================== PERDFORMING A TASK FUNCTION ==================
 //        v to declare the name of the function together with () <--
+/*
 function greet() {
     console.log('Hello World');
 }
@@ -188,10 +268,12 @@ function welcome(name, lastName) {
 }
 
 welcome('Timots', 'Kab');
+*/
+
 // the 'Timots' <- is refered as an argument
 // argument is the value we supply to the parameter
 
-// ------------- CALCULATING A VALUE FUNCTION --------------
+// ================= CALCULATING A VALUE FUNCTION ===============
 
 /*
 function square(number) {
@@ -257,7 +339,7 @@ a shortcut for using operators "+=" <-- operators next to equal sign
 // console.log(result);
 
 
-// --------------- USER INPUT -------------------
+// ================= USER INPUT ======================
 
 // EASY WAY with a window prompt
 
@@ -350,7 +432,7 @@ clearComputeBtn.onclick = function() {
 
 
 
-// --------------- MATH -------------------
+// =================== MATH ==========================
 /*
 let x = 3.14; // or x = Math.PI; it will show the value of pie
 let y = 5;
@@ -372,15 +454,15 @@ let minimum;
 // x = Math.sign(x);
 
 
-maximum = Math.max(x, y, z);
-minimum = Math.min(x, y, z);
+maximum = Math.max(x, y, z);    -   will determine the maximum number in array
+minimum = Math.min(x, y, z);    -   will determing the minimum
 
 console.log(maximum);
 console.log(minimum);
 
 */
 
-// -------------- LOOKING FOR THE HYPOTHENUS OF THE NUMBER -----------------
+// ============== LOOKING FOR THE HYPOTHENUS OF THE NUMBER =============
 
 
 /*
@@ -429,7 +511,7 @@ document.getElementById("hypoClearBtn").onclick = function() {
 }
 
 
-// -------------------- COUNTER NUMBER ---------------------
+// ====================== COUNTER NUMBER ====================
 const decreaseBtn = document.getElementById("decreaseBtn");
 const increaseBtn = document.getElementById("increaseBtn");
 const resetBtn = document.getElementById("resetBtn");
@@ -452,41 +534,60 @@ resetBtn.onclick = function () {
 }
 
 
-// ------------------------- DICE ROLL ----------------------------
-const d1 = document.getElementById("xLabel");
-const d2 = document.getElementById("yLabel");
-const d3 = document.getElementById("zLabel");
-const roll = document.getElementById("roll");
-const resetRoll = document.getElementById("resetRoll");
-let minRoll = 1;
-let maxRoll = 6;
-let roll1;
-let roll2;
-let roll3;
+// ======================= DICE ROLL ======================
+function rollDice() {
+    
+    const diceCount = document.getElementById("diceCount").value;
+    const diceResult = document.getElementById("diceResult");
+    const diceValues = [];
+    const images = [];
 
-roll.onclick = function() {
-
-    roll1 = Math.floor(Math.random() * maxRoll) + minRoll;
-    roll2 = Math.floor(Math.random() * maxRoll) + minRoll;
-    roll3 = Math.floor(Math.random() * maxRoll) + minRoll;
-
-    d1.textContent = roll1;
-    d2.textContent = roll2;
-    d3.textContent = roll3;
+    for (let i = 0; i < diceCount; i++) {
+        const value = Math.floor(Math.random() * 6) + 1;
+        diceValues.push(value);
+        images.push(`<img src="images/dice/${value}.svg" alt="Dice ${value}">`);
+        //note** you should rename the image to call it easily
+    }
+    diceResult.textContent = `Dice: ${diceValues.join(', ')}`;
+    diceImages.innerHTML = images.join('');
 }
 
-resetRoll.onclick = function() {
-    roll1 = 0;
-    roll2 = 0;
-    roll3 = 0;
-
-    d1.textContent = roll1;
-    d2.textContent = roll2;
-    d3.textContent = roll3;
+function resetRoll() {
+    document.getElementById("diceCount").value = 1;
+    document.getElementById("diceResult").textContent = null;
+    diceImages.innerHTML = null;
 }
 
 
-// ------------------------ SLICE METHOD -------------------------
+// let minRoll = 1;
+// let maxRoll = 6;
+// let roll1;
+// let roll2;
+// let roll3;
+
+// roll.onclick = function() {
+
+//     roll1 = Math.floor(Math.random() * maxRoll) + minRoll;
+//     roll2 = Math.floor(Math.random() * maxRoll) + minRoll;
+//     roll3 = Math.floor(Math.random() * maxRoll) + minRoll;
+
+//     d1.textContent = roll1;
+//     d2.textContent = roll2;
+//     d3.textContent = roll3;
+// }
+
+// resetRoll.onclick = function() {
+//     roll1 = 0;
+//     roll2 = 0;
+//     roll3 = 0;
+
+//     d1.textContent = roll1;
+//     d2.textContent = roll2;
+//     d3.textContent = roll3;
+// }
+
+
+// ==================== SLICE METHOD =======================
 //slice() extracts a section of a string and rerolls it as a new string
 // without modifying the original string.
 
@@ -512,17 +613,6 @@ clearSlice.onclick = function() {
     fName.textContent = null;
     lName.textContent = null;
 }
-
-
-// --------------------- METHOD CHAINING -----------------------
-//method chaining - calling one method after another in one continous line
-/*
-let text = "bro";
-
-let letter = text.charAt(0).toUpperCase().trim();
-
-console.log(letter);
-*/
 
 // ========================= IF STATEMENT ==========================
 /*
@@ -917,22 +1007,22 @@ console.log(oeNumber(13));
 
 function function1() {
     let x = 1;  //<-- this declaration is called local scope
-    console.log(x); // if the declaration is inside the function
+    // console.log(x); // if the declaration is inside the function
                     // it is called local scope.
 }
 function function2() {
     let x = 2;
-    console.log(x);
+    // console.log(x);
 }
 function1(); //<-- this will show "1" in the console even with the same 
             //      value of x in 2 different functions. 
             //      It depends which function is called.
 
 
-let x = 5;
+let x = 5; //<-- variables declared outside are called global
 
 function function3() {
-    console.log(x);
+    // console.log(x);
 }
 function3(); /*<-- this will show "5" in the console not know the value
                     of the other x inside the other functions.
@@ -969,4 +1059,84 @@ function convert(){
 }
 
 
-// ======================= TEMPERATURE CONVERSION ======================
+// ======================= RANDOM PASSWORD GENERATOR ======================
+
+function passBtn(callback) {
+    var passWord = Number(document.getElementById("passLength").value);
+    callback(passWord);
+
+    // console.log(passwordLength);
+}
+
+console.log();
+
+
+const passwordLength = 10;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+display(passBtn);
+
+const password = generatePassword(passwordLength, 
+    includeLowercase, 
+    includeUppercase, 
+    includeNumbers, 
+    includeSymbols);
+
+
+function display (){
+    console.log(passBtn);
+}
+    
+    
+
+function generatePassword(length, includeLowercase, includeUppercase,includeNumbers, includeSymbols) {
+
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberChars =  "0123456789";
+    const symbolChars = "!@#$%^&*()-+=_";
+
+    let allowedChars = "";
+    let password = "";
+
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolChars : "";
+
+    for (let i = 0; i < length; i++ ) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
+    }
+
+    return password;
+
+}
+
+
+console.log(`generated password: ${password}`);
+
+
+
+// ======================= CALLBACK ======================
+// callback     -   a function is passed as an argument to another function
+
+/*
+    used to handle asynchronus operations:
+    1. Reading a file
+    2. Network request
+    3. Interacting with databases
+*/
+
+hello (goodbye);
+
+function hello() {
+    console.log("Hello!");
+}
+
+function goodbye() {
+    console.log("Goodbye!");
+}
