@@ -1,12 +1,17 @@
+// Strategy for JavaScript
+// 1. Figure out what steps we need
+// 2. Convert these steps into code
+
 //Variable - a container that stores a value and behaves as if it were the value
 
 //To use a variable you need to use:
 //1. declaration    -   let x;
 //2. assignment     -   x = 100;
 
-// 2 Types of Variables declarations (let, const)
-//let       - variables can be changed
-// const    -  variables cannot be changed
+// 3 Types of Variables declarations (let, const, var)
+// let      - variables can be changed
+// const    - variables cannot be changed
+// var      - is not affected by scope limits
 
 // Value Types 
 // Primitives   -   String, Number, Boolean, undefined, null
@@ -691,10 +696,19 @@ clearStatus.onclick = function() {
     paypalBtn.checked = false;
 }
 
+//---------- TRUE & FALSE VALUES --------------
+// false values are -   false, 0, '', Nan, undefined, null   
+// true values are  -   any value that is not on the false values
+
+
 ////////////////////// TERNARY OPERATOR /////////////////////////
 // ternary operator -   a shortcut to if{} and else{} statements
-//                      helps to assign a variable based on a condition
+//  ? true : false;     helps to assign a variable based on a condition
 //                      condition ? codeIfTrue : codeIfFalse;
+//                      you can also store the ternary inside a variable
+// ex. const result = 0 ? 'true' : 'false';
+
+
 /*
     let age = 21;
     let message = age >= 18 ? "You're an adult" : "You're a minor";
@@ -774,8 +788,8 @@ document.getElementById("gradeBtn").onclick = function() {
 
 // ======================= "AND, OR" LOGICAL OPERATORS =======================
 // and, or - gives us the ability to check more than 1 condition concurrently
-// &&  (and)   - both conditions must be true
-// ||  (or)    - either condition can be true
+// &&  (and)   - both conditions must be true to proceed (guard operator)
+// ||  (or)    - either condition can be true to proceed ( operator)
 
 /*
 let temp = 15;
@@ -876,6 +890,167 @@ clearWhileBtn.onclick = function() {
 //}
 
 
+// ======================= FUNCTIONS ======================
+//function  -   a section of reusable code.
+//              declare code once, use it whenever you want
+//              call the function to execute the code
+//              you can place an argument inside the function
+//              functions have no direct relation to other functions
+
+// inside the () are the parameters. **you can name any parameters
+/*
+function helloFunction(functionName, functionAge){
+    console.log(`Hello ${functionName}!`);
+    console.log(`You are ${functionAge} years old`);
+}
+//the value of the parameters should be same with the order of parameters
+helloFunction("Tim", 21);
+helloFunction("Mitsii", 20);
+
+function add(x, y) {
+    return x + y;
+}
+
+console.log(add(2, 3));
+
+function oeNumber(number){
+    return number % 2 === 0 ? true : false;
+}
+console.log(oeNumber(13));
+*/
+
+
+// ------- VARIABLE SCOPE ---------------------------------
+// variable scope   -   where a variable is recognized and
+//                      accessible (local vs global) 
+//                  -   it helps us avoid renaming conflicts
+
+
+//Global scope      -   variables declared outside of a blocks
+//Local scope       -   variables declared inside of a blocks
+//**function{}      -   are called blocks
+
+// function function1() {
+    // let x = 1;  //<-- this declaration is called local scope
+    // console.log(x); // if the declaration is inside the function
+                    // it is called local scope.
+// }
+// function function2() {
+//     let x = 2;
+    // console.log(x);
+// }
+// function1(); //<-- this will show "1" in the console even with the same 
+            //      value of x in 2 different functions. 
+            //      It depends which function is called.
+
+
+// let x = 5; //<-- variables declared outside are called global
+
+// function function3() {
+//     // console.log(x);
+// }
+/* function3(); <-- this will show "5" in the console not know the value
+                    of the other x inside the other functions.
+                    declaring a variable outside the function 
+                    called a global scope. (normal declaration of variables)
+                    if there are variables declared locally with the same variable declared globally it will look first into locally.
+                    thus if there are no variables declarations locally it will use the variables globally.
+                    */
+
+
+// ======================= ROCK PAPER SCISSORS GAME ======================
+//Math.random()     -   always generates a random number between 0 and 1
+//For this game you can divide the values between 0 and 1 into 3 equal parts
+//to place it to different answers like rock, paper, scissors.
+//ex. 0 -> 1/3 = rock
+//  1/3 -> 2/3 = paper
+//  2/3 -> 1   = scissors
+
+function rock() {
+    const randomNumber = Math.random();
+    let computerMove = '';
+    let result = '';
+
+    if(randomNumber >= 0 && randomNumber < 1/3) {
+        computerMove = 'rock';
+    }
+    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+        computerMove = 'paper';
+    }
+    else if(randomNumber >= 2/3 && randomNumber < 1) {
+        computerMove = 'scissors';
+    }
+
+    if(computerMove === 'rock') {
+        result = "It's a Tie";
+    }
+    else if(computerMove === 'paper') {
+        result = 'You lose! Try again';
+    }
+    else if(computerMove === 'scissors') {
+        result = 'You Win!!';
+    }
+
+    alert(`You picked Rock. Computer picked ${computerMove}. ${result}`);
+}
+
+function paper() {
+    const randomNumber = Math.random();
+    let computerMove = '';
+    let result = '';
+
+    if(randomNumber >= 0 && randomNumber < 1/3) {
+        computerMove = 'rock';
+    }
+    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+        computerMove = 'paper';
+    }
+    else if(randomNumber >= 2/3 && randomNumber < 1) {
+        computerMove = 'scissors';
+    }
+
+    if(computerMove === 'rock') {
+        result = 'You Win!!';
+    }
+    else if(computerMove === 'paper') {
+        result = "It's a tie!";
+    }
+    else if(computerMove === 'scissors') {
+        result = 'You lose! Try again';
+    }
+
+    alert(`You picked Paper. Computer picked ${computerMove}. ${result}`);
+}
+
+function scissors() {
+    const randomNumber = Math.random();
+    let computerMove = '';
+    let result = '';
+
+    if(randomNumber >= 0 && randomNumber < 1/3) {
+        computerMove = 'rock';
+    }
+    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+        computerMove = 'paper';
+    }
+    else if(randomNumber >= 2/3 && randomNumber < 1) {
+        computerMove = 'scissors';
+    }
+
+    if(computerMove === 'rock') {
+        result = 'You lose! Try again';
+    }
+    else if(computerMove === 'paper') {
+        result = "You Win!!";
+    }
+    else if(computerMove === 'scissors') {
+        result = "It's a tie!";
+    }
+
+    alert(`You picked Scissors. Computer picked ${computerMove}. ${result}`);
+}
+
+
 // ======================= NUMBER GUESSING GAME ======================
 // const minNum = 1;
 // const maxNum = 100;
@@ -971,72 +1146,6 @@ game();
 // }
 
 
-// ======================= FUNCTIONS ======================
-//function  -   a section of reusable code.
-//              declare code once, use it whenever you want
-//              call the function to execute the code
-//              you can place an argument inside the function
-//              functions have no direct relation to other functions
-
-// inside the () are the parameters. **you can name any parameters
-/*
-function helloFunction(functionName, functionAge){
-    console.log(`Hello ${functionName}!`);
-    console.log(`You are ${functionAge} years old`);
-}
-//the value of the parameters should be same with the order of parameters
-helloFunction("Tim", 21);
-helloFunction("Mitsii", 20);
-
-function add(x, y) {
-    return x + y;
-}
-
-console.log(add(2, 3));
-
-function oeNumber(number){
-    return number % 2 === 0 ? true : false;
-}
-console.log(oeNumber(13));
-*/
-
-
-// ------- VARIABLE SCOPE ---------------------------------
-// variable scope   -   where a variable is recognized and
-//                      accessible (local vs global) 
-
-//Global scope      -   variables declared outside of a blocks
-//Local scope       -   variables declared inside of a blocks
-//**function{}      -    are called blocks
-
-// function function1() {
-    // let x = 1;  //<-- this declaration is called local scope
-    // console.log(x); // if the declaration is inside the function
-                    // it is called local scope.
-// }
-// function function2() {
-//     let x = 2;
-    // console.log(x);
-// }
-// function1(); //<-- this will show "1" in the console even with the same 
-            //      value of x in 2 different functions. 
-            //      It depends which function is called.
-
-
-// let x = 5; //<-- variables declared outside are called global
-
-// function function3() {
-//     // console.log(x);
-// }
-/* function3(); <-- this will show "5" in the console not know the value
-                    of the other x inside the other functions.
-                    declaring a variable outside the function 
-                    called a global scope. (normal declaration of variables)
-                    if there are variables declared locally with the same variable declared globally it will look first into locally.
-                    thus if there are no variables declarations locally it will use the variables globally.
-                    */
-
-
 // ======================= TEMPERATURE CONVERSION ======================
 const tempNumber = document.getElementById("tempNumber");
 const toFahr = document.getElementById("toFahr");
@@ -1064,19 +1173,11 @@ function convert(){
 
 
 // ======================= RANDOM PASSWORD GENERATOR ======================
-
-// function passBtn(passWord){
-//   passWord = document.getElementById("passLength").value;
-//   return passWord;
-// } 
-
-const passwordLength = 10;
+const passwordLength = '';
 const includeLowercase = true;
 const includeUppercase = true;
 const includeNumbers = true;
 const includeSymbols = true;
-
-console.log(passwordLength);
 
 const password = generatePassword(
     passwordLength, 
@@ -1086,11 +1187,6 @@ const password = generatePassword(
     includeSymbols);
 
 
-function display (){
-    console.log(passBtn);
-}
-    
-    
 
 function generatePassword(length, includeLowercase, includeUppercase,includeNumbers, includeSymbols) {
 
@@ -1153,8 +1249,8 @@ console.log(`generated password: ${password}`);
 
 // greet(callback, 4, 3);
 
-// function showCallFunc(fn) {
-//     let value = 10;
+// function showCallFunc(fn, value) {
+//     value = 20;
 //     fn(value);
 // }
 
@@ -1164,9 +1260,26 @@ console.log(`generated password: ${password}`);
 
 
 // ======================= FOR EACH ======================
-// forEach()    -   method used to iterate over the elements of an array
-//                  and apply a specific function (callback) to each element
+// forEach()    -   method used to iterate (loop through) over the elements of 
+//                  an array and apply a specific function (callback) to each
+//                  element
 
 //                  array.forEach(callback)
+//                  element, index, array are provided
 
+// let numbersFor = [1, 2, 3, 4, 5];
 
+// function display(element) {
+//     console.log(element);
+// }
+
+// function double(element, index, array) {
+//     array[index] = element * 2; //<- the index inside the array will be
+//                                 //    multiplied to 2
+// }
+
+// numbersFor.forEach(double); //<- this will do the function double before 
+//                             //   displaying it
+// numbersFor.forEach(display);
+
+ 
