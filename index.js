@@ -789,7 +789,7 @@ document.getElementById("gradeBtn").onclick = function() {
 // ======================= "AND, OR" LOGICAL OPERATORS =======================
 // and, or - gives us the ability to check more than 1 condition concurrently
 // &&  (and)   - both conditions must be true to proceed (guard operator)
-// ||  (or)    - either condition can be true to proceed ( operator)
+// ||  (or)    - either condition can be true to proceed (default operator)
 
 /*
 let temp = 15;
@@ -802,6 +802,34 @@ else {
     console.log('The weather is bad');
 }
 */
+
+const hour = 18;
+const name2 = "Tim";
+
+if(hour >= 6 && hour < 12) {
+    console.log(`Good morning ${name2}!`);
+}
+else if(hour >= 12 && hour < 17) {
+    console.log(`Good afternoon ${name2}!`);
+}
+else if(hour >= 17 && hour <= 24) {
+    console.log(`Good night ${name2}!`);
+}
+else {
+    console.log(`Go back to sleep ${name2}!`);
+}
+
+////////////////////////////////////////////////
+
+const agePark = 6;
+const isHoliday = false;
+
+if(isHoliday === false && agePark <= 6 || agePark >= 65) {
+    console.log(`Discount`);
+}
+else if(agePark > 6 || agePark < 65) {
+    console.log(`No Discount`);
+}
 
 
 // ======================= "!" NOT LOGICAL OPERATORS =======================
@@ -1171,9 +1199,37 @@ function convert(){
     }
 }
 
+//////////// COIN-FLIP GAME //////////////////
+function play() {
+    const guess = document.getElementById("guessCoin").value;
+    const flipValue = Math.random();
+    const coinResult = document.getElementById("coinResult");
+    const gameResult = document.getElementById("flipGameResult");
+
+    coinResult.textContent = flipValue <= 0.5 ? "HEADS" : "TAILS";
+
+    guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
+
+
+    // if(flipValue <= 0.5) {
+    //     coinResult.textContent = 'HEADS';
+    //     console.log(flipValue);
+    // }
+    // else {
+    //     coinResult.textContent = 'TAILS';
+    //     console.log(flipValue);
+    // }
+}
+
+
 
 // ======================= RANDOM PASSWORD GENERATOR ======================
-const passwordLength = '';
+
+// const passwordLength = function passBtn(passWord) {
+//     passWord = document.getElementById("passLength").value;
+//     passWord();
+// };
+const passwordLength = 20;
 const includeLowercase = true;
 const includeUppercase = true;
 const includeNumbers = true;

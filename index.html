@@ -191,6 +191,18 @@
     </section>
 
     <section>
+        <h4>Coin-flip Game</h4>
+        <select id="guessCoin">
+            <option value="" disabled selected>Choose</option>
+            <option value="HEADS">HEADS</option>
+            <option value="TAILS">TAILS</option>
+        </select>
+        <button id="coinBtn" onclick="play()">Play</button><br><br>
+        <label id="coinResult"></label><br>
+        <label id="flipGameResult"></label>
+    </section>
+
+    <section>
         <label>//////////// RANDOM PASSWORD GENERATOR ///////////</label><br><br>
         <label>Choose Type of Password:</label><br>
         <select name="passwords" id="passwordType" class="pass-word">
@@ -200,7 +212,7 @@
             <option value="mix">Letters & numbers</option>
             <option value="mix-special">Mix with special characters</option>
         </select>
-        <input type="number" value="4" min="4" max="12" id="passLength" class="pass-word" placeholder="no. of characters"><br><br>
+        <input type="number" value="4" min="4" max="20" id="passLength" class="pass-word" placeholder="no. of characters"><br><br>
         <button id="passBtn" class="pass-buttons" onclick="passBtn()">Generate</button>
         <button id="resetPassBtn" class="pass-buttons">Reset</button><br><br>
         <div class="password-container">
