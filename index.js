@@ -1139,10 +1139,6 @@ function hello() {
 
 function goodbye() {
     console.log("Goodbye!");
-<<<<<<< HEAD
 }
 
 //update the github
-=======
-}
->>>>>>> 95bebc3 (update)
