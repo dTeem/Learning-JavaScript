@@ -14,7 +14,7 @@
         <p id="p2"></p>
         <p id="p3"></p>
 
-        <label>/////////////// USER INPUT //////////////////</label><br>
+        <label>/////////////// USER INPUT //////////////////</label><br><br>
         <label>Enter your name:</label><br>
         <input type="text" id="myText"><br>
         <button type="button" id="myButton">Submit</button>
@@ -23,7 +23,7 @@
     </section>
 
     <section>
-        <label>/////////////// USING CONST //////////////////</label><br>
+        <label>/////////////// USING CONST //////////////////</label><br><br>
         <h3>Get the Circumference of a circle</h3>
         <label for="">Radius:</label>
         <input name="" id="radiusValue"><br>
@@ -46,7 +46,7 @@
 
 
     <section>
-        <label>/////////////// HYPOTHENUS NUMBER //////////////////</label><br>
+        <label>/////////////// HYPOTHENUS NUMBER //////////////////</label><br><br>
         <label id="sideA">Side A:</label>
         <input type="text" id="aTextBox"><br>
 
@@ -60,7 +60,7 @@
     </section>
 
     <section>
-        <label>/////////////// COUNTER NUMBER //////////////////</label><br>
+        <label>/////////////// COUNTER NUMBER //////////////////</label><br><br>
         <div class="counter_container">
             <label id="countLabel">0</label><br>
             <div class="btns">
@@ -72,19 +72,22 @@
     </section>
 
     <section>
-        <label>/////////////// DICE ROLL //////////////////</label><br>
+        <label>/////////////// DICE ROLL //////////////////</label><br><br>
         <div id="rollDice">
-            <label id="xLabel">0</label><br>
-            <label id="yLabel">0</label><br>
-            <label id="zLabel">0</label><br><br>
-            <button type="button" id="roll">Roll</button>
-            <button id="resetRoll">reset</button>
+            <label for="">No. of dice:</label>
+            <input type="number" value="1" min="1" max="100" id="diceCount"><br>
+            <button onclick="rollDice()" type="button" class="dice-buttons" id="roll">Roll Dice</button>
+            <button class="dice-buttons" id="resetRoll" onclick="resetRoll()">reset</button><br><br>
+            <div id="diceResult"></div><br>
+            <div id="diceImages"></div><br><br><br>
+            
+            <p>Unicons by <a href="https://iconscout.com/">IconScout</a></p>
         </div>
     </section>
 
     
     <section>
-        <label>/////////////// SLICE METHOD //////////////////</label><br>
+        <label>/////////////// SLICE METHOD //////////////////</label><br><br>
         <label>Insert Full Name:</label><br>
         <input type="text" id="fullName">
         <button type="button" id="nameBtn">Submit</button><br>
@@ -96,7 +99,7 @@
     </section>
 
     <section>
-        <label>/////////////// IF STATEMENT //////////////////</label><br>
+        <label>/////////////// IF STATEMENT //////////////////</label><br><br>
         <input placeholder="Insert Age" id="myAge"><br>
         <button type="button" id="ageBtn">Submit</button>
         <button type="button" id="resetAgeBtn">Reset</button><br>
@@ -123,7 +126,7 @@
     </section>
 
     <section>
-        <label>///////////// TERNARY OPERATOR ////////////////</label><br>
+        <label>///////////// TERNARY OPERATOR ////////////////</label><br><br>
         <h3>Get 30% Discount on items $100 and up</h3>
         <label for="">Amount: </label>
         <input id="purchaseAmount"><br><br>
@@ -134,14 +137,14 @@
     </section>
 
     <section>
-        <label>/////////////// SWITCH STATEMENT //////////////////</label><br>
+        <label>/////////////// SWITCH STATEMENT //////////////////</label><br><br>
         <input type="text" placeholder="Enter Grade" id="myGrade"><br>
         <button type="button" id="gradeBtn">Grade Result</button><br>
         <label id="myResult">...</label>
     </section>
 
     <section>
-        <label>/////////////// DO WHILE LOOP //////////////////</label><br>
+        <label>/////////////// DO WHILE LOOP //////////////////</label><br><br>
         <label for="">Enter your username: </label>
         <input type="text" name="" id="user"><br>
         <label for="">Enter your password: </label>
@@ -151,7 +154,7 @@
     </section>
 
     <section>
-        <label>///////////// NUMBER GUESSING GAME ///////////////</label><br>
+        <label>///////////// NUMBER GUESSING GAME ///////////////</label><br><br>
         <!-- <label for="" id="gameTxt"></label><br>
         <input name="" id="myGuess"><br> -->
         <button id="guessBtn">Play</button>
@@ -175,6 +178,24 @@
             <button class="convert-button" type="button" onclick="convert()">Submit</button><br><br>
             <label class="temp-result" id="tempResult"></label>
         </form>
+    </section>
+
+    <section>
+        <label>//////////// RANDOM PASSWORD GENERATOR ///////////</label><br><br>
+        <label>Choose Type of Password:</label><br>
+        <select name="passwords" id="passwordType" class="pass-word">
+            <option value="" disabled selected>Select Type</option>
+            <option value="numeric">Numbers Only</option>
+            <option value="letters">Letters Only</option>
+            <option value="mix">Letters & numbers</option>
+            <option value="mix-special">Mix with special characters</option>
+        </select>
+        <input type="number" value="4" min="4" max="12" id="passLength" class="pass-word" placeholder="no. of characters"><br><br>
+        <button id="passBtn" class="pass-buttons" onclick="passBtn()">Generate</button>
+        <button id="resetPassBtn" class="pass-buttons">Reset</button><br><br>
+        <div class="password-container">
+            <label id="passWord"></label>
+        </div>
 
     </section>
 

@@ -7,6 +7,38 @@ section {
     margin: 5rem 0;
 }
 
+.dice-buttons {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.dice-buttons:hover {
+    background: rgb(115, 115, 115);
+    color: white;
+    transition: .3s;
+}
+
+.dice-buttons:active {
+    background: rgb(175, 175, 175);
+}
+
+#diceCount {
+    font-size: 1.2rem;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#diceImages img{
+    width: 50px;
+}
+
+
 #countLabel {
     display: inline-block;
     font-size: 4em;
@@ -62,3 +94,24 @@ form {
     font-size: 1.5em;
     font-weight: bold;
 }
+
+.pass-word {
+    padding: .2rem;
+    text-align: center;
+    font-weight: bold;
+    width: 150px;
+}
+
+.pass-buttons {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .1rem .5rem;
+}
+
+.password-container {
+    background: rgb(204, 204, 204);
+    padding: 1.5rem;
+    width: 350px;
+    border-radius: 5px;
+}
+
