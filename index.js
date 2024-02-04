@@ -1005,32 +1005,36 @@ console.log(oeNumber(13));
 // variable scope   -   where a variable is recognized and
 //                      accessible (local vs global) 
 
-function function1() {
-    let x = 1;  //<-- this declaration is called local scope
+//Global scope      -   variables declared outside of a blocks
+//Local scope       -   variables declared inside of a blocks
+//**function{}      -    are called blocks
+
+// function function1() {
+    // let x = 1;  //<-- this declaration is called local scope
     // console.log(x); // if the declaration is inside the function
                     // it is called local scope.
-}
-function function2() {
-    let x = 2;
+// }
+// function function2() {
+//     let x = 2;
     // console.log(x);
-}
-function1(); //<-- this will show "1" in the console even with the same 
+// }
+// function1(); //<-- this will show "1" in the console even with the same 
             //      value of x in 2 different functions. 
             //      It depends which function is called.
 
 
-let x = 5; //<-- variables declared outside are called global
+// let x = 5; //<-- variables declared outside are called global
 
-function function3() {
-    // console.log(x);
-}
-function3(); /*<-- this will show "5" in the console not know the value
+// function function3() {
+//     // console.log(x);
+// }
+/* function3(); <-- this will show "5" in the console not know the value
                     of the other x inside the other functions.
                     declaring a variable outside the function 
                     called a global scope. (normal declaration of variables)
                     if there are variables declared locally with the same variable declared globally it will look first into locally.
                     thus if there are no variables declarations locally it will use the variables globally.
-            */
+                    */
 
 
 // ======================= TEMPERATURE CONVERSION ======================
@@ -1061,15 +1065,10 @@ function convert(){
 
 // ======================= RANDOM PASSWORD GENERATOR ======================
 
-function passBtn(callback) {
-    var passWord = Number(document.getElementById("passLength").value);
-    callback(passWord);
-
-    // console.log(passwordLength);
-}
-
-console.log();
-
+// function passBtn(passWord){
+//   passWord = document.getElementById("passLength").value;
+//   return passWord;
+// } 
 
 const passwordLength = 10;
 const includeLowercase = true;
@@ -1077,9 +1076,10 @@ const includeUppercase = true;
 const includeNumbers = true;
 const includeSymbols = true;
 
-display(passBtn);
+console.log(passwordLength);
 
-const password = generatePassword(passwordLength, 
+const password = generatePassword(
+    passwordLength, 
     includeLowercase, 
     includeUppercase, 
     includeNumbers, 
@@ -1131,14 +1131,42 @@ console.log(`generated password: ${password}`);
     3. Interacting with databases
 */
 
-hello (goodbye);
+// hello (goodbye); <- this execute the hello function 1st then the goodbye
 
-function hello() {
-    console.log("Hello!");
-}
+// function hello(callback) {
+//     console.log("Hello!");
+//     callback();
+// }
 
-function goodbye() {
-    console.log("Goodbye!");
-}
+// function goodbye() {
+//     console.log("Goodbye!");
+// }
+
+// function greet(cb, x, y) {
+//     let result = x + y;
+//     cb(result);
+// }
+
+// function callback(result) {
+//     console.log(result);
+// }
+
+// greet(callback, 4, 3);
+
+// function showCallFunc(fn) {
+//     let value = 10;
+//     fn(value);
+// }
+
+// showCallFunc(function(fn) {
+//     console.log(fn);
+// });
+
+
+// ======================= FOR EACH ======================
+// forEach()    -   method used to iterate over the elements of an array
+//                  and apply a specific function (callback) to each element
+
+//                  array.forEach(callback)
 
 
