@@ -15,11 +15,13 @@
         <p id="p3"></p>
 
         <label>/////////////// USER INPUT //////////////////</label><br><br>
-        <label>Enter your name:</label><br>
+        <label>Please enter your name:</label><br>
         <input type="text" id="myText"><br>
         <button type="button" id="myButton">Submit</button>
-        <br>
-        <label id="myLabel"></label>
+        <br><br>
+
+
+
     </section>
 
     <section>
@@ -78,7 +80,8 @@
         <button id="addTwo">+2</button>
         <button id="addThree">+3</button>
         <button id="resetCart">Reset Cart</button><br><br>
-        <label id="cartQuantity"></label>
+        <label id="cartQuantity"></label><br>
+        <button id="showCartResult" onclick="showCartResult()">Result</button>
 
     </section>
 
@@ -131,7 +134,7 @@
         <input type="radio" name="card" id="paypalBtn"><br>
 
         <button id="subButton">Submit</button>
-        <button id="clearStatus">Clear</button>
+        <button id="clearStatus">Clear</button><br><br>
         <label id="subStatus"></label><br>
         <label id="cardStatus"></label>
     </section>
@@ -217,17 +220,21 @@
         <label>//////////// RANDOM PASSWORD GENERATOR ///////////</label><br><br>
         <label>Choose Type of Password:</label><br>
         <select name="passwords" id="passwordType" class="pass-word">
-            <option value="" disabled selected>Select Type</option>
+            <!-- <option value="" disabled selected>Select Type</option> -->
             <option value="numeric">Numbers Only</option>
             <option value="letters">Letters Only</option>
             <option value="mix">Letters & numbers</option>
             <option value="mix-special">Mix with special characters</option>
         </select>
-        <input type="number" value="4" min="4" max="20" id="passLength" class="pass-word" placeholder="no. of characters"><br><br>
+        <input type="number" id="passLength" class="pass-word" value="4" min="4" max="20"><br><br>
         <button id="passBtn" class="pass-buttons" onclick="passBtn()">Generate</button>
         <button id="resetPassBtn" class="pass-buttons">Reset</button><br><br>
         <div class="password-container">
-            <label id="passWord"></label>
+            <label id="passResultText"></label><br>
+            <label id="passWord1"></label><br>
+            <label id="passWord2"></label><br>
+            <label id="passWord3"></label><br>
+            <label id="passWord4"></label><br>
         </div>
 
     </section>

@@ -359,7 +359,7 @@ let userName;
 
 document.getElementById("myButton").onclick = function() {
     userName = document.getElementById("myText").value;
-    document.getElementById("myLabel").textContent = `Hello ${userName}`;
+    document.getElementById("myLabel").textContent = `Hello ${userName}!`;
 }
 
 
@@ -538,7 +538,9 @@ resetBtn.onclick = function () {
     countLabel.textContent = count;
 }
 
+
 /////////////////////////////////////////
+// ------------ CART QUANTITY -------------
 const showCart = document.getElementById("showCart");
 const addToCart = document.getElementById("addToCart");
 const addTwo = document.getElementById("addTwo");
@@ -569,6 +571,11 @@ addThree.onclick = function() {
 resetCart.onclick = function() {
     cartValue = 0;
     cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
+function showCartResult() {
+
+    console.log(cartValue);
 }
 
 
@@ -669,7 +676,7 @@ let myAge;
 ageBtn.onclick = function() {
     myAge = document.getElementById("myAge").value;
 
-    if(myAge >= 65) {
+    if(myAge >= 60) {
         ageStatus.textContent = "You are a senior citizen";
     }
     else if(myAge >= 18) {
@@ -1029,6 +1036,7 @@ console.log(oeNumber(13));
 
 function rock() {
     const randomNumber = Math.random();
+
     let computerMove = '';
     let result = '';
 
@@ -1262,49 +1270,117 @@ function play() {
 //     passWord = document.getElementById("passLength").value;
 //     passWord();
 // };
-const passwordLength = 20;
-const includeLowercase = true;
-const includeUppercase = true;
-const includeNumbers = true;
-const includeSymbols = true;
+let passWord1 = document.getElementById("passWord1");
+let passWord2 = document.getElementById("passWord2");
+let passWord3 = document.getElementById("passWord3");
+let passWord4 = document.getElementById("passWord4");
+let passResultText = document.getElementById("passResultText");
+let passwordLength = '';
+let includeLowercase;
+let includeUppercase;
+let includeNumbers;
+let includeSymbols;
 
-const password = generatePassword(
-    passwordLength, 
-    includeLowercase, 
-    includeUppercase, 
-    includeNumbers, 
-    includeSymbols);
+function passBtn() {
+    passwordLength = document.getElementById("passLength").value;
+    const passwordType = document.querySelector('#passwordType');
+    let passType = passwordType.value;
 
-
-
-function generatePassword(length, includeLowercase, includeUppercase,includeNumbers, includeSymbols) {
-
-    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
-    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numberChars =  "0123456789";
-    const symbolChars = "!@#$%^&*()-+=_";
-
-    let allowedChars = "";
-    let password = "";
-
-    allowedChars += includeLowercase ? lowercaseChars : "";
-    allowedChars += includeUppercase ? uppercaseChars : "";
-    allowedChars += includeNumbers ? numberChars : "";
-    allowedChars += includeSymbols ? symbolChars : "";
-
-    for (let i = 0; i < length; i++ ) {
-        const randomIndex = Math.floor(Math.random() * allowedChars.length);
-        password += allowedChars[randomIndex];
+    if(passType === "numeric") {
+        includeLowercase = false;
+        includeUppercase = false;
+        includeNumbers = true;
+        includeSymbols = false;
+    }
+    else if(passType === 'letters') {
+        includeLowercase = true;
+        includeUppercase = true;
+        includeNumbers = false;
+        includeSymbols = false;
+    }
+    else if (passType === 'mix') {
+        includeLowercase = true;
+        includeUppercase = true;
+        includeNumbers = true;
+        includeSymbols = false;
+    }
+    else if (passType === 'mix-special') {
+        includeLowercase = true;
+        includeUppercase = true;
+        includeNumbers = true;
+        includeSymbols = true;
+    }
+    else {
+        passResultText.textContent = `Please select type of password`
     }
 
-    return password;
+
+
+    const password1 = generatePassword(
+        passwordLength, 
+        includeLowercase, 
+        includeUppercase, 
+        includeNumbers, 
+        includeSymbols);
+
+    const password2 = generatePassword(
+        passwordLength, 
+        includeLowercase, 
+        includeUppercase, 
+        includeNumbers, 
+        includeSymbols);    
+
+    const password3 = generatePassword(
+        passwordLength, 
+        includeLowercase, 
+        includeUppercase, 
+        includeNumbers, 
+        includeSymbols);
+
+    const password4 = generatePassword(
+        passwordLength, 
+        includeLowercase, 
+        includeUppercase, 
+        includeNumbers, 
+        includeSymbols);
+
+
+    function generatePassword(length, includeLowercase, includeUppercase,includeNumbers, includeSymbols) {
+
+        const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+        const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numberChars =  "0123456789";
+        const symbolChars = "!@#$%^&*()-+=_";
+
+        let allowedChars = "";
+        let password1 = "";
+        let password2 = "";
+        let password3 = "";
+        let password4 = "";
+
+        allowedChars += includeLowercase ? lowercaseChars : "";
+        allowedChars += includeUppercase ? uppercaseChars : "";
+        allowedChars += includeNumbers ? numberChars : "";
+        allowedChars += includeSymbols ? symbolChars : "";
+
+        for (let i = 0; i < length; i++ ) {
+            const randomIndex = Math.floor(Math.random() * allowedChars.length);
+            password1 += allowedChars[randomIndex];
+            password2 += allowedChars[randomIndex];
+            password3 += allowedChars[randomIndex];
+            password4 += allowedChars[randomIndex];
+        }
+
+        return password1;
+    }
+
+    passResultText.textContent = `Generated Passwords:`;
+    passWord1.textContent = password1;
+    passWord2.textContent = password2;
+    passWord3.textContent = password3;
+    passWord4.textContent = password4;
 
 }
-
-
-console.log(`generated password: ${password}`);
-
-
 
 // ======================= CALLBACK ======================
 // callback     -   a function is passed as an argument to another function
