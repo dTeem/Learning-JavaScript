@@ -538,6 +538,39 @@ resetBtn.onclick = function () {
     countLabel.textContent = count;
 }
 
+/////////////////////////////////////////
+const showCart = document.getElementById("showCart");
+const addToCart = document.getElementById("addToCart");
+const addTwo = document.getElementById("addTwo");
+const addThree = document.getElementById("addThree");
+const resetCart = document.getElementById("resetCart");
+const cartQuantity = document.getElementById("cartQuantity");
+let cartValue = 0;
+
+showCart.onclick = function () {
+    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
+addToCart.onclick = function() {
+    cartValue++;
+    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
+addTwo.onclick = function() {
+    cartValue += 2;
+    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
+addThree.onclick = function() {
+    cartValue += 3;
+    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
+resetCart.onclick = function() {
+    cartValue = 0;
+    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+}
+
 
 // ======================= DICE ROLL ======================
 function rollDice() {
