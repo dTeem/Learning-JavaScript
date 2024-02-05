@@ -551,32 +551,67 @@ let cartValue = 0;
 
 showCart.onclick = function () {
     cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    
+    if(cartValue === 0) {
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue === 10) {
+        cartQuantity.textContent = `The cart is full!!`;
+    }
 }
 
 addToCart.onclick = function() {
-    cartValue++;
-    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    if(cartValue >= 10) {
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}` ;
+        cartValue = 10;
+    }
+    else {
+        cartValue++;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
 }
 
 addTwo.onclick = function() {
-    cartValue += 2;
-    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    if(cartValue === 9) {
+        cartValue++;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue === 10) {
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue += 2;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
 }
 
 addThree.onclick = function() {
-    cartValue += 3;
-    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    if(cartValue === 9) {
+        cartValue++;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue === 10) {
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue += 3;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
 }
 
 resetCart.onclick = function() {
     cartValue = 0;
-    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
 }
 
 function showCartResult() {
 
     console.log(cartValue);
 }
+
+
 
 
 // ======================= DICE ROLL ======================
@@ -985,6 +1020,18 @@ function oeNumber(number){
     return number % 2 === 0 ? true : false;
 }
 console.log(oeNumber(13));
+
+// You can also place a value of the parameters inside the ()
+// same with how you declare a variable with a value
+
+// the 0.1 declared value becomes the default value for the parameter taxPercent
+
+// ex.  function calculateTax(cost, taxPercent = 0.1) {
+//      console.log(cost * taxPercent);
+//      }
+//      calculateTax(2000, 0.2); <-- this will show 400
+//      calculateTax(5000);     <-- and 500 in the console
+
 */
 
 
@@ -1035,20 +1082,8 @@ console.log(oeNumber(13));
 //  2/3 -> 1   = scissors
 
 function rock() {
-    const randomNumber = Math.random();
-
-    let computerMove = '';
+    const computerMove = pickComputerMove();
     let result = '';
-
-    if(randomNumber >= 0 && randomNumber < 1/3) {
-        computerMove = 'rock';
-    }
-    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-        computerMove = 'paper';
-    }
-    else if(randomNumber >= 2/3 && randomNumber < 1) {
-        computerMove = 'scissors';
-    }
 
     if(computerMove === 'rock') {
         result = "It's a Tie";
@@ -1064,19 +1099,8 @@ function rock() {
 }
 
 function paper() {
-    const randomNumber = Math.random();
-    let computerMove = '';
+    const computerMove = pickComputerMove();
     let result = '';
-
-    if(randomNumber >= 0 && randomNumber < 1/3) {
-        computerMove = 'rock';
-    }
-    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-        computerMove = 'paper';
-    }
-    else if(randomNumber >= 2/3 && randomNumber < 1) {
-        computerMove = 'scissors';
-    }
 
     if(computerMove === 'rock') {
         result = 'You Win!!';
@@ -1092,9 +1116,30 @@ function paper() {
 }
 
 function scissors() {
+    playGame('scissors');
+}
+
+function playGame(playerMove) {
+    const computerMove = pickComputerMove();
+    let result = '';
+
+    if(playerMove === 'scissors') {
+        if(computerMove === 'rock') {
+            result = 'You lose! Try again';
+        }
+        else if(computerMove === 'paper') {
+            result = "You Win!!";
+        }
+        else if(computerMove === 'scissors') {
+            result = "It's a tie!";
+        }
+    }
+    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+}
+
+function pickComputerMove() {
     const randomNumber = Math.random();
     let computerMove = '';
-    let result = '';
 
     if(randomNumber >= 0 && randomNumber < 1/3) {
         computerMove = 'rock';
@@ -1105,18 +1150,7 @@ function scissors() {
     else if(randomNumber >= 2/3 && randomNumber < 1) {
         computerMove = 'scissors';
     }
-
-    if(computerMove === 'rock') {
-        result = 'You lose! Try again';
-    }
-    else if(computerMove === 'paper') {
-        result = "You Win!!";
-    }
-    else if(computerMove === 'scissors') {
-        result = "It's a tie!";
-    }
-
-    alert(`You picked Scissors. Computer picked ${computerMove}. ${result}`);
+    return computerMove;
 }
 
 
@@ -1313,8 +1347,6 @@ function passBtn() {
     else {
         passResultText.textContent = `Please select type of password`
     }
-
-
 
     const password1 = generatePassword(
         passwordLength, 
