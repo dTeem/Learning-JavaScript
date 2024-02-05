@@ -1382,6 +1382,14 @@ function passBtn() {
 
 }
 
+function resetPassBtn() {
+    passResultText.textContent = null;
+    passWord1.textContent = null;
+    passWord2.textContent = null;
+    passWord3.textContent = null;
+    passWord4.textContent = null;
+}
+
 // ======================= CALLBACK ======================
 // callback     -   a function is passed as an argument to another function
 
