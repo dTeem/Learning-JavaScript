@@ -538,6 +538,23 @@ resetBtn.onclick = function () {
     countLabel.textContent = count;
 }
 
+// ------------ Exercise Variables -------
+/*
+const nameVar = 'Tim';
+const coffee = 5;
+const bagels = 3;
+const soup = 9;
+let cost = '';
+let tax = 0.1;
+let total = '';
+
+cost = coffee + (bagels * 2) + soup;
+total = cost + (cost * tax);
+
+console.log(`My name is ${nameVar}`);
+console.log(`Cost of food: $${total}`);
+*/
+
 
 /////////////////////////////////////////
 // ------------ CART QUANTITY -------------
@@ -545,6 +562,11 @@ const showCart = document.getElementById("showCart");
 const addToCart = document.getElementById("addToCart");
 const addTwo = document.getElementById("addTwo");
 const addThree = document.getElementById("addThree");
+const addFour = document.getElementById("addFour");
+const addFive = document.getElementById("addFive");
+const removeToCartBtn = document.getElementById("removeToCartBtn");
+const subThree = document.getElementById("subThree");
+const subTwo = document.getElementById("subTwo");
 const resetCart = document.getElementById("resetCart");
 const cartQuantity = document.getElementById("cartQuantity");
 let cartValue = 0;
@@ -587,8 +609,9 @@ addTwo.onclick = function() {
 }
 
 addThree.onclick = function() {
-    if(cartValue === 9) {
-        cartValue++;
+    if(cartValue >= 8) {
+        cartValue += 2;
+        cartValue = 10;
         cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
     }
     else if(cartValue === 10) {
@@ -597,6 +620,76 @@ addThree.onclick = function() {
     }
     else {
         cartValue += 3;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
+}
+
+addFour.onclick = function() {
+    if(cartValue >= 7) {
+        cartValue += 3;
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue === 10) {
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue += 4;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
+}
+
+addFive.onclick = function() {
+    if(cartValue >= 6) {
+        cartValue += 4;
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue === 10) {
+        cartValue = 10;
+        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue += 5;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
+}
+
+removeToCartBtn.onclick = function() {
+    if(cartValue === 0) {
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue--;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
+}
+
+subTwo.onclick = function() {
+    if(cartValue === 0) {
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue <= 1) {
+        cartValue = 0;
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue -= 2;
+        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+    }
+}
+
+subThree.onclick = function() {
+    if(cartValue === 0) {
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else if(cartValue <= 2) {
+        cartValue = 0;
+        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+    }
+    else {
+        cartValue -= 3;
         cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
     }
 }
@@ -771,6 +864,23 @@ clearStatus.onclick = function() {
     paypalBtn.checked = false;
 }
 
+// ------------------ CALCULATOR ---------------------
+let calcInput = document.getElementById("calcInput").value;
+let acBtn = document.getElementById("acBtn");
+const 
+
+if(calcInput > 0 || calcInput < 0) {
+    acBtn.textContent = 'C';
+}
+
+// else if(calcInput === ) {
+//     acBtn.textContent = 'AC';
+// }
+
+// console.log(typeof calcInput, calcInput);
+
+
+
 //---------- TRUE & FALSE VALUES --------------
 // false values are -   false, 0, '', Nan, undefined, null   
 // true values are  -   any value that is not on the false values
@@ -878,33 +988,33 @@ else {
 }
 */
 
-const hour = 18;
-const name2 = "Tim";
+// const hour = 18;
+// const name2 = "Tim";
 
-if(hour >= 6 && hour < 12) {
-    console.log(`Good morning ${name2}!`);
-}
-else if(hour >= 12 && hour < 17) {
-    console.log(`Good afternoon ${name2}!`);
-}
-else if(hour >= 17 && hour <= 24) {
-    console.log(`Good night ${name2}!`);
-}
-else {
-    console.log(`Go back to sleep ${name2}!`);
-}
+// if(hour >= 6 && hour < 12) {
+//     console.log(`Good morning ${name2}!`);
+// }
+// else if(hour >= 12 && hour < 17) {
+//     console.log(`Good afternoon ${name2}!`);
+// }
+// else if(hour >= 17 && hour <= 24) {
+//     console.log(`Good night ${name2}!`);
+// }
+// else {
+//     console.log(`Go back to sleep ${name2}!`);
+// }
 
 ////////////////////////////////////////////////
 
-const agePark = 6;
-const isHoliday = false;
+// const agePark = 6;
+// const isHoliday = false;
 
-if(isHoliday === false && agePark <= 6 || agePark >= 65) {
-    console.log(`Discount`);
-}
-else if(agePark > 6 || agePark < 65) {
-    console.log(`No Discount`);
-}
+// if(isHoliday === false && agePark <= 6 || agePark >= 65) {
+//     console.log(`Discount`);
+// }
+// else if(agePark > 6 || agePark < 65) {
+//     console.log(`No Discount`);
+// }
 
 
 // ======================= "!" NOT LOGICAL OPERATORS =======================
@@ -1072,6 +1182,34 @@ console.log(oeNumber(13));
                     thus if there are no variables declarations locally it will use the variables globally.
                     */
 
+/* Exercise - Functions
+greet();
+
+function greet(name) {
+    
+    if(!name) {
+        console.log(`Hi there!`);
+    }
+    else{
+        console.log(`Hello ${name}!`);
+    }
+} 
+*/
+
+convertTemp(25, '°F');
+
+function convertTemp(degrees, unit) {
+    // converToFahr(degrees);
+}
+
+function converToFahr(celsius) {
+   let temp = (celsius * 9 / 5) + 32;
+    console.log(temp);
+}
+
+function convertToCels(fahrenheit) {
+    console.log((fahrenheit - 32) * 5 / 9);
+}
 
 // ======================= ROCK PAPER SCISSORS GAME ======================
 //Math.random()     -   always generates a random number between 0 and 1
@@ -1082,37 +1220,11 @@ console.log(oeNumber(13));
 //  2/3 -> 1   = scissors
 
 function rock() {
-    const computerMove = pickComputerMove();
-    let result = '';
-
-    if(computerMove === 'rock') {
-        result = "It's a Tie";
-    }
-    else if(computerMove === 'paper') {
-        result = 'You lose! Try again';
-    }
-    else if(computerMove === 'scissors') {
-        result = 'You Win!!';
-    }
-
-    alert(`You picked Rock. Computer picked ${computerMove}. ${result}`);
+    playGame('rock');
 }
 
 function paper() {
-    const computerMove = pickComputerMove();
-    let result = '';
-
-    if(computerMove === 'rock') {
-        result = 'You Win!!';
-    }
-    else if(computerMove === 'paper') {
-        result = "It's a tie!";
-    }
-    else if(computerMove === 'scissors') {
-        result = 'You lose! Try again';
-    }
-
-    alert(`You picked Paper. Computer picked ${computerMove}. ${result}`);
+    playGame('paper');
 }
 
 function scissors() {
@@ -1134,6 +1246,29 @@ function playGame(playerMove) {
             result = "It's a tie!";
         }
     }
+    else if(playerMove === 'paper') {
+        if(computerMove === 'rock') {
+            result = 'You Win!!';
+        }
+        else if(computerMove === 'paper') {
+            result = "It's a tie!";
+        }
+        else if(computerMove === 'scissors') {
+            result = 'You lose! Try again';
+        }
+    }
+    else if(playerMove === 'rock') {
+        if(computerMove === 'rock') {
+            result = "It's a Tie";
+        }
+        else if(computerMove === 'paper') {
+            result = 'You lose! Try again';
+        }
+        else if(computerMove === 'scissors') {
+            result = 'You Win!!';
+        }
+    }
+
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
 }
 
