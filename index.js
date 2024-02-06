@@ -143,7 +143,7 @@ console.log(letter);
 // ================= Examples Of Reference Variables ================
 
 // ----------- OBJECTS -----------
-// object   -   groups multiple value together
+// object   -   groups multiple value together but object can also be a value
 // to assign object literal use {} you can place 1 or more value pairs inside
 // values inside the object are like using the 'let' declaration, you can 
 // change the values of the properties.
@@ -165,6 +165,12 @@ console.log(person.name); <- this will show 'Timmy' in the console
                             since we changed the value of name.
 
 //Bracket notation ['target property']
+// let's us use the properties that don't work with dot notation
+// ex. to this case if you have a property with a '-' on the name 
+// person['birth-day'] = 9; <- this will add the property to the object
+// if you try to use it with dot notation you will get an error.
+// person.birth-day = 9; <- this will give you an error
+
 person['name'] = 'Teem';
 
 console.log(person.name);
@@ -181,6 +187,25 @@ You can also delete a property from the object
 delete person.gender;
 console.log(person); <- this will show {name: 'Timmy', age: 21}
 
+
+ex. of an object being a value
+(we use the example above)
+
+
+let person2 = {
+    name: 'Tim',
+    age: 21,
+    status: { //<- this is called Nested Object
+        stars: 4.5,
+        followers: '5M'
+    },
+    fun: function about() { //<- functions is also a type of value in object
+        console.log('function inside object');
+    }
+}
+
+console.log(person2.status.stars); //<- this will show the value of stars
+person2.fun(); // <- this will run the function about() inside the object
 
 */
 
@@ -1334,112 +1359,6 @@ console.log(convertTemp(25, 'C'));
 console.log(convertTemp(86, 'F'));
 */
 
-// ======================= ROCK PAPER SCISSORS GAME ======================
-//Math.random()     -   always generates a random number between 0 and 1
-//For this game you can divide the values between 0 and 1 into 3 equal parts
-//to place it to different answers like rock, paper, scissors.
-//ex. 0 -> 1/3 = rock
-//  1/3 -> 2/3 = paper
-//  2/3 -> 1   = scissors
-const resultRPS = document.getElementById("resultRPS");
-const scoreRPS = document.getElementById("scoreRPS");
-const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-};
-
-function rock() {
-    playGame('rock');
-}
-
-function paper() {
-    playGame('paper');
-}
-
-function scissors() {
-    playGame('scissors');
-}
-
-function playGame(playerMove) {
-    const computerMove = pickComputerMove();
-    let result = '';
-
-    if(playerMove === 'scissors') {
-        if(computerMove === 'rock') {
-            result = 'You lose! Try again';
-        }
-        else if(computerMove === 'paper') {
-            result = "You Win!!";
-        }
-        else if(computerMove === 'scissors') {
-            result = "It's a tie!";
-        }
-    }
-    else if(playerMove === 'paper') {
-        if(computerMove === 'rock') {
-            result = 'You Win!!';
-        }
-        else if(computerMove === 'paper') {
-            result = "It's a tie!";
-        }
-        else if(computerMove === 'scissors') {
-            result = 'You lose! Try again';
-        }
-    }
-    else if(playerMove === 'rock') {
-        if(computerMove === 'rock') {
-            result = "It's a tie!";
-        }
-        else if(computerMove === 'paper') {
-            result = 'You lose! Try again';
-        }
-        else if(computerMove === 'scissors') {
-            result = 'You Win!!';
-        }
-    }
-
-    if (result === 'You Win!!') {
-        score.wins += 1;
-    }
-    else if (result === 'You lose! Try again') {
-        score.losses += 1;
-    }
-    else if (result === "It's a tie!") {
-        score.ties += 1;
-    }
-
-    resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
-
-    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
-}
-
-function pickComputerMove() {
-    const randomNumber = Math.random();
-    let computerMove = '';
-
-    if(randomNumber >= 0 && randomNumber < 1/3) {
-        computerMove = 'rock';
-    }
-    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-        computerMove = 'paper';
-    }
-    else if(randomNumber >= 2/3 && randomNumber < 1) {
-        computerMove = 'scissors';
-    }
-    return computerMove;
-}
-
-function resetRPSBtn() {
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-
-    resultRPS.textContent = null;
-    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
-}
-
-
 
 // ======================= NUMBER GUESSING GAME ======================
 // const minNum = 1;
@@ -1775,3 +1694,185 @@ function resetPassBtn() {
 // numbersFor.forEach(display);
 
  
+// ======================= JSON ========================
+// JSON     -   JavaScript Object Notation
+//              a syntax similar to JavaScript Object
+
+// JSON syntax is similar to JS Object but with less features
+// But the real difference between the 2 is that JSON is more universal
+// it can be read by other programming languages
+
+// We use JSON when:
+//  - we send data between computers
+//  - we store data
+
+// Built-in Objects:
+//  - JSON
+//  - localStorage
+
+// Built-in JSON Object:
+// Convert: JavaScript Object -> JSON   -   JSON.stringify()
+// Convert: JSON -> JavaScript Object   -   JSON.parse()
+
+//Built-in localStorage Object:
+// localStorage - only support strings
+
+// to use this we need the built-in functions for localStorage:
+// .setItem(); - a function used to save a value to localStorage
+// .getItem(); - a function to get the item from localStorage
+// localStorage.setItem(); or localStorage.getItem();
+
+// To use the .setItem(); we need 2 strings (like declaring a variable)
+//ex. localStorage.setItem('message', 'hello');
+// The 1st string 'message' is the name of the variable
+// the 2nd string 'hello' is the value of the variable
+
+// To get the value of an item from the localStorage we use .getItem();
+//ex. console.log(localStorage.getItem('message'));
+// this will show the value of the message which is 'hello'
+
+
+
+
+// **This is an example from above using the JavaScript Object
+let person2 = {
+    name: 'Tim',
+    age: 21,
+    status: { //<- this is called Nested Object
+        stars: 4.5,
+        followers: '5M'
+    },
+    fun: function about() { 
+        console.log('function inside object');
+    }
+}
+
+console.log(person2.status.stars); 
+person2.fun(); 
+
+
+console.log(JSON.stringify(person2)); // <- this will show 
+// {"name":"Tim","age":21,"status":{"stars":4.5,"followers":"5M"}}
+
+// But as you can see the 'fun' property is not included in the converted
+// object, because the JSON does not support function.
+// the object from JS is now converted to a string
+
+// JSON syntax only accepts "" 
+
+// To convert: JSON -> Javascript Object
+// use JSON.parse()
+
+// console.log(JSON.parse(JSON.stringify(person2))); 
+// or you can place the JSON to a variable to be read easily.
+
+const jsonString = JSON.stringify(person2);
+console.log(JSON.parse(jsonString)); // this will show 
+//{name: 'Tim', age: 21, status: {…}} in the console
+
+
+
+// ======================= ROCK PAPER SCISSORS GAME ======================
+//Math.random()     -   always generates a random number between 0 and 1
+//For this game you can divide the values between 0 and 1 into 3 equal parts
+//to place it to different answers like rock, paper, scissors.
+//ex. 0 -> 1/3 = rock
+//  1/3 -> 2/3 = paper
+//  2/3 -> 1   = scissors
+const resultRPS = document.getElementById("resultRPS");
+const scoreRPS = document.getElementById("scoreRPS");
+const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
+
+function rock() {
+    playGame('rock');
+}
+
+function paper() {
+    playGame('paper');
+}
+
+function scissors() {
+    playGame('scissors');
+}
+
+function playGame(playerMove) {
+    const computerMove = pickComputerMove();
+    let result = '';
+
+    if(playerMove === 'scissors') {
+        if(computerMove === 'rock') {
+            result = 'You lose! Try again';
+        }
+        else if(computerMove === 'paper') {
+            result = "You Win!!";
+        }
+        else if(computerMove === 'scissors') {
+            result = "It's a tie!";
+        }
+    }
+    else if(playerMove === 'paper') {
+        if(computerMove === 'rock') {
+            result = 'You Win!!';
+        }
+        else if(computerMove === 'paper') {
+            result = "It's a tie!";
+        }
+        else if(computerMove === 'scissors') {
+            result = 'You lose! Try again';
+        }
+    }
+    else if(playerMove === 'rock') {
+        if(computerMove === 'rock') {
+            result = "It's a tie!";
+        }
+        else if(computerMove === 'paper') {
+            result = 'You lose! Try again';
+        }
+        else if(computerMove === 'scissors') {
+            result = 'You Win!!';
+        }
+    }
+
+    if (result === 'You Win!!') {
+        score.wins += 1;
+    }
+    else if (result === 'You lose! Try again') {
+        score.losses += 1;
+    }
+    else if (result === "It's a tie!") {
+        score.ties += 1;
+    }
+
+    resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
+
+    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
+}
+
+function pickComputerMove() {
+    const randomNumber = Math.random();
+    let computerMove = '';
+
+    if(randomNumber >= 0 && randomNumber < 1/3) {
+        computerMove = 'rock';
+    }
+    else if(randomNumber >= 1/3 && randomNumber < 2/3) {
+        computerMove = 'paper';
+    }
+    else if(randomNumber >= 2/3 && randomNumber < 1) {
+        computerMove = 'scissors';
+    }
+    return computerMove;
+}
+
+function resetRPSBtn() {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+
+    resultRPS.textContent = null;
+    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
+}
