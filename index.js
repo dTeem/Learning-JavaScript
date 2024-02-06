@@ -143,23 +143,45 @@ console.log(letter);
 // ================= Examples Of Reference Variables ================
 
 // ----------- OBJECTS -----------
+// object   -   groups multiple value together
 // to assign object literal use {} you can place 1 or more value pairs inside
+// values inside the object are like using the 'let' declaration, you can 
+// change the values of the properties.
+
+// the object also works like an array
 
 /*
-let person = {
-    name: 'Tim',
-    age: 21
+let person = { 
+    name: 'Tim', <- the 'name' & 'age' inside the object 'person' is 
+                    called a property
+    age: 21     <- the 'Tim' & '21' is called a value
+                ** the symbol ',' is used to seperate the properties
 };
-
+---------------------------------
 // 2 Types to change the object property - dot, bracket
 //Dot notation (.variable)
 person.name = 'Timmy';
+console.log(person.name); <- this will show 'Timmy' in the console
+                            since we changed the value of name.
 
 //Bracket notation ['target property']
 person['name'] = 'Teem';
 
-
 console.log(person.name);
+-------------------------------
+You can also add a new property to an existing object
+
+person.gender = 'male';
+
+console.log(person); <- this will show 
+{name: 'Timmy', age: 21, gender: 'male'} in the console
+------------------------------
+You can also delete a property from the object
+
+delete person.gender;
+console.log(person); <- this will show {name: 'Timmy', age: 21}
+
+
 */
 
 //----------- ARRAY ------------
@@ -1276,7 +1298,7 @@ function greet(name) {
         console.log(`Hello ${name}!`);
     }
 } 
-*/
+
 
 function favNum(num) {
     return num;
@@ -1285,9 +1307,10 @@ function favNum(num) {
 let myFav = favNum(7);
 
 console.log(`My fav number is ${myFav}`);
+*/
 
-
-
+// -------- EXERCISE TEMP CONVERTER -----------
+/*
 function converToFahr(celsius) {
     return (celsius * 9 / 5) + 32;
 }
@@ -1309,6 +1332,7 @@ function convertTemp(degrees, unit) {
 
 console.log(convertTemp(25, 'C'));
 console.log(convertTemp(86, 'F'));
+*/
 
 // ======================= ROCK PAPER SCISSORS GAME ======================
 //Math.random()     -   always generates a random number between 0 and 1
@@ -1317,6 +1341,13 @@ console.log(convertTemp(86, 'F'));
 //ex. 0 -> 1/3 = rock
 //  1/3 -> 2/3 = paper
 //  2/3 -> 1   = scissors
+const resultRPS = document.getElementById("resultRPS");
+const scoreRPS = document.getElementById("scoreRPS");
+const score = {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
 
 function rock() {
     playGame('rock');
@@ -1358,7 +1389,7 @@ function playGame(playerMove) {
     }
     else if(playerMove === 'rock') {
         if(computerMove === 'rock') {
-            result = "It's a Tie";
+            result = "It's a tie!";
         }
         else if(computerMove === 'paper') {
             result = 'You lose! Try again';
@@ -1368,7 +1399,19 @@ function playGame(playerMove) {
         }
     }
 
-    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+    if (result === 'You Win!!') {
+        score.wins += 1;
+    }
+    else if (result === 'You lose! Try again') {
+        score.losses += 1;
+    }
+    else if (result === "It's a tie!") {
+        score.ties += 1;
+    }
+
+    resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
+
+    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 }
 
 function pickComputerMove() {
@@ -1386,6 +1429,16 @@ function pickComputerMove() {
     }
     return computerMove;
 }
+
+function resetRPSBtn() {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+
+    resultRPS.textContent = null;
+    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
+}
+
 
 
 // ======================= NUMBER GUESSING GAME ======================

@@ -148,11 +148,12 @@
     <section>
         <h3>Calculator</h3><br><br>
         <form class="calc-container">
-            <input type="text" placeholder="0" name="display" id="calcInput" disabled><br>
-            <button id="acBtn" onclick="acBtn()">AC</button>
-            <button id="posNegBtn">+/-</button>
-            <button id="percentBtn">%</button>
-            <button id="divideBtn">/</button><br>
+            <label id="calcDisplay">0</label><br>
+            <!-- <input type="text" placeholder="0" name="display" id="calcInput" disabled><br> -->
+            <button class="calc-func" onclick="acBtn()">AC</button>
+            <button class="calc-func" onclick="posNegBtn()">+/-</button>
+            <button class="calc-func" onclick="percentBtn()">%</button>
+            <button class="calc-func" onclick="divideBtn()">/</button><br>
             <input type="button" name="7" value="7">
             <input type="button" name="8" value="8">
             <button id="btn9">9</button>
@@ -206,8 +207,9 @@
         <button class="function-game" id="rockBtn" onclick="rock()">Rock</button>
         <button class="function-game" id="paperBtn" onclick="paper()">Paper</button>
         <button class="function-game" id="scissorsBtn" onclick="scissors()"">Scissors</button><br><br>
-        <label id="resultFunction"></label>
-
+        <button onclick="resetRPSBtn()">Reset Score</button><br><br>
+        <label id="resultRPS"></label><br><br>
+        <label id="scoreRPS"></label>
     </section>
 
     <section>
