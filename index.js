@@ -865,9 +865,17 @@ clearStatus.onclick = function() {
 }
 
 // ------------------ CALCULATOR ---------------------
-let calcInput = document.getElementById("calcInput").value;
+let calcInput = document.getElementById("calcInput");
 let acBtn = document.getElementById("acBtn");
-const 
+const calcBtns = document.querySelectorAll('input[type="button"]');
+
+
+for (let i = 0; i < calcBtns.length; i++) {
+    calcBtns[i].addEventListener('click', function() {
+        calcInput.value += calcBtns.value;
+    });
+}
+
 
 if(calcInput > 0 || calcInput < 0) {
     acBtn.textContent = 'C';
