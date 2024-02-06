@@ -1139,10 +1139,29 @@ function hello() {
 
 function goodbye() {
     console.log("Goodbye!");
-<<<<<<< HEAD
 }
 
-//update the github
-=======
+// ------------ CART QUANTITY -------------
+const myCart = document.getElementById("myCart");
+const myCartAlert = document.getElementById("myCartAlert");
+let cartQuantity = 0;
+
+function showCart() {
+    myCart.textContent = `Cart quantity: ${cartQuantity}`;
 }
->>>>>>> 95bebc3 (update)
+
+
+
+function updateCart(change) {
+    if (cartQuantity + change > 10) {
+        myCart.textContent = 'The cart is full!';
+    }
+    else if (cartQuantity + change <= 0) {
+        myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        myCartAlert.textContent = 'You have no items in the cart';
+    }
+    else {
+        cartQuantity += change;
+        myCart.textContent = `Cart quantity: ${cartQuantity}`;
+    }
+}

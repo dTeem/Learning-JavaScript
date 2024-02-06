@@ -355,12 +355,12 @@ a shortcut for using operators "+=" <-- operators next to equal sign
 // HARD WAY HTML TEXTBOX
 
 
-let userName;
+// let userName;
 
-document.getElementById("myButton").onclick = function() {
-    userName = document.getElementById("myText").value;
-    document.getElementById("myLabel").textContent = `Hello ${userName}!`;
-}
+// document.getElementById("myButton").onclick = function() {
+//     userName = document.getElementById("myText").value;
+//     document.getElementById("myLabel").textContent = `Hello ${userName}!`;
+// }
 
 
 
@@ -558,153 +558,227 @@ console.log(`Cost of food: $${total}`);
 
 /////////////////////////////////////////
 // ------------ CART QUANTITY -------------
-const showCart = document.getElementById("showCart");
-const addToCart = document.getElementById("addToCart");
-const addTwo = document.getElementById("addTwo");
-const addThree = document.getElementById("addThree");
-const addFour = document.getElementById("addFour");
-const addFive = document.getElementById("addFive");
-const removeToCartBtn = document.getElementById("removeToCartBtn");
-const subThree = document.getElementById("subThree");
-const subTwo = document.getElementById("subTwo");
-const resetCart = document.getElementById("resetCart");
-const cartQuantity = document.getElementById("cartQuantity");
-let cartValue = 0;
+// const showCart = document.getElementById("showCart");
+// const addToCart = document.getElementById("addToCart");
+// const addTwo = document.getElementById("addTwo");
+// const addThree = document.getElementById("addThree");
+// const addFour = document.getElementById("addFour");
+// const addFive = document.getElementById("addFive");
+// const removeToCartBtn = document.getElementById("removeToCartBtn");
+// const subThree = document.getElementById("subThree");
+// const subTwo = document.getElementById("subTwo");
+// const resetCart = document.getElementById("resetCart");
+// const myCart = document.getElementById("myCart");
+// let cartValue = 0;
 
-showCart.onclick = function () {
-    cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+// showCart.onclick = function () {
+//     myCart.textContent = `Cart Quantity: ${cartValue}`;
     
-    if(cartValue === 0) {
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue === 10) {
-        cartQuantity.textContent = `The cart is full!!`;
-    }
+//     if(cartValue === 0) {
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue === 10) {
+//         myCart.textContent = `The cart is full!!`;
+//     }
+// }
+
+// function addToCart() {
+//     if(cartValue + 1 > 10) {
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}` ;
+//         cartValue = 10;
+//     }
+//     else {
+//         cartValue++;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// addTwo.onclick = function() {
+//     if(cartValue === 9) {
+//         cartValue++;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue === 10) {
+//         cartValue = 10;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue += 2;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// function add3() {
+//     if(cartValue + 3 > 10) {
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue += 3;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// addFour.onclick = function() {
+//     if(cartValue >= 7) {
+//         cartValue += 3;
+//         cartValue = 10;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue === 10) {
+//         cartValue = 10;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue += 4;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// addFive.onclick = function() {
+//     if(cartValue >= 6) {
+//         cartValue += 4;
+//         cartValue = 10;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue === 10) {
+//         cartValue = 10;
+//         myCart.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue += 5;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// removeToCartBtn.onclick = function() {
+//     if(cartValue === 0) {
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue--;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// subTwo.onclick = function() {
+//     if(cartValue === 0) {
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue <= 1) {
+//         cartValue = 0;
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue -= 2;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// subThree.onclick = function() {
+//     if(cartValue === 0) {
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else if(cartValue <= 2) {
+//         cartValue = 0;
+//         myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+//     }
+//     else {
+//         cartValue -= 3;
+//         myCart.textContent = `Cart Quantity: ${cartValue}`;
+//     }
+// }
+
+// resetCart.onclick = function() {
+//     cartValue = 0;
+//     myCart.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
+// }
+
+// function showCartResult() {
+
+//     console.log(cartValue);
+// }
+// the program commented above is the long way to do the Cart Quantity system
+
+const myCart = document.getElementById("myCart");
+const myCartAlert = document.getElementById("myCartAlert");
+let cartQuantity = 0;
+
+function showCart() {
+    myCart.textContent = `Cart quantity: ${cartQuantity}`;
 }
 
-addToCart.onclick = function() {
-    if(cartValue >= 10) {
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}` ;
-        cartValue = 10;
+function addToCart() {
+    updateCart(1);
+}
+
+function add2() {
+    updateCart(2);
+}
+
+function add3(){
+    updateCart(3);
+}
+
+function add4() {
+    updateCart(4);
+}
+
+function add5() {
+    updateCart(5);
+}
+
+function removeToCartBtn() {
+    updateCart(-1);
+}
+
+function sub2() {
+    updateCart(-2);
+}
+
+function sub3() {
+    updateCart(-3);
+}
+
+function resetCart() {
+    cartQuantity = 0;
+    myCart.textContent = `Cart quantity: ${cartQuantity}`;
+    myCartAlert.textContent = 'Cart was reset';
+}
+
+
+function updateCart(change) {
+
+    if (cartQuantity + change > 10) {
+        myCart.textContent = 'The cart is full!';
+        if (cartQuantity === 9) {
+            cartQuantity++;
+            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        }
+        else if (cartQuantity === 8) {
+            cartQuantity += 2;
+            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        }
+        else if (cartQuantity === 7) {
+            cartQuantity += 3;
+            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        }
+        else if (cartQuantity === 6) {
+            cartQuantity += 4;
+            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        }
+    }
+
+    else if (cartQuantity + change < 0) {
+        cartQuantity--;
+        cartQuantity = 0;
+        myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        myCartAlert.textContent = 'You have no items in the cart';
     }
     else {
-        cartValue++;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
+        cartQuantity += change;
+        myCart.textContent = `Cart quantity: ${cartQuantity}`;
     }
 }
-
-addTwo.onclick = function() {
-    if(cartValue === 9) {
-        cartValue++;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue === 10) {
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue += 2;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-addThree.onclick = function() {
-    if(cartValue >= 8) {
-        cartValue += 2;
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue === 10) {
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue += 3;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-addFour.onclick = function() {
-    if(cartValue >= 7) {
-        cartValue += 3;
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue === 10) {
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue += 4;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-addFive.onclick = function() {
-    if(cartValue >= 6) {
-        cartValue += 4;
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue === 10) {
-        cartValue = 10;
-        cartQuantity.textContent = `The cart is full!! Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue += 5;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-removeToCartBtn.onclick = function() {
-    if(cartValue === 0) {
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue--;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-subTwo.onclick = function() {
-    if(cartValue === 0) {
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue <= 1) {
-        cartValue = 0;
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue -= 2;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-subThree.onclick = function() {
-    if(cartValue === 0) {
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else if(cartValue <= 2) {
-        cartValue = 0;
-        cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-    }
-    else {
-        cartValue -= 3;
-        cartQuantity.textContent = `Cart Quantity: ${cartValue}`;
-    }
-}
-
-resetCart.onclick = function() {
-    cartValue = 0;
-    cartQuantity.textContent = `No items your cart. Cart Quantity: ${cartValue}`;
-}
-
-function showCartResult() {
-
-    console.log(cartValue);
-}
-
-
 
 
 // ======================= DICE ROLL ======================
@@ -1057,7 +1131,7 @@ else {
 // !==  -   strict inequality operator
 
 
-// ======================= WHILE LOOP =======================
+//======================= WHILE LOOP =======================
 // while loop - repeat some code while some condition is true
 //              potentially infinite
 
@@ -1204,20 +1278,37 @@ function greet(name) {
 } 
 */
 
-convertTemp(25, '°F');
-
-function convertTemp(degrees, unit) {
-    // converToFahr(degrees);
+function favNum(num) {
+    return num;
 }
 
+let myFav = favNum(7);
+
+console.log(`My fav number is ${myFav}`);
+
+
+
 function converToFahr(celsius) {
-   let temp = (celsius * 9 / 5) + 32;
-    console.log(temp);
+    return (celsius * 9 / 5) + 32;
 }
 
 function convertToCels(fahrenheit) {
-    console.log((fahrenheit - 32) * 5 / 9);
+    return (fahrenheit - 32) * 5 / 9;
 }
+
+function convertTemp(degrees, unit) {
+    if(unit === 'C') {
+        const result = converToFahr(degrees);
+        return `${result}F`;
+    }
+    else if(unit === 'F') {
+        const result = convertToCels(degrees);
+        return `${result}C`;
+    }
+}
+
+console.log(convertTemp(25, 'C'));
+console.log(convertTemp(86, 'F'));
 
 // ======================= ROCK PAPER SCISSORS GAME ======================
 //Math.random()     -   always generates a random number between 0 and 1
