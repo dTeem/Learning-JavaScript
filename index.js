@@ -1781,15 +1781,25 @@ console.log(JSON.parse(jsonString)); // this will show
 //  2/3 -> 1   = scissors
 const resultRPS = document.getElementById("resultRPS");
 const scoreRPS = document.getElementById("scoreRPS");
-let score = JSON.parse(localStorage.getItem('score'));
+let score = JSON.parse(localStorage.getItem('score')) || {
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
 
-if (score === null) {
+/* 
+to make a clean and short code you can use the one above with the same
+results as this commented code below
+
+if (!score) {
     score = {
         wins: 0,
         losses: 0,
         ties: 0
     };
 }
+*/
+
 scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 
 function rock() {
