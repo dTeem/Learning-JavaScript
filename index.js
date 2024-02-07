@@ -1733,7 +1733,6 @@ function resetPassBtn() {
 
 
 
-
 // **This is an example from above using the JavaScript Object
 let person2 = {
     name: 'Tim',
@@ -1846,6 +1845,8 @@ function playGame(playerMove) {
     else if (result === "It's a tie!") {
         score.ties += 1;
     }
+
+    JSON.stringify('score', )
 
     resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
 
