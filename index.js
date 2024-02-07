@@ -143,6 +143,7 @@ console.log(letter);
 // ================= Examples Of Reference Variables ================
 
 // ----------- OBJECTS -----------
+
 // object   -   groups multiple value together but object can also be a value
 // to assign object literal use {} you can place 1 or more value pairs inside
 // values inside the object are like using the 'let' declaration, you can 
@@ -157,6 +158,7 @@ let person = {
     age: 21     <- the 'Tim' & '21' is called a value
                 ** the symbol ',' is used to seperate the properties
 };
+
 ---------------------------------
 // 2 Types to change the object property - dot, bracket
 //Dot notation (.variable)
@@ -174,14 +176,18 @@ console.log(person.name); <- this will show 'Timmy' in the console
 person['name'] = 'Teem';
 
 console.log(person.name);
+
 -------------------------------
+
 You can also add a new property to an existing object
 
 person.gender = 'male';
 
 console.log(person); <- this will show 
 {name: 'Timmy', age: 21, gender: 'male'} in the console
+
 ------------------------------
+
 You can also delete a property from the object
 
 delete person.gender;
@@ -1895,3 +1901,109 @@ function resetRPSBtn() {
     resultRPS.textContent = null;
     scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 }
+
+
+//---------- TRUE & FALSE VALUES --------------
+// false values are -   false, 0, '', Nan, undefined, null   
+// true values are  -   any value that is not on the false values
+
+// NULL VS UNDEFINED
+
+// null         -   if we intentionally want something to be empty
+// undefined    -   is a default value or no value
+
+/* ex.
+function func(parameter = 'default') {
+    console.log(parameter);
+}
+
+func();             ->  'default'
+func(undefined);    ->  'default'
+
+func(null);         ->  null
+*/
+
+
+// ----------- OBJECTS -----------
+
+/* ex. 
+let person2 = {
+    name: 'Tim', <- 'Tim' is the property of the object
+    age: 21,
+    status: { //<- this is Nested Object - property inside a property
+        stars: 4.5,
+        followers: '5M'
+    },
+    fun: function about() { //<- functions is also a type of value in object
+        console.log('function inside object');
+    }
+
+}
+*/
+
+// Objects can also have methods
+// Other values also have properties and methods
+
+/* ex.
+
+console.log('hello'.length); <- the string 'hello' can have a property
+                                .length property tells us how many characters
+                                in the string
+                                it will show in the console '5'
+
+console.log('hello'.toUpperCase()); <- the string can also have a method
+                                    .toUpperCase() method makes all the characters uppercase.
+                                    this will show in the console 'HELLO'
+
+In the ex. the value can also have properties and methods 
+
+Why does a string can have a property or method?
+- JavaScript has a special feature called Auto-boxing
+
+Auto-boxing
+- It automatically wraps the value in a special object
+
+Auto-boxing only works on:
+ -  strings
+ -  numbers
+ -  booleans
+
+ it does not work on:
+ -  null
+ -  undefined
+
+Important details on Object
+-   objects are references
+-   we can't compare objects directly
+
+ex.
+const object1 = {
+    message: 'hello'
+};
+
+const object2 = object1; <- this only gives the reference of object1
+
+object1.message = 'Good Job!';
+
+console.log(object1); <- this will show in the console {message: 'Good Job!'}
+
+Even if we declared the object1 as a const we can still change the value inside the object. As it is just referencing to the value of the object not to the object itself.
+
+console.log(object2); <- this will also show {message: 'Good Job!'}
+even if we only made the change to object1 because it is getting the reference from object1.
+
+
+const object3 = {
+    message: 'Good Job!'
+};
+
+console.log(object3 === object1); <- this will show in the console 'false'
+even though we declared them with the same value.
+Because the objects are just a references of the computer's memory
+it compares the references, not the values inside
+
+ex. (at the top we made the object2 = object1)
+console.log(object2 === object1); <- this will show in the console 'true'
+since both object1 & object2 refers to the same refrence not the value thats why object3 show false even it has the same value of the 2.
+
+*/
