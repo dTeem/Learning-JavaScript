@@ -1780,11 +1780,9 @@ console.log(JSON.parse(jsonString)); // this will show
 //  2/3 -> 1   = scissors
 const resultRPS = document.getElementById("resultRPS");
 const scoreRPS = document.getElementById("scoreRPS");
-const score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-};
+const score = JSON.parse(localStorage.getItem('score'));
+
+scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 
 function rock() {
     playGame('rock');
@@ -1846,7 +1844,7 @@ function playGame(playerMove) {
         score.ties += 1;
     }
 
-    JSON.stringify('score', )
+    localStorage.setItem('score', JSON.stringify(score));
 
     resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
 
