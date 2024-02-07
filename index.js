@@ -2006,4 +2006,50 @@ ex. (at the top we made the object2 = object1)
 console.log(object2 === object1); <- this will show in the console 'true'
 since both object1 & object2 refers to the same refrence not the value thats why object3 show false even it has the same value of the 2.
 
+Shortcuts for Objects
+ -  destructuring
+ -  shorthand Property
+ -  shorthand Method
+
+
+const object4 = {
+    msgObj: 'Good Job!',
+    price: 777
+};
+
+// const msgObj = object4.msgObj;
+
+// This is the same as the declaration above
+// const {msgObj} = object4; 
+// This shortcut is called destructuring
+// this took out the property out of the object4 and place it in the 
+// variable named msgObj.
+
+const {msgObj, price} = object4;
+// This is how you decalare multiple variable using destructuring
+
+console.log(msgObj); // <- this will show Good Job!
+
+console.log(object4); //<- this will show {msgObj: 'Good Job!', price: 777}
+
+console.log(price); // <- this will show 777
+
+
+const object5 = {
+    //message: msgObj
+    // there is another shortcut for shorthand property
+    // if you are using the same property name you can just type it like this
+    msgObj, // <- this will take to value of the same property name
+
+    // method: function function1() { <- this code is the same as the code below
+    //     console.log('method'); 
+    // }
+    method() { // <- this is the shorthand method
+        console.log('method');
+    }
+};
+
+console.log(object5); // this will show {message: 'Good Job!'}
+object5.method(); // this will show method in the console
+
 */
