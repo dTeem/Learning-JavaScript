@@ -1718,8 +1718,9 @@ function resetPassBtn() {
 // localStorage - only support strings
 
 // to use this we need the built-in functions for localStorage:
-// .setItem(); - a function used to save a value to localStorage
-// .getItem(); - a function to get the item from localStorage
+// .setItem();      - to save a value for an item to localStorage
+// .getItem();      - to get the item from localStorage
+// .removeItem();   - to remove the item from localStorage
 // localStorage.setItem(); or localStorage.getItem();
 
 // To use the .setItem(); we need 2 strings (like declaring a variable)
@@ -1780,8 +1781,15 @@ console.log(JSON.parse(jsonString)); // this will show
 //  2/3 -> 1   = scissors
 const resultRPS = document.getElementById("resultRPS");
 const scoreRPS = document.getElementById("scoreRPS");
-const score = JSON.parse(localStorage.getItem('score'));
+let score = JSON.parse(localStorage.getItem('score'));
 
+if (score === null) {
+    score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+    };
+}
 scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 
 function rock() {
@@ -1871,6 +1879,8 @@ function resetRPSBtn() {
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
+
+    localStorage.removeItem('score');
 
     resultRPS.textContent = null;
     scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
