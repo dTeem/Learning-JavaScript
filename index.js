@@ -2176,3 +2176,27 @@ console.log(greet.toLowerCase());
 console.log(greet.repeat(2));
 
 */
+
+// ================== DOCUMENT OBJECT MODEL (DOM) ======================
+// DOM  -   another built-in object (document object)
+// the document object represents / models the webpage
+// the DOM combines JavaScript & HTML together and gives JavaScript control
+// of the webpage
+
+// Syntax Rules
+// works the same like any other objects
+// it also contains properties
+// it is link to the webpage
+// document also has methods ex. document.querySelector('button');
+
+// ex. .body or .title
+// document.body.innerHTML = 'hello'; <- this replace everything in the webpage 
+//                                       to a 'hello' string value
+document.title = 'Learning JavaScript'; // this changes the title of the webpage
+
+console.log(document.title);
+
+console.log(document.body);
+
+// When the HTML element is inside the JavaScript it is converted into a 
+// JavaScript object
