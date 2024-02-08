@@ -1512,26 +1512,34 @@ function convert(){
 
 //////////// COIN-FLIP GAME v2 //////////////////
 const scoreCF = document.getElementById("scoreCF");
-let cfScore = {
+const coinResult = document.getElementById("coinResult");
+const gameResult = document.getElementById("flipGameResult");
+let cfScore = JSON.parse(localStorage.getItem('cfScore')) || {
     wins: 0,
-    losses:0
+    losses: 0
 };
 
 scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
 
 function play() {
     const guess = document.getElementById("guessCoin").value;
-    const coinResult = document.getElementById("coinResult");
-    const gameResult = document.getElementById("flipGameResult");
 
-    coinResult.textContent = flipValue <= 0.5 ? "HEADS" : "TAILS";
+    coinResult.textContent = cfComputer();
 
     guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
 
-    
+    console.log(gameResult.textContent);
+
+    if(gameResult.textContent === 'You win!') {
+        cfScore.wins += 1;
+    }
+    else if (gameResult.textContent === 'You lose!') {
+        cfScore.losses += 1;
+    }
 
     localStorage.setItem('cfScore', JSON.stringify(cfScore));
 
+    scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
 }
 
 function cfComputer() {
@@ -1540,6 +1548,16 @@ function cfComputer() {
     return cfComputerMove;
 }
 
+function resetCFScore() {
+    cfScore.wins = 0;
+    cfScore.losses = 0;
+
+    localStorage.removeItem('cfScore');
+
+    coinResult.textContent = null;
+    gameResult.textContent = null;
+    scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
+}
 
 
 // ======================= RANDOM PASSWORD GENERATOR ======================
