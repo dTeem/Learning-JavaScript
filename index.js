@@ -2060,6 +2060,59 @@ const shop = {
     basketball: 2095
 };
 
-
+shop['delivery-time'] = '3 days';
 
 console.log(`Basketball: ${shop.basketball + 500}c`);
+
+console.log(shop);
+
+
+
+const product1 = {
+    name: 'basketball',
+    price: 2095
+};
+
+const product2 = {
+    name: 'shoes',
+    price: 3050
+};
+
+function comparePrice(product1, product2) {
+    if(product1.price < product2.price) {
+        return product1;
+    }
+    else {
+        return product2;
+    }
+}
+
+console.log(comparePrice(product1, product2));
+
+//-----------------------------
+
+const item1 = {
+    name: 'mouse',
+    price: 20
+};
+
+const item2 = {
+    name: 'mouse',
+    price: 20
+};
+
+const item3 = item1;
+
+function isSameProduct(item1, item2) {
+    if(item1 === item2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+console.log(isSameProduct(item1, item3));
+
+//-----------------------------
+
