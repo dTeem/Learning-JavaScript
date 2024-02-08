@@ -2053,3 +2053,13 @@ console.log(object5); // this will show {message: 'Good Job!'}
 object5.method(); // this will show method in the console
 
 */
+
+// ------- Exercises - Objects ----------
+
+const shop = {
+    basketball: 2095
+};
+
+
+
+console.log(`Basketball: ${shop.basketball + 500}c`);
