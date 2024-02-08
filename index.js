@@ -1528,13 +1528,13 @@ function play() {
 
     guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
 
-    console.log(gameResult.textContent);
+    console.log(guess);
 
     if(gameResult.textContent === 'You win!') {
-        cfScore.wins += 1;
+        cfScore.wins++;
     }
     else if (gameResult.textContent === 'You lose!') {
-        cfScore.losses += 1;
+        cfScore.losses++;
     }
 
     localStorage.setItem('cfScore', JSON.stringify(cfScore));
@@ -1791,23 +1791,23 @@ function resetPassBtn() {
 
 
 // **This is an example from above using the JavaScript Object
-let person2 = {
-    name: 'Tim',
-    age: 21,
-    status: { //<- this is called Nested Object
-        stars: 4.5,
-        followers: '5M'
-    },
-    fun: function about() { 
-        console.log('function inside object');
-    }
-}
+// let person2 = {
+//     name: 'Tim',
+//     age: 21,
+//     status: { //<- this is called Nested Object
+//         stars: 4.5,
+//         followers: '5M'
+//     },
+//     fun: function about() { 
+//         console.log('function inside object');
+//     }
+// }
 
-console.log(person2.status.stars); 
-person2.fun(); 
+// console.log(person2.status.stars); 
+// person2.fun(); 
 
 
-console.log(JSON.stringify(person2)); // <- this will show 
+// console.log(JSON.stringify(person2)); // <- this will show 
 // {"name":"Tim","age":21,"status":{"stars":4.5,"followers":"5M"}}
 
 // But as you can see the 'fun' property is not included in the converted
@@ -1822,8 +1822,8 @@ console.log(JSON.stringify(person2)); // <- this will show
 // console.log(JSON.parse(JSON.stringify(person2))); 
 // or you can place the JSON to a variable to be read easily.
 
-const jsonString = JSON.stringify(person2);
-console.log(JSON.parse(jsonString)); // this will show 
+// const jsonString = JSON.stringify(person2);
+// console.log(JSON.parse(jsonString)); // this will show 
 //{name: 'Tim', age: 21, status: {…}} in the console
 
 
@@ -2105,7 +2105,7 @@ object5.method(); // this will show method in the console
 */
 
 // ------- Exercises - Objects ----------
-
+/*
 const shop = {
     basketball: 2095
 };
@@ -2154,7 +2154,10 @@ const item2 = {
 const item3 = item1;
 
 function isSameProduct(item1, item2) {
-    if(item1 === item2) {
+    if(
+        item1.name === item2.name &&
+        item1.price === item2.price
+    ) {
         return true;
     }
     else {
@@ -2162,7 +2165,7 @@ function isSameProduct(item1, item2) {
     }
 }
 
-console.log(isSameProduct(item1, item3));
+console.log(isSameProduct(item1, item2));
 
 //-----------------------------
 
@@ -2172,5 +2175,4 @@ console.log(greet.toLowerCase());
 
 console.log(greet.repeat(2));
 
-//-----------------------------
-
+*/
