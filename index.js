@@ -1486,10 +1486,41 @@ function convert(){
     }
 }
 
-//////////// COIN-FLIP GAME //////////////////
+//////////// COIN-FLIP GAME v1 //////////////////
+// scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
+
+// function play() {
+//     const guess = document.getElementById("guessCoin").value;
+//     const flipValue = Math.random();
+//     const coinResult = document.getElementById("coinResult");
+//     const gameResult = document.getElementById("flipGameResult");
+
+//     coinResult.textContent = flipValue <= 0.5 ? "HEADS" : "TAILS";
+
+//     guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
+
+//     // if(flipValue <= 0.5) {
+//     //     coinResult.textContent = 'HEADS';
+//     //     console.log(flipValue);
+//     // }
+//     // else {
+//     //     coinResult.textContent = 'TAILS';
+//     //     console.log(flipValue);
+//     // }
+// }
+
+
+//////////// COIN-FLIP GAME v2 //////////////////
+const scoreCF = document.getElementById("scoreCF");
+let cfScore = {
+    wins: 0,
+    losses:0
+};
+
+scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
+
 function play() {
     const guess = document.getElementById("guessCoin").value;
-    const flipValue = Math.random();
     const coinResult = document.getElementById("coinResult");
     const gameResult = document.getElementById("flipGameResult");
 
@@ -1497,15 +1528,16 @@ function play() {
 
     guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
 
+    
 
-    // if(flipValue <= 0.5) {
-    //     coinResult.textContent = 'HEADS';
-    //     console.log(flipValue);
-    // }
-    // else {
-    //     coinResult.textContent = 'TAILS';
-    //     console.log(flipValue);
-    // }
+    localStorage.setItem('cfScore', JSON.stringify(cfScore));
+
+}
+
+function cfComputer() {
+    const flipValue = Math.random();
+    let cfComputerMove = flipValue <= 0.5 ? "HEADS" : "TAILS";
+    return cfComputerMove;
 }
 
 
@@ -2113,6 +2145,14 @@ function isSameProduct(item1, item2) {
 }
 
 console.log(isSameProduct(item1, item3));
+
+//-----------------------------
+
+let greet = 'Good Morning';
+
+console.log(greet.toLowerCase());
+
+console.log(greet.repeat(2));
 
 //-----------------------------
 
