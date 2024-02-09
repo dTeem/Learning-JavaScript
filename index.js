@@ -386,7 +386,7 @@ a shortcut for using operators "+=" <-- operators next to equal sign
     4. addition & subtraction
 */
 
-// this computes left to right but following the operator precedence
+// this calcInputs left to right but following the operator precedence
 // let result = 1 + 2 * (3 + 4);
 // so for this problem it starts with the parenthesis (3+4)
 //result = 1 + 2 * 7; then exponents if there is none, skip to next step
@@ -993,15 +993,93 @@ clearStatus.onclick = function() {
 
 // ------------------ CALCULATOR ---------------------
 const calcDisplay = document.getElementById('jsCalcDis');
-let compute = '';
+let calcInput = '';
 
-function btnSeven() {
-    compute += '7';
-    calcDisplay.textContent = compute;
-    console.log(calcDisplay);
+function btn7() {
+    calcInput += '7';
+    calcDisplay.textContent = calcInput;
 }
 
+function btn8() {
+    calcInput += '8';
+    calcDisplay.textContent = calcInput;
+}
 
+function btn9() {
+    calcInput += '9';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn4() {
+    calcInput += '4';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn5() {
+    calcInput += '5';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn6() {
+    calcInput += '6';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn1() {
+    calcInput += '1';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn2() {
+    calcInput += '2';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn3() {
+    calcInput += '3';
+    calcDisplay.textContent = calcInput;
+}
+
+function btn0() {
+    calcInput += '0';
+    calcDisplay.textContent = calcInput;
+}
+
+function multBtn() {
+    calcInput += ' x ';
+    calcDisplay.textContent = calcInput;
+}
+
+function subBtn() {
+    calcInput += ' - ';
+    calcDisplay.textContent = calcInput;
+}
+
+function addBtn() {
+    calcInput += ' + ';
+    calcDisplay.textContent = calcInput;
+}
+
+function deciBtn() {
+    calcInput += '.';
+    calcDisplay.textContent = calcInput;
+}
+
+function equalBtn() {
+    calcInput = eval(calcInput);
+    calcDisplay.textContent = calcInput;
+}
+
+/*
+calc algo
+1. type input number
+2. display input to calc display
+3. calcInput when = is pressed
+    - when = is pressed check for numbers and operators
+    - calcInput the values inside the calc display
+
+
+*/
 
 // else if(calcInput === ) {
 //     acBtn.textContent = 'AC';
@@ -1519,7 +1597,7 @@ scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
 function play() {
     const guess = document.getElementById("guessCoin").value;
 
-    coinResult.textContent = cfComputer();
+    coinResult.textContent = cfcalcInputr();
 
     guess === coinResult.textContent ? gameResult.textContent = 'You win!' : gameResult.textContent = 'You lose!';
 
@@ -1537,10 +1615,10 @@ function play() {
     scoreCF.textContent = `Score: W: ${cfScore.wins}, L: ${cfScore.losses}`;
 }
 
-function cfComputer() {
+function cfcalcInputr() {
     const flipValue = Math.random();
-    let cfComputerMove = flipValue <= 0.5 ? "HEADS" : "TAILS";
-    return cfComputerMove;
+    let cfcalcInputrMove = flipValue <= 0.5 ? "HEADS" : "TAILS";
+    return cfcalcInputrMove;
 }
 
 function resetCFScore() {
@@ -1754,7 +1832,7 @@ function resetPassBtn() {
 // it can be read by other programming languages
 
 // We use JSON when:
-//  - we send data between computers
+//  - we send data between calcInputrs
 //  - we store data
 
 // Built-in Objects:
@@ -1866,39 +1944,39 @@ function scissors() {
 }
 
 function playGame(playerMove) {
-    const computerMove = pickComputerMove();
+    const calcInputrMove = pickcalcInputrMove();
     let result = '';
 
     if(playerMove === 'scissors') {
-        if(computerMove === 'rock') {
+        if(calcInputrMove === 'rock') {
             result = 'You lose! Try again';
         }
-        else if(computerMove === 'paper') {
+        else if(calcInputrMove === 'paper') {
             result = "You Win!!";
         }
-        else if(computerMove === 'scissors') {
+        else if(calcInputrMove === 'scissors') {
             result = "It's a tie!";
         }
     }
     else if(playerMove === 'paper') {
-        if(computerMove === 'rock') {
+        if(calcInputrMove === 'rock') {
             result = 'You Win!!';
         }
-        else if(computerMove === 'paper') {
+        else if(calcInputrMove === 'paper') {
             result = "It's a tie!";
         }
-        else if(computerMove === 'scissors') {
+        else if(calcInputrMove === 'scissors') {
             result = 'You lose! Try again';
         }
     }
     else if(playerMove === 'rock') {
-        if(computerMove === 'rock') {
+        if(calcInputrMove === 'rock') {
             result = "It's a tie!";
         }
-        else if(computerMove === 'paper') {
+        else if(calcInputrMove === 'paper') {
             result = 'You lose! Try again';
         }
-        else if(computerMove === 'scissors') {
+        else if(calcInputrMove === 'scissors') {
             result = 'You Win!!';
         }
     }
@@ -1915,25 +1993,25 @@ function playGame(playerMove) {
 
     localStorage.setItem('score', JSON.stringify(score));
 
-    resultRPS.textContent = `You picked ${playerMove}. Computer picked ${computerMove}. ${result}`;
+    resultRPS.textContent = `You picked ${playerMove}. calcInputr picked ${calcInputrMove}. ${result}`;
 
     scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 }
 
-function pickComputerMove() {
+function pickcalcInputrMove() {
     const randomNumber = Math.random();
-    let computerMove = '';
+    let calcInputrMove = '';
 
     if(randomNumber >= 0 && randomNumber < 1/3) {
-        computerMove = 'rock';
+        calcInputrMove = 'rock';
     }
     else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-        computerMove = 'paper';
+        calcInputrMove = 'paper';
     }
     else if(randomNumber >= 2/3 && randomNumber < 1) {
-        computerMove = 'scissors';
+        calcInputrMove = 'scissors';
     }
-    return computerMove;
+    return calcInputrMove;
 }
 
 function resetRPSBtn() {
@@ -2044,7 +2122,7 @@ const object3 = {
 
 console.log(object3 === object1); <- this will show in the console 'false'
 even though we declared them with the same value.
-Because the objects are just a references of the computer's memory
+Because the objects are just a references of the calcInputr's memory
 it compares the references, not the values inside
 
 ex. (at the top we made the object2 = object1)
@@ -2272,7 +2350,7 @@ function jsSubBtn() {
 
 //----------------------
 
-function computeShip() {
+function calcInputShip() {
     const inputElem = Number(document.getElementById('jsInput').value);
     const resultElem = document.querySelector('.js-totalResult');
     let shipping = 10;
