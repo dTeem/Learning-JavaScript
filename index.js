@@ -992,21 +992,16 @@ clearStatus.onclick = function() {
 }
 
 // ------------------ CALCULATOR ---------------------
-let calcInput = document.getElementById("calcInput");
-let acBtn = document.getElementById("acBtn");
-const calcBtns = document.querySelectorAll('input[type="button"]');
+const calcDisplay = document.getElementById('jsCalcDis');
+let compute = '';
 
-
-for (let i = 0; i < calcBtns.length; i++) {
-    calcBtns[i].addEventListener('click', function() {
-        calcInput.value += calcBtns.value;
-    });
+function btnSeven() {
+    compute += '7';
+    calcDisplay.textContent = compute;
+    console.log(calcDisplay);
 }
 
 
-if(calcInput > 0 || calcInput < 0) {
-    acBtn.textContent = 'C';
-}
 
 // else if(calcInput === ) {
 //     acBtn.textContent = 'AC';
@@ -2199,12 +2194,12 @@ console.log(greet.repeat(2));
 // ex. document.body.innerHTML = '<button>Good job!</button>';
 // this will replace all the webpage content with a button
 
-document.title = 'Learning JavaScript'; // this changes the title of the webpage
+// document.title = 'Learning JavaScript'; // this changes the title of the webpage
 
-console.log(document.title); 
+// console.log(document.title); 
 // the title property is used to change the title of HTML
 
-console.log(document.body);
+// console.log(document.body);
 // the body property is used to change or modify the contents inside body tag
 
 // When the HTML element is inside the JavaScript it is converted into a 
