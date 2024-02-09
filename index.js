@@ -2192,8 +2192,12 @@ console.log(greet.repeat(2));
 // ex. .body or .title
 // document.body.innerHTML = 'hello'; <- this replace everything in the webpage 
 //                                       to a 'hello' string value
+
 // the innerHTML property controls all the HTML inside the body
-// we can change the HTML using javascript
+// we can change the HTML using javascript and HTML codes
+
+// ex. document.body.innerHTML = '<button>Good job!</button>';
+// this will replace all the webpage content with a button
 
 document.title = 'Learning JavaScript'; // this changes the title of the webpage
 
@@ -2205,3 +2209,56 @@ console.log(document.body);
 
 // When the HTML element is inside the JavaScript it is converted into a 
 // JavaScript object
+
+// --- METHODS of DOM ---
+// method   -   function saved inside an object
+
+// document.querySelector() -   lets us get any element from the page and
+//                              put it inside Javascript
+
+// document.querySelector('button'); < this selects the 1st button from the HTML
+// any HTML element inside a JavaScript becomes a JS object
+// every HTML element has a property .innerHTML
+
+
+/*
+ex.
+<body>
+
+<button>hello</button>
+
+</body>
+
+console.log(document.querySelector('button').innerHTML);
+this will show the html content of the button which is hello
+
+document.querySelector('button').innerHTML = 'changed';
+this will show in the webpage that the HTML is changed
+the button text will show 'changed'
+
+*/
+
+// To select a specific HTML element using .querySelector()
+// we need a class atribute from the HTML
+
+/*
+ex.
+<body>
+
+<button>First Button</button>
+<button class="js-btn2">Second Button</button>
+**note it is a great practice to place a 'js-' when creating a class that is used by JS to easily determine that JS is using that element
+
+</body>
+
+console.log(document.querySelector('.js-btn2'));
+this will show in the console that querySelector has specifically looked for 
+a button with a class of '.js-btn2'
+
+HTML elements becomes JavaScript objects, and objects in JS are values
+
+ex.
+const btnElement = document.querySelector('.js-btn2');
+** it's best practice to place 'Element' for creating a variable from HTML
+
+*/
