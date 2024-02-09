@@ -1065,8 +1065,28 @@ function deciBtn() {
     calcDisplay.textContent = calcInput;
 }
 
+function posNegBtn() {
+    calcInput += '-';
+    calcDisplay.textContent = calcInput;
+}
+
+function percentBtn() {
+    calcInput += '%';
+    calcDisplay.textContent = calcInput;
+}
+
+function divideBtn() {
+    calcInput += ' / ';
+    calcDisplay.textContent = calcInput;
+}
+
 function equalBtn() {
     calcInput = eval(calcInput);
+    calcDisplay.textContent = calcInput;
+}
+
+function acBtn() {
+    calcInput = 0;
     calcDisplay.textContent = calcInput;
 }
 
@@ -1909,7 +1929,7 @@ function resetPassBtn() {
 //  1/3 -> 2/3 = paper
 //  2/3 -> 1   = scissors
 const resultRPS = document.getElementById("resultRPS");
-const scoreRPS = document.getElementById("scoreRPS");
+const movesRPS = document.getElementById("movesRPS");
 let score = JSON.parse(localStorage.getItem('score')) || {
     wins: 0,
     losses: 0,
@@ -1929,7 +1949,7 @@ if (!score) {
 }
 */
 
-scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
+rpsScore();
 
 function rock() {
     playGame('rock');
@@ -1944,39 +1964,39 @@ function scissors() {
 }
 
 function playGame(playerMove) {
-    const calcInputrMove = pickcalcInputrMove();
+    const computerMove = pickComputerMove();
     let result = '';
 
     if(playerMove === 'scissors') {
-        if(calcInputrMove === 'rock') {
+        if(computerMove === 'rock') {
             result = 'You lose! Try again';
         }
-        else if(calcInputrMove === 'paper') {
+        else if(computerMove === 'paper') {
             result = "You Win!!";
         }
-        else if(calcInputrMove === 'scissors') {
+        else if(computerMove === 'scissors') {
             result = "It's a tie!";
         }
     }
     else if(playerMove === 'paper') {
-        if(calcInputrMove === 'rock') {
+        if(computerMove === 'rock') {
             result = 'You Win!!';
         }
-        else if(calcInputrMove === 'paper') {
+        else if(computerMove === 'paper') {
             result = "It's a tie!";
         }
-        else if(calcInputrMove === 'scissors') {
+        else if(computerMove === 'scissors') {
             result = 'You lose! Try again';
         }
     }
     else if(playerMove === 'rock') {
-        if(calcInputrMove === 'rock') {
+        if(computerMove === 'rock') {
             result = "It's a tie!";
         }
-        else if(calcInputrMove === 'paper') {
+        else if(computerMove === 'paper') {
             result = 'You lose! Try again';
         }
-        else if(calcInputrMove === 'scissors') {
+        else if(computerMove === 'scissors') {
             result = 'You Win!!';
         }
     }
@@ -1993,25 +2013,26 @@ function playGame(playerMove) {
 
     localStorage.setItem('score', JSON.stringify(score));
 
-    resultRPS.textContent = `You picked ${playerMove}. calcInputr picked ${calcInputrMove}. ${result}`;
+    movesRPS.textContent = result;
+    resultRPS.textContent = `You: ${playerMove} = Computer: ${computerMove}.`;
 
-    scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
+    rpsScore();
 }
 
-function pickcalcInputrMove() {
+function pickComputerMove() {
     const randomNumber = Math.random();
-    let calcInputrMove = '';
+    let computerMove = '';
 
     if(randomNumber >= 0 && randomNumber < 1/3) {
-        calcInputrMove = 'rock';
+        computerMove = 'rock';
     }
     else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-        calcInputrMove = 'paper';
+        computerMove = 'paper';
     }
     else if(randomNumber >= 2/3 && randomNumber < 1) {
-        calcInputrMove = 'scissors';
+        computerMove = 'scissors';
     }
-    return calcInputrMove;
+    return computerMove;
 }
 
 function resetRPSBtn() {
@@ -2021,7 +2042,14 @@ function resetRPSBtn() {
 
     localStorage.removeItem('score');
 
+    movesRPS.textContent = null;
     resultRPS.textContent = null;
+    rpsScore();
+}
+
+function rpsScore() {
+    const scoreRPS = document.getElementById("scoreRPS");
+
     scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 }
 
@@ -2261,6 +2289,8 @@ console.log(greet.repeat(2));
 // it also contains properties
 // it is link to the webpage
 // document also has methods ex. document.querySelector('button');
+// if get a value input from HTML using DOM it will be converted to a string
+
 
 // ex. .body or .title
 // document.body.innerHTML = 'hello'; <- this replace everything in the webpage 
@@ -2268,6 +2298,9 @@ console.log(greet.repeat(2));
 
 // the innerHTML property controls all the HTML inside the body
 // we can change the HTML using javascript and HTML codes
+// innerHTML selects all the characters including spaces of the HTML element
+
+// document.body.innerText <- selects all the text without spaces in the element
 
 // ex. document.body.innerHTML = '<button>Good job!</button>';
 // this will replace all the webpage content with a button
@@ -2339,26 +2372,41 @@ const btnElement = document.querySelector('.js-btn2');
 // --- PROJECTS FOR DOM ---
 
 function jsSubBtn() {
-    const jsSubBtn = document.querySelector('.js-SubBtn');
-    if(jsSubBtn.innerHTML === 'Subscribe') {
-        jsSubBtn.innerHTML = 'Subscribed';
+    subScribe();
+}
+
+function subScribe() {
+    const subElemBtn = document.querySelector('.js-SubBtn');
+    // subElemBtn.innerText === 'Subscribe' ? 'Subscribed' : 'Subscribe';
+
+    if(subElemBtn.innerText === 'Subscribe') {
+        subElemBtn.innerHTML = 'Subscribed';
     }
-    else if(jsSubBtn.innerHTML === 'Subscribed') {
-        jsSubBtn.innerHTML = 'Subscribe';
+    else {
+        subElemBtn.innerText = 'Subscribe';
     }
 }
 
 //----------------------
+const resultElem = document.querySelector('.js-totalResult');
+const inputElem = document.getElementById('jsInput');
+let shipping = 10;
 
-function calcInputShip() {
-    const inputElem = Number(document.getElementById('jsInput').value);
-    const resultElem = document.querySelector('.js-totalResult');
-    let shipping = 10;
-
-    if(inputElem < 40) {
-        resultElem.innerHTML = `$${inputElem + shipping}`; 
+function amazonShip() {
+    let cost = Number(inputElem.value);
+    
+    if(cost < 40) {
+        cost = cost + shipping;
+        
+        resultElem.innerHTML = `$${cost}`; 
+        // console.log(typeof shipping, shipping);
     }
     else {
-        resultElem.innerHTML = `$${inputElem}`; 
+        resultElem.innerHTML = `$${cost}`; 
     }
+}
+
+function clearAmazonShip() {
+    inputElem.value = null; 
+    resultElem.innerHTML = null;
 }

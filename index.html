@@ -150,10 +150,10 @@
         <form class="calc-container">
             <label id="jsCalcDis">0</label><br>
             <!-- <input type="text" placeholder="0" name="display" id="calcInput" disabled><br> -->
-            <button class="calc-func" onclick="acBtn()">AC</button>
-            <button class="calc-func" onclick="posNegBtn()">+/-</button>
-            <button class="calc-func" onclick="percentBtn()">%</button>
-            <button class="calc-func" onclick="divideBtn()">/</button><br>
+            <button type="button" onclick="acBtn()">AC</button>
+            <button type="button" onclick="posNegBtn()">+/-</button>
+            <button type="button" onclick="percentBtn()">%</button>
+            <button type="button" onclick="divideBtn()">/</button><br>
             <button type="button" onclick="btn7()">7</button>
             <button type="button" onclick="btn8()">8</button>
             <button type="button" onclick="btn9()">9</button>
@@ -207,8 +207,9 @@
         <button class="function-game" id="rockBtn" onclick="rock()">Rock</button>
         <button class="function-game" id="paperBtn" onclick="paper()">Paper</button>
         <button class="function-game" id="scissorsBtn" onclick="scissors()"">Scissors</button><br><br>
-        <label id="scoreRPS"></label><br><br>
         <label id="resultRPS"></label><br><br>
+        <label id="movesRPS"></label><br><br>
+        <label id="scoreRPS"></label><br><br>
         <button onclick="resetRPSBtn()">Reset Score</button><br><br>
     </section>
 
@@ -282,8 +283,9 @@
         <h4>Amazon Shipping Calculator</h4>
         <label>Orders under $40 = +$10 shipping</label><br>
         <label>Orders over $40 = FREE shipping</label><br>
-        <input type="number" id="jsInput">
-        <button onclick="computeShip()">Calculate</button><br>
+        <input type="number" placeholder="Cost of order" id="jsInput">
+        <button onclick="amazonShip()">Calculate</button>
+        <button onclick="clearAmazonShip()">Clear</button><br>
         <label class="js-totalResult"></label>
     </section>
 
