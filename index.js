@@ -2367,6 +2367,23 @@ ex.
 const btnElement = document.querySelector('.js-btn2');
 ** it's best practice to place 'Element' for creating a variable from HTML
 
+clicks, keydowns are called events
+
+Types of Event Listeners:
+ - onclick          = click
+ - onkeydown        = key press
+ - onscroll         = scrolling
+ - onmouseenter     = hovering over
+ - onmouseleave     = stop hovering over
+
+ and many many more....
+ check this site for ref
+ https://www.w3schools.com/jsref/dom_obj_event.asp
+
+ in this event listeners there is a special JS object for it called 'event'
+ ex.
+ onkeypress="console.log(event);" <- this will show all of the events after you pressed a button and can determine the details and which key you pressed
+
 */
 
 // --- PROJECTS FOR DOM ---
@@ -2398,8 +2415,7 @@ function amazonShip() {
     if(cost < 40) {
         cost = cost + shipping;
         
-        resultElem.innerHTML = `$${cost}`; 
-        // console.log(typeof shipping, shipping);
+        resultElem.innerHTML = `$${cost}`;
     }
     else {
         resultElem.innerHTML = `$${cost}`; 
