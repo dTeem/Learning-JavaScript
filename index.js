@@ -2262,3 +2262,5 @@ const btnElement = document.querySelector('.js-btn2');
 ** it's best practice to place 'Element' for creating a variable from HTML
 
 */
+
+// --- EXERCISES FOR DOM ---
