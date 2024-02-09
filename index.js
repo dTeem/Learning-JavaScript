@@ -2192,7 +2192,8 @@ console.log(greet.repeat(2));
 // ex. .body or .title
 // document.body.innerHTML = 'hello'; <- this replace everything in the webpage 
 //                                       to a 'hello' string value
-// the innerHTML property is used
+// the innerHTML property controls all the HTML inside the body
+// we can change the HTML using javascript
 
 document.title = 'Learning JavaScript'; // this changes the title of the webpage
 
