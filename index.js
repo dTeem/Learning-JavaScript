@@ -2263,4 +2263,29 @@ const btnElement = document.querySelector('.js-btn2');
 
 */
 
-// --- EXERCISES FOR DOM ---
+// --- PROJECTS FOR DOM ---
+
+function jsSubBtn() {
+    const jsSubBtn = document.querySelector('.js-SubBtn');
+    if(jsSubBtn.innerHTML === 'Subscribe') {
+        jsSubBtn.innerHTML = 'Subscribed';
+    }
+    else if(jsSubBtn.innerHTML === 'Subscribed') {
+        jsSubBtn.innerHTML = 'Subscribe';
+    }
+}
+
+//----------------------
+
+function computeShip() {
+    const inputElem = Number(document.getElementById('jsInput').value);
+    const resultElem = document.querySelector('.js-totalResult');
+    let shipping = 10;
+
+    if(inputElem < 40) {
+        resultElem.innerHTML = `$${inputElem + shipping}`; 
+    }
+    else {
+        resultElem.innerHTML = `$${inputElem}`; 
+    }
+}
