@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        :root {
+            --main-color: rgb(25, 25, 25);
+        }
+        body {
+            background: var(--main-color);
+            color: white;
+            font-family: Poppins, system-ui;
+        }
+
+        h4 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .rps-icons{
+            background-color: var(--main-color);
+            border: solid 5px rgb(183, 183, 183);
+            border-radius: 100px;
+            padding: 2rem 2.5rem;
+            font-size: 3rem;
+            margin: .5rem;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h4>Rock Paper Scissors</h4>
+    <div class="btn-container">
+        <button class="rps-icons" id="rockBtn" onclick="rock()">✊</button>
+        <button class="rps-icons" id="paperBtn" onclick="paper()">🖐️</button>
+        <button class="rps-icons" id="scissorsBtn" onclick="scissors()"">✌️</button>
+    </div>
+    <label id="resultRPS"></label><br><br>
+    <label id="movesRPS"></label><br><br>
+    <label id="scoreRPS"></label><br><br>
+    <button onclick="resetRPSBtn()">Reset Score</button><br><br>
+
+    <script src="index.js"></script>
+</body>
+</html>
