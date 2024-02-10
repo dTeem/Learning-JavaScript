@@ -280,6 +280,7 @@
         <label>//////////// PROJECTS FOR DOM ///////////</label><br><br>
         <h5>YouTube Subscribe Button</h5>
         <button class="js-SubBtn" onclick="jsSubBtn()">Subscribe</button><br><br>
+        <p>-------------------------------------------</p>
         <h4>Amazon Shipping Calculator</h4>
         <label>Orders under $40 = +$10 shipping</label><br>
         <label>Orders over $40 = FREE shipping</label><br>
@@ -287,6 +288,10 @@
         <button onclick="amazonShip()">Calculate</button>
         <button onclick="clearAmazonShip()">Clear</button><br>
         <label class="js-totalResult"></label>
+        <p>-------------------------------------------</p><br>
+        <h4>EVENT ONKEYUP</h4>
+        <input type="text" placeholder="Type anything here" onkeyup="jsEventKeyUp(event)">
+        <label id="onKeyDisplay"></label>
     </section>
 
 

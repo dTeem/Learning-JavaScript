@@ -2463,3 +2463,15 @@ function amazonInputEnterKey(event) {
     }
 }
 
+var createHelloWorld = function() {
+    return function() {
+        return "Hello World";
+    }
+};
+
+//----------------------
+
+function jsEventKeyUp(event) {
+    const onKeyDisp = document.getElementById("onKeyDisplay");
+    onKeyDisp.textContent = event.key;
+}
