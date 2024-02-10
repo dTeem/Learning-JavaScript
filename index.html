@@ -283,10 +283,8 @@
         <h4>Amazon Shipping Calculator</h4>
         <label>Orders under $40 = +$10 shipping</label><br>
         <label>Orders over $40 = FREE shipping</label><br>
-        <input type="number" placeholder="Cost of order" id="jsInput">
-        <button onkeydown="
-            console.log(event);
-        " onclick="amazonShip()">Calculate</button>
+        <input type="number" placeholder="Cost of order" onkeypress="amazonInputEnterKey(event)" id="jsInput">
+        <button onclick="amazonShip()">Calculate</button>
         <button onclick="clearAmazonShip()">Clear</button><br>
         <label class="js-totalResult"></label>
     </section>

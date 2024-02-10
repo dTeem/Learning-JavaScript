@@ -430,6 +430,16 @@ x = Number("7"); if a value is a 'word' it will show NaN (not a number)
 y = String(7); if a string is added to a number it will add the number 
                 along the string ex. y += 1; it will show 71 instead of 8
 
+But if we use '- * /' operators JavaScript automatically converts if the string 
+only contains a number.
+
+ex. console.log('25' - 5); <- this will show in the console 20
+because the JavaScript automatically converted the string into a number
+This is called Type Coercion in JS
+
+But if the '+' operator is used JS will automatically convert the number into a string if you are trying to add a string and a number.
+ex. console.log('15' + 5); this will show in the console '155'
+
 z = Boolean(""); blank = false, any value is = true
 
 // to check the type of variable use "typeof"
@@ -2296,6 +2306,8 @@ console.log(greet.repeat(2));
 // document.body.innerHTML = 'hello'; <- this replace everything in the webpage 
 //                                       to a 'hello' string value
 
+// document is an object that represents the webpage
+
 // the innerHTML property controls all the HTML inside the body
 // we can change the HTML using javascript and HTML codes
 // innerHTML selects all the characters including spaces of the HTML element
@@ -2384,6 +2396,22 @@ Types of Event Listeners:
  ex.
  onkeypress="console.log(event);" <- this will show all of the events after you pressed a button and can determine the details and which key you pressed
 
+ onkeypress="console.log('typing'); <- this will show in the console the 
+ string 'typing' if you press any key on the keyboard.
+ ** can be used for real time chat app
+
+*/
+
+//----------------------
+
+//Window is a built-in object that represents the browser
+// we dont actually need to type it since JavaScript automatically adds it
+
+/*
+ex.
+window.document
+window.console.log
+window.alert
 */
 
 // --- PROJECTS FOR DOM ---
@@ -2409,6 +2437,7 @@ const resultElem = document.querySelector('.js-totalResult');
 const inputElem = document.getElementById('jsInput');
 let shipping = 10;
 
+
 function amazonShip() {
     let cost = Number(inputElem.value);
     
@@ -2426,3 +2455,11 @@ function clearAmazonShip() {
     inputElem.value = null; 
     resultElem.innerHTML = null;
 }
+
+function amazonInputEnterKey(event) {
+
+    if(event.key === 'Enter') {
+        amazonShip();
+    }
+}
+
