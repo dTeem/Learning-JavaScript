@@ -464,8 +464,7 @@ let radius;
 let circumference;
 
 
-document.getElementById("radBtn").onclick = function() {
-
+function radBtn() {
     radius = document.getElementById("radiusValue").value;
     radius = Number(radius);
     circumference = 2 * PI * radius;
@@ -1945,6 +1944,12 @@ function resetPassBtn() {
 //ex. 0 -> 1/3 = rock
 //  1/3 -> 2/3 = paper
 //  2/3 -> 1   = scissors
+
+function rpsGame() {
+    let options = 'statubar=no, height=500, width=500';
+    window.open('RPSGame.html', 'RPS Game', options);
+}
+
 const resultRPS = document.getElementById("resultRPS");
 const movesRPS = document.getElementById("movesRPS");
 let score = JSON.parse(localStorage.getItem('score')) || {
