@@ -2421,6 +2421,12 @@ window.console.log
 window.alert
 */
 
+//----------------------
+// .classList           -   gives us the control of the class attribute
+// .classList.add();    -   adds a new class to the HTML element
+// .classList.remove(); -   removes a class from the HTML element
+
+
 // --- PROJECTS FOR DOM ---
 
 function jsSubBtn() {
@@ -2433,9 +2439,11 @@ function subScribe() {
 
     if(subElemBtn.innerText === 'Subscribe') {
         subElemBtn.innerHTML = 'Subscribed';
+        subElemBtn.classList.add('is-subscribed');
     }
     else {
         subElemBtn.innerText = 'Subscribe';
+        subElemBtn.classList.remove('is-subscribed');
     }
 }
 
