@@ -1002,8 +1002,10 @@ clearStatus.onclick = function() {
 }
 
 // ------------------ CALCULATOR ---------------------
+
 const calcDisplay = document.getElementById('jsCalcDis');
-let calcInput = '';
+// let calcInput =  '';
+let calcInput = JSON.parse(localStorage.getItem('calcInput')) || '';
 
 function btn7() {
     calcInput += '7';
@@ -1090,15 +1092,20 @@ function divideBtn() {
     calcDisplay.textContent = calcInput;
 }
 
-function equalBtn() {
-    calcInput = eval(calcInput);
+function acBtn() {
+    calcInput = '';
+    localStorage.setItem('calcInput', JSON.stringify(calcInput));
     calcDisplay.textContent = calcInput;
 }
 
-function acBtn() {
-    calcInput = 0;
+function equalBtn() {
+    calcInput = eval(calcInput);
+    localStorage.setItem('calcInput', JSON.stringify(calcInput));
     calcDisplay.textContent = calcInput;
 }
+
+calcDisplay.textContent = calcInput;
+
 
 /*
 calc algo
@@ -2471,7 +2478,11 @@ var createHelloWorld = function() {
 
 //----------------------
 
-function jsEventKeyUp(event) {
+function jsEventKeyUp() {
+    const jsInput = document.querySelector('.jsInput');
     const onKeyDisp = document.getElementById("onKeyDisplay");
-    onKeyDisp.textContent = event.key;
+
+    onKeyDisp.textContent = jsInput.value;
 }
+
+//----------------------

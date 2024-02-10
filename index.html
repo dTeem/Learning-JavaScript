@@ -146,9 +146,9 @@
     </section>
 
     <section>
-        <h3>Calculator</h3><br><br>
+        <h3>Calculator</h3>
         <form class="calc-container">
-            <label id="jsCalcDis">0</label><br>
+            <label id="jsCalcDis"></label><br>
             <!-- <input type="text" placeholder="0" name="display" id="calcInput" disabled><br> -->
             <button type="button" onclick="acBtn()">AC</button>
             <button type="button" onclick="posNegBtn()">+/-</button>
@@ -290,7 +290,7 @@
         <label class="js-totalResult"></label>
         <p>-------------------------------------------</p><br>
         <h4>EVENT ONKEYUP</h4>
-        <input type="text" placeholder="Type anything here" onkeyup="jsEventKeyUp(event)">
+        <input type="text" placeholder="Type anything here" onkeyup="jsEventKeyUp()" class="jsInput"><br>
         <label id="onKeyDisplay"></label>
     </section>
 
