@@ -763,7 +763,7 @@ console.log(`Cost of food: $${total}`);
 
 const myCart = document.getElementById("myCart");
 const myCartAlert = document.getElementById("myCartAlert");
-let cartQuantity = 0;
+let cartQuantity = JSON.parse(localStorage.getItem('cart')) || 0;
 
 console.log(itemQuantity.value);
 
@@ -775,10 +775,15 @@ function addToCart() {
     updateCart(itemQuantity);
 }
 
+function removeToCartBtn() {
+    updateCart(-1);
+}
+
 function resetCart() {
     cartQuantity = 0;
     myCart.textContent = `${cartQuantity}`;
     myCartAlert.textContent = 'Cart was reset';
+    localStorage.removeItem('cart');
 }
 
 function updateCart(change) {
@@ -813,7 +818,9 @@ function updateCart(change) {
     else {
         cartQuantity += change;
         myCart.textContent = `${cartQuantity}`;
+        myCartAlert.textContent = null;
     }
+    localStorage.setItem('cart', JSON.stringify(cartQuantity));
 }
 
 

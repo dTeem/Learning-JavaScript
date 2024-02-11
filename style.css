@@ -82,6 +82,10 @@ section {
     font-weight: 600;
 }
 
+.cart-quantity-container {
+    text-align: end;
+}
+
 .cart-quantity {
     font-weight: 700;
     font-size: 1.2rem;
