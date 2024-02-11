@@ -24,29 +24,113 @@
         }
 
         .rps-icons{
-            background-color: var(--main-color);
-            border: solid 5px rgb(183, 183, 183);
+            background-color: transparent;
+            border: solid 2px rgb(183, 183, 183);
             border-radius: 100px;
             padding: 2rem 2.5rem;
             font-size: 3rem;
             margin: .5rem;
+            cursor: pointer;
         }
 
+        .rps-icons:hover {
+            box-shadow: inset rgb(183, 183, 183) .2px .5px 0px 3px;
+        }
+
+        .results-container {
+            margin: 5rem;
+        }
+
+        .rps-labels {
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        .game-result {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .game-moves {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+        }
+        
+        .scores-container {
+            /* transform: translateY(8rem); */
+            margin-left: 1.5rem;
+        }
+
+        .reset-score-btn {
+            position: relative;
+            background: rgb(235, 48, 1);
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.2rem 1.7rem;
+            border: 2px solid rgb(128, 41, 0);
+            border-radius: .5rem;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            transition: .15s cubic-bezier(0, 0, .6, 1);
+        }
+
+        .reset-score-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: rgb(140, 0, 0);
+            box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .625em 0 0 rgb(48, 37, 35);
+            transform: translate3d(0, .75rem, -1em);
+            transition: .15s cubic-bezier(0, 0, .6, 1);
+        }
+
+        .reset-score-btn:hover {
+            background-color: rgb(230, 15, 15);
+            transform: translate(0, .25em);
+        }
+
+        .reset-score-btn:hover::before {
+            box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .5em 0 0 rgb(48, 37, 35);
+            transform: translate3d(0, .5em, -1em);
+        }
+
+        .reset-score-btn:active {
+            background: rgb(190, 0, 0);
+            transform: translate(0, .75em);
+        }
+
+        .reset-score-btn:active::before {
+            box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .3em 0 0 rgb(50, 39, 36);
+            transform: translate3d(0, 0, -1em);
+        }
 
 
     </style>
 </head>
 <body>
+
     <h4>Rock Paper Scissors</h4>
     <div class="btn-container">
-        <button class="rps-icons" id="rockBtn" onclick="rock()">✊</button>
-        <button class="rps-icons" id="paperBtn" onclick="paper()">🖐️</button>
-        <button class="rps-icons" id="scissorsBtn" onclick="scissors()"">✌️</button>
+        <button class="rps-icons" id="rockBtn" onclick="rock()">🪨</button>
+        <button class="rps-icons" id="paperBtn" onclick="paper()">📄</button>
+        <button class="rps-icons" id="scissorsBtn" onclick="scissors()">✂️</button>
     </div>
-    <label id="resultRPS"></label><br><br>
-    <label id="movesRPS"></label><br><br>
-    <label id="scoreRPS"></label><br><br>
-    <button onclick="resetRPSBtn()">Reset Score</button><br><br>
+    <div class="results-container">
+        <p class="rps-labels game-result" id="resultRPS"></p>
+    </div>
+    <div class="scores-container">
+        <p class="game-moves" id="movesRPS"></p>
+        <label id="scoreRPS"></label><br><br>
+        <button class="reset-score-btn" onclick="resetRPSBtn()">Reset Score</button>
+    </div>
 
     <script>
         const resultRPS = document.getElementById("resultRPS");
@@ -57,67 +141,54 @@
             ties: 0
         };
 
-        /* 
-        to make a clean and short code you can use the one above with the same
-        results as this commented code below
-
-        if (!score) {
-            score = {
-                wins: 0,
-                losses: 0,
-                ties: 0
-            };
-        }
-        */
-
         rpsScore();
 
         function rock() {
-            playGame('rock');
+            playGame('🪨');
         }
 
         function paper() {
-            playGame('paper');
+            playGame('📄');
         }
 
         function scissors() {
-            playGame('scissors');
+            playGame('✂️');
         }
 
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
             let result = '';
 
-            if(playerMove === 'scissors') {
-                if(computerMove === 'rock') {
-                    result = 'You lose! Try again';
+            if(playerMove === '✂️') {
+                if(computerMove === '🪨') {
+                    result = 'You lose!';
                 }
-                else if(computerMove === 'paper') {
+                else if(computerMove === '📄') {
                     result = "You Win!!";
                 }
-                else if(computerMove === 'scissors') {
+                else if(computerMove === '✂️') {
                     result = "It's a tie!";
                 }
             }
-            else if(playerMove === 'paper') {
-                if(computerMove === 'rock') {
+            else if(playerMove === '📄') {
+                if(computerMove === '🪨') {
                     result = 'You Win!!';
                 }
-                else if(computerMove === 'paper') {
+                else if(computerMove === '📄') {
                     result = "It's a tie!";
                 }
-                else if(computerMove === 'scissors') {
-                    result = 'You lose! Try again';
+                else if(computerMove === '✂️') {
+                    result = 'You lose!';
                 }
             }
-            else if(playerMove === 'rock') {
-                if(computerMove === 'rock') {
+            else if(playerMove === '🪨') {
+                if(computerMove === '🪨') {
                     result = "It's a tie!";
                 }
-                else if(computerMove === 'paper') {
-                    result = 'You lose! Try again';
+                else if(computerMove === '📄') {
+                    result = 'You lose!';
                 }
-                else if(computerMove === 'scissors') {
+                else if(computerMove === '✂️') {
                     result = 'You Win!!';
                 }
             }
@@ -125,7 +196,7 @@
             if (result === 'You Win!!') {
                 score.wins += 1;
             }
-            else if (result === 'You lose! Try again') {
+            else if (result === 'You lose!') {
                 score.losses += 1;
             }
             else if (result === "It's a tie!") {
@@ -134,8 +205,8 @@
 
             localStorage.setItem('score', JSON.stringify(score));
 
-            movesRPS.textContent = result;
-            resultRPS.textContent = `You: ${playerMove} = Computer: ${computerMove}.`;
+            movesRPS.textContent = `You ${playerMove} ${computerMove} Computer`;
+            resultRPS.textContent = result;
 
             rpsScore();
         }
@@ -145,13 +216,13 @@
             let computerMove = '';
 
             if(randomNumber >= 0 && randomNumber < 1/3) {
-                computerMove = 'rock';
+                computerMove = '🪨';
             }
             else if(randomNumber >= 1/3 && randomNumber < 2/3) {
-                computerMove = 'paper';
+                computerMove = '📄';
             }
             else if(randomNumber >= 2/3 && randomNumber < 1) {
-                computerMove = 'scissors';
+                computerMove = '✂️';
             }
             return computerMove;
         }
@@ -174,6 +245,6 @@
             scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
         }
     </script>
-    <script src="index.js"></script>
+
 </body>
 </html>

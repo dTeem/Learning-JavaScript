@@ -1945,10 +1945,10 @@ function resetPassBtn() {
 //  1/3 -> 2/3 = paper
 //  2/3 -> 1   = scissors
 function rpsGame() {
-    let options = 'statubar=no, height=500, width=500 location=1';
+    let options = 'statubar=no, height=700, width=500';
     window.open('RPSGame.html', 'RPS Game', options);
 }
-
+/*
 
 const resultRPS = document.getElementById("resultRPS");
 const movesRPS = document.getElementById("movesRPS");
@@ -1969,7 +1969,7 @@ if (!score) {
         ties: 0
     };
 }
-*/
+*
 
 rpsScore();
 
@@ -2074,7 +2074,7 @@ function rpsScore() {
 
     scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
 }
-
+*/
 
 //---------- TRUE & FALSE VALUES --------------
 // false values are -   false, 0, '', Nan, undefined, null   
