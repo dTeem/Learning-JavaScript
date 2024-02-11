@@ -165,7 +165,6 @@ section {
 .rps-start-btn {
     position: relative;
     background: rgb(0, 185, 0);
-    color: white;
     text-transform: uppercase;
     font-weight: 600;
     font-size: 1.1rem;
@@ -175,6 +174,15 @@ section {
     transform-style: preserve-3d;
     cursor: pointer;
     transition: .15s cubic-bezier(0, 0, .6, 1);
+}
+
+.rps-btn-text {
+    font-size: 1.5rem;
+    background-color: rgb(115, 115, 115);
+    color: transparent;
+    text-shadow: -.5px 2px .8px rgba(255, 255, 255, 1);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .rps-start-btn::before {
