@@ -765,9 +765,7 @@ const myCart = document.getElementById("myCart");
 const myCartAlert = document.getElementById("myCartAlert");
 let cartQuantity = 0;
 
-function showCart() {
-    myCart.textContent = `Cart quantity: ${cartQuantity}`;
-}
+myCart.textContent = `${cartQuantity}`;
 
 function addToCart() {
     updateCart(1);
@@ -803,7 +801,7 @@ function sub3() {
 
 function resetCart() {
     cartQuantity = 0;
-    myCart.textContent = `Cart quantity: ${cartQuantity}`;
+    myCart.textContent = `${cartQuantity}`;
     myCartAlert.textContent = 'Cart was reset';
 }
 
@@ -814,31 +812,31 @@ function updateCart(change) {
         myCart.textContent = 'The cart is full!';
         if (cartQuantity === 9) {
             cartQuantity++;
-            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+            myCart.textContent = `${cartQuantity}`;
         }
         else if (cartQuantity === 8) {
             cartQuantity += 2;
-            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+            myCart.textContent = `${cartQuantity}`;
         }
         else if (cartQuantity === 7) {
             cartQuantity += 3;
-            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+            myCart.textContent = `${cartQuantity}`;
         }
         else if (cartQuantity === 6) {
             cartQuantity += 4;
-            myCart.textContent = `Cart quantity: ${cartQuantity}`;
+            myCart.textContent = `${cartQuantity}`;
         }
     }
 
     else if (cartQuantity + change < 0) {
         cartQuantity--;
         cartQuantity = 0;
-        myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        myCart.textContent = `${cartQuantity}`;
         myCartAlert.textContent = 'You have no items in the cart';
     }
     else {
         cartQuantity += change;
-        myCart.textContent = `Cart quantity: ${cartQuantity}`;
+        myCart.textContent = `${cartQuantity}`;
     }
 }
 
@@ -2427,9 +2425,10 @@ window.alert
 */
 
 //----------------------
-// .classList           -   gives us the control of the class attribute
-// .classList.add();    -   adds a new class to the HTML element
-// .classList.remove(); -   removes a class from the HTML element
+// .classList               -   gives us the control of the class attribute
+// .classList.add();        -   adds a new class to the HTML element
+// .classList.remove();     -   removes a class from the HTML element
+// .classList.contains();   -   checks if the element has a class
 
 
 // --- PROJECTS FOR DOM ---

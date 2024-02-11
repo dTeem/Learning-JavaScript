@@ -75,7 +75,6 @@
 
     <section>
         <label>-------------- CART QUANTITY --------------</label><br><br>
-        <button onclick="showCart()">Show Cart</button>
         <button onclick="addToCart()">Add to Cart</button>
         <button onclick="add2()">+2</button>
         <button onclick="add3()">+3</button>
@@ -85,7 +84,8 @@
         <button onclick="sub2()">-2</button>
         <button onclick="sub3()">-3</button><br><br>
         <button onclick="resetCart()">Reset Cart</button><br><br>
-        <label id="myCart"></label><br>
+        <label>Cart: </label>
+        <label class="cart-quantity" id="myCart"></label><br>
         <label id="myCartAlert"></label><br>
         <!-- <button id="showCartResult" onclick="showCartResult()">Result</button> -->
 

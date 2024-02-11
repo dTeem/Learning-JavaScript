@@ -67,6 +67,12 @@ section {
     padding: .5rem ;
 }
 
+.cart-quantity {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: rgb(255, 119, 0);
+}
+
 .unitText {
     font-size: 1.3em;
     font-weight: bold;
@@ -182,7 +188,7 @@ section {
     height: 100%;
     border-radius: inherit;
     background: rgb(0, 140, 0);
-    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .625em 0 0 rgb(191, 213, 191);
+    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .65em 0 0 rgb(191, 213, 191);
     transform: translate3d(0, .75rem, -1em);
     transition: .15s cubic-bezier(0, 0, .6, 1);
 }
@@ -193,7 +199,7 @@ section {
 }
 
 .rps-start-btn:hover::before {
-    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .625em 0 0 rgb(191, 213, 191);
+    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .5em 0 0 rgb(191, 213, 191);
     transform: translate3d(0, .5em, -1em);
 }
 
@@ -203,6 +209,6 @@ section {
 }
 
 .rps-start-btn:active::before {
-    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .4em 0 0 rgb(191, 213, 191);
+    box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .3em 0 0 rgb(191, 213, 191);
     transform: translate3d(0, 0, -1em);
 }
