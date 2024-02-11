@@ -75,18 +75,29 @@
 
     <section>
         <label>-------------- CART QUANTITY --------------</label><br><br>
-        <button onclick="addToCart()">Add to Cart</button>
-        <button onclick="add2()">+2</button>
-        <button onclick="add3()">+3</button>
-        <button onclick="add4()">+4</button>
-        <button onclick="add5()">+5</button><br>
-        <button onclick="removeToCartBtn()">Remove from cart</button>
-        <button onclick="sub2()">-2</button>
-        <button onclick="sub3()">-3</button><br><br>
-        <button onclick="resetCart()">Reset Cart</button><br><br>
-        <label>Cart: </label>
-        <label class="cart-quantity" id="myCart"></label><br>
-        <label id="myCartAlert"></label><br>
+        <div class="cart-nav-container">
+            <div>
+                <label class="amazon-logo">amazon.ca</label>
+            </div>
+            <div>
+                <label class="cart-quantity">Cart: </label>
+                <label class="cart-quantity quantity" id="myCart"></label><br>
+                <label class="cart-alert" id="myCartAlert"></label><br>
+            </div>
+        </div>
+        <div class="item-selector-container">
+            <select class="quantity-picker cart-btn" id="itemQuantity">
+                <option value="1" selected>Quantity: 1</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br>
+            <button class="addtocart-btn crt-btns cart-btn" onclick="addToCart()">Add to Cart</button><br>
+            <button class="removetocart-btn crt-btns cart-btn" onclick="removeToCartBtn()">Remove to cart</button><br>
+            <button class="resetcart-btn crt-btns cart-btn" onclick="resetCart()">Reset Cart</button><br><br>
+        </div>
         <!-- <button id="showCartResult" onclick="showCartResult()">Result</button> -->
 
     </section>

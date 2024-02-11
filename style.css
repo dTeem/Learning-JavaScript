@@ -67,10 +67,73 @@ section {
     padding: .5rem ;
 }
 
+.cart-nav-container {
+    background: #131921;
+    color: white;
+    padding: 1rem;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.amazon-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 .cart-quantity {
     font-weight: 700;
     font-size: 1.2rem;
+}
+
+.quantity {
     color: rgb(255, 119, 0);
+}
+
+.cart-alert {
+    color: red;
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.item-selector-container {
+    border: .8px solid rgb(148, 148, 148);
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.quantity-picker {
+    background-color: rgb(239, 239, 239);
+    padding: .5rem 3rem;
+    border-radius: .5rem;
+    font-weight: bold;
+    text-align-last: left;
+}
+
+.cart-btn {
+    margin: .3rem;
+    cursor: pointer;
+}
+
+.crt-btns {
+    border: none;
+    border-radius: 5rem;
+    padding: .4rem 3.7rem;
+    font-weight: bold;
+}
+
+.addtocart-btn {
+    background: #ffd712;
+}
+
+.removetocart-btn {
+    background: #ffa41c;
+    padding: .4rem 3rem;
+}
+
+.resetcart-btn {
+    padding: .4rem 3.9rem;
 }
 
 .unitText {

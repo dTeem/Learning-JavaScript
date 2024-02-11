@@ -765,38 +765,14 @@ const myCart = document.getElementById("myCart");
 const myCartAlert = document.getElementById("myCartAlert");
 let cartQuantity = 0;
 
+console.log(itemQuantity.value);
+
 myCart.textContent = `${cartQuantity}`;
 
 function addToCart() {
-    updateCart(1);
-}
+    const itemQuantity = Number(document.getElementById("itemQuantity").value);
 
-function add2() {
-    updateCart(2);
-}
-
-function add3(){
-    updateCart(3);
-}
-
-function add4() {
-    updateCart(4);
-}
-
-function add5() {
-    updateCart(5);
-}
-
-function removeToCartBtn() {
-    updateCart(-1);
-}
-
-function sub2() {
-    updateCart(-2);
-}
-
-function sub3() {
-    updateCart(-3);
+    updateCart(itemQuantity);
 }
 
 function resetCart() {
@@ -805,26 +781,26 @@ function resetCart() {
     myCartAlert.textContent = 'Cart was reset';
 }
 
-
 function updateCart(change) {
 
     if (cartQuantity + change > 10) {
-        myCart.textContent = 'The cart is full!';
+        myCart.textContent = cartQuantity;
+        myCartAlert.textContent = 'Cart is full';
         if (cartQuantity === 9) {
             cartQuantity++;
-            myCart.textContent = `${cartQuantity}`;
+            myCart.textContent = cartQuantity;
         }
         else if (cartQuantity === 8) {
             cartQuantity += 2;
-            myCart.textContent = `${cartQuantity}`;
+            myCart.textContent = cartQuantity;
         }
         else if (cartQuantity === 7) {
             cartQuantity += 3;
-            myCart.textContent = `${cartQuantity}`;
+            myCart.textContent = cartQuantity;
         }
         else if (cartQuantity === 6) {
             cartQuantity += 4;
-            myCart.textContent = `${cartQuantity}`;
+            myCart.textContent = cartQuantity;
         }
     }
 
