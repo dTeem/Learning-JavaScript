@@ -1309,60 +1309,6 @@ else {
 // !==  -   strict inequality operator
 
 
-//======================= WHILE LOOP =======================
-// while loop - repeat some code while some condition is true
-//              potentially infinite
-
-/*
-let nameUser = "";
-
-while(nameUser == "") {
-    nameUser = window.prompt("Enter your name");
-}
-
-console.log("Hello", nameUser);
-*/
-
-//------------------ DO WHILE LOOP --------------------
-// do while loop - do something, then check the condition, 
-//                  repeat if condition is true
-const whileBtn = document.getElementById("whileBtn");
-const clearWhileBtn = document.getElementById("clearWhileBtn");
-let loggedIn = true;
-let user;
-let pass;
-
-whileBtn.onclick = function() {
-    user = document.getElementById("user").value;
-    pass = document.getElementById("pass").value;
-
-    do{
-
-        if(user === "tim" && pass === "123"){
-            loggedIn = true;
-            window.alert("You are logged in!");
-        }
-        else{
-            window.alert("Invalid credentials! Please try again");
-        }
-    }while(!loggedIn)
-}
-
-clearWhileBtn.onclick = function() {
-    document.getElementById("user").value = null;
-    document.getElementById("pass").value = null;
-}
-
-
-//------------------ FOR LOOP --------------------
-// for loop - repeat some code a certain amount of times 
-// for(the starting value; until it reach this value; behavior of the value;) {}
-
-// for(let q = 1; q <=10; q += 1) {
-//     console.log(q); <-- this will count starting from 1 to 10
-//}
-
-
 // ======================= FUNCTIONS ======================
 //function  -   a section of reusable code.
 //              declare code once, use it whenever you want
@@ -2582,6 +2528,218 @@ function pickedOption() {
 }
 
 
+//======================= WHILE LOOP =======================
+// while loop - repeat some code while some condition is true
+//              potentially infinite
+
+/*
+let nameUser = "";
+
+while(nameUser == "") {
+    nameUser = window.prompt("Enter your name");
+}
+
+console.log("Hello", nameUser);
+
+let i = 1; <- this is called loop variable
+
+while(i <= 5) { <- the elements inside () are called loop condition
+    i = i + 1; <- this is called loop body
+    console.log(i); this will show in the console that 'i' will increment by 1
+    until it reach it's value to 5 and then stop the loop.
+    1
+    2
+    3
+    4
+    5
+}
+*/
+
+//------------------ DO WHILE LOOP --------------------
+// do while loop - do something, then check the condition, 
+//                  repeat if condition is true
+const whileBtn = document.getElementById("whileBtn");
+const clearWhileBtn = document.getElementById("clearWhileBtn");
+let loggedIn = true;
+let user;
+let pass;
+
+whileBtn.onclick = function() {
+    user = document.getElementById("user").value;
+    pass = document.getElementById("pass").value;
+
+    do{
+
+        if(user === "tim" && pass === "123"){
+            loggedIn = true;
+            window.alert("You are logged in!");
+        }
+        else{
+            window.alert("Invalid credentials! Please try again");
+        }
+    }while(!loggedIn)
+}
+
+clearWhileBtn.onclick = function() {
+    document.getElementById("user").value = null;
+    document.getElementById("pass").value = null;
+}
+
+
+//------------------ FOR LOOP --------------------
+// for loop - repeat some code a certain amount of times
+
+// this needed 3 pieces of code:
+// 1. loop variable
+// 2. loop condition
+// 3. increment step
+
+// for(the starting value; until it reach this value; behavior of the value;) {}
+
+// This example is a standard loop..
+// for(let q = 1; q <=10; q += 1) {
+//     console.log(q); <-- this will count starting from 1 to 10
+// }
+
+
+// This example is a non-standard loop..
+/* let randomNumber = 0;
+
+    while(randomNumber < 0.5) {
+        randomNumber = Math.random();
+    }
+    console.log(randomNumber);
+*/
+
+// While VS For Loop
+// For loop     -   is better used for standard loop
+// While loop   -   is better used for non-standard loop
+
+//-------------------------
+// Looping through an array
+//  1. Go through each value of an array 1 by 1
+//  2. Do something with each value
+/*
+const todoList = [
+    'make dinner', 
+    'wash dished', 
+    'watch youtube'
+];
+
+for(let i = 0; i < todoList.length; i++) {
+    const value = todoList[i];
+    console.log(value);
+}
+*/
+
+// Accumulator Pattern  -   to combine looping through an array
+
+// To use Accumulator Pattern:
+//  1. Create a variable to store the result
+//  2. Loop through the array and update the result
+
+/* Example 1 
+    What if we want to calculate the total of values of an array?
+    we have an array of numbers: [1, 2, 3]
+
+    
+    const nums = [1, 2, 4];
+    let total = 0;
+    
+    for(let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        total += num; // += also a shortcut for total = total + num;
+    }
+    console.log(total);
+*/
+
+/* Example 1 Code explanation:
+(1st loop)
+i = 0
+nums[0] = 1 <- value of index 0 from nums
+num = 1 
+total = 0 <- first value
+
+total = total + num
+total = 0 + 1
+total = 1
+
+Then i++
+i = 1
+
+(2nd loop)
+i = 1 <- value from 1st loop
+nums[1] = 2 <- value of index 1 from nums
+num = 2
+total = 1 <- value from 1st loop
+
+total = total + num
+total = 1 + 2
+total = 3
+
+than i++
+i = 2
+
+(3rd loop)
+i = 2 <- value from 2nd loop
+nums[2] = 4 <- value of index from nums
+num = 4
+total = 3
+
+total = total + num
+total = 3 + 4
+total = 7
+
+i meets the condition < 3 <- length of nums index
+stops the loop
+
+*/
+
+/* Example 2
+    Create a copy of the array with each number doubled
+    const numsValue = [1, 3, 5];
+    const numsDoubled = [];
+    
+    for(let i = 0; i < numsValue.length; i++) {
+        const num = numsValue[i];
+        numsDoubled.push(num * 2);
+    }
+    console.log(numsDoubled); <- this will show in the console
+        (3) [2, 6, 10]
+        0: 2
+        1: 6
+        2: 10
+        length: 3
+
+*/
+
 //--------------------------------
 // --- PROJECTS FOR ARRAY ---
+const toDoArray = ['tim', 'tam'];
+
+renderTodoList();
+
+function renderTodoList() {
+    let todoListHTML = '';
+    
+    for(let i = 0; i < toDoArray.length; i++) {
+        const todo = toDoArray[i];
+        const html = `<p>${todo}</p>`;
+    
+        todoListHTML += html;
+    }
+    document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+}
+
+function toDoBtn() {
+    const toDoInput = document.getElementById("jsToDoIn");
+    const input = toDoInput.value;
+    
+    toDoArray.push(input);
+
+    toDoInput.value = null;
+
+    renderTodoList();
+}
+
 
