@@ -143,10 +143,11 @@ section {
 
 /* ---- CALCULATOR ----- */
 .calc-container {
-    background: #EFEFEF;
+    background: #D1D1D1;
     border: 5px solid black;
-    border-radius: 1rem;
-    padding: 2rem;
+    border-radius: 7rem;
+    border-bottom-left-radius: 6rem;
+    padding: 1.2rem 2rem 1.5rem 0;
     width: 350px;
     margin: auto;
 }
@@ -158,67 +159,101 @@ section {
 
 .calc-display {
     background: #D1D1D1;
+    /* border: 5px solid black; */
     border-radius: .5rem;
+    border-top-left-radius: 8rem;
+    border-top-right-radius: 8rem;
     margin-bottom: 2rem;
-    padding: 3rem 1rem 1rem 1rem;
-    font-size: 2rem;
-    text-align: end;
+    padding: 1rem 1rem 0 0rem;
+    font-size: 3rem;
     width: 300px;
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    margin: auto;
 }
 
 .calc-btns-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    /* grid-template-columns: repeat(2); */
+    margin-top: 0rem;
 }
 
 .calc-btn {
-    border: .1px solid black;
+    border: 3px solid black;
+    color: white;
+    /* border: none; */
     border-radius: 5rem;
-    padding: 2rem 2.2rem;
-    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
 }
 
 
 .operator-btn {
+    display: flex;
     background: #AD8B73;
     border-radius: 0;
+    height: 75px;
+    text-align: center;
+    justify-content: center;
 }
 
 .calc-number {
     background: #E3CAA5;
-    padding: 2.1rem 2.3rem;
+    /* padding: .rem 2.3rem; */
 }
 
 .calc-top {
     background: #F3E9DD;
     border-radius: 0;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .btn-zero {
-    padding: 2rem 5rem;
+    padding: 1rem 3.7rem;
+    border-bottom-left-radius: 10rem;
 }
 
 .btn-deci {
-    padding: 2rem 2.4rem;
+    padding: 1rem 1.8rem;
 }
-/* #acBtn {
-    padding: 2rem ;
-} */
+
+#acBtn {
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+#percBtn {
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+#divideBtn {
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+
+#equalBtn {
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 10rem;
+}
 
 .calc-top-container {
     display: flex;
     flex-wrap: wrap;
-    width: 270px;
+    width: 300px;
     height: 80px;
+    text-align: center;
+    justify-content: center;
 }
 
 .operators-container {
     display: flex;
     flex-direction: column;
     width: 80px;
+    justify-content: start;
 }
 
 /* ----  ----- */
