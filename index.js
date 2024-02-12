@@ -275,15 +275,15 @@ person2.fun(); // <- this will run the function about() inside the object
 //to select a specific array value select it by index ex. (selectedColors[0]) which shows red in the console.
 
 
-let fruits = ["apple", "orange", "banana", "coconut", "strawberry"];
+// let fruits = ["apple", "orange", "banana", "coconut", "strawberry"];
 
-fruits.sort();
+// fruits.sort();
 // sort()           -   to sort the array alphabetically 
 // sort().reverse() -   to sort aplhabetically in reverse order
 
-for (let i = 0; i < fruits.length; i++) {
+// for (let i = 0; i < fruits.length; i++) {
     // console.log(fruits[i]);
-}
+// }
 
 
 // -------------- SPREAD OPERATOR ----------------------
@@ -294,25 +294,25 @@ for (let i = 0; i < fruits.length; i++) {
 //                      after you use spread operator
 
 
-let numbers = [1, 2, 3, 4, 5];
+// let numbers = [1, 2, 3, 4, 5];
 
 //let maximum = Math.max(numbers); //<-- this will show as NaN in the console
 //                                      since the numbers in the array are not
 //                                      individually selected.
 
-let maximum = Math.max(...numbers); //<- this will show in the console the
+// let maximum = Math.max(...numbers); //<- this will show in the console the
 //                                      largest number in the array
 
 // console.log(maximum);
 
-let nameSpread = "Tim";
+// let nameSpread = "Tim";
 // let letterSpread = [...nameSpread]; //<- this will show ['T', 'i', 'm']
-let letterSpread = [...nameSpread].join("-"); //<- this will show T-i-m
+// let letterSpread = [...nameSpread].join("-"); //<- this will show T-i-m
 
 // console.log(letterSpread);
 
 
-let vegetables = ["carrots", "celery", "potatoes"];
+// let vegetables = ["carrots", "celery", "potatoes"];
 
 // let foods = [...fruits, ...vegetables];
 
@@ -320,7 +320,7 @@ let vegetables = ["carrots", "celery", "potatoes"];
 // ['apple', 'banana', 'coconut', 'orange', 'strawberry', 'carrots', 'celery', 'potatoes']
 
 // you can also add another value inside the new array
-let foods = [...fruits, ...vegetables, "eggs", "milk"];
+// let foods = [...fruits, ...vegetables, "eggs", "milk"];
 
 // console.log(foods); // <- ['apple', 'banana', 'coconut', 'orange', 'strawberry', 'carrots', 'celery', 'potatoes', 'eggs', 'milk']
 
@@ -330,25 +330,19 @@ let foods = [...fruits, ...vegetables, "eggs", "milk"];
 // [...rest]            arguments by bundling them into an array
 
 
+    // //ex.
+    // function openFridge(...foods) {
+    //     console.log(foods);
+    // }
 
-
-    //ex.
-    function openFridge(...foods) {
-        console.log(foods);
-    }
-
-    const food1 = "pizza";
-    const food2 = "burger";
-    const food3 = "hotdog";
-    const food4 = "sushi";
-    const food5 = "ramen";
+    // const food1 = "pizza";
+    // const food2 = "burger";
+    // const food3 = "hotdog";
+    // const food4 = "sushi";
+    // const food5 = "ramen";
 
     // openFridge(food1, food2, food3, food4, food5); //<- this will show as an
                                                    // array of ['pizza', 'burger', 'hotdog', 'sushi', 'ramen']
-
-
-
-
 
 
 // ================== PERDFORMING A TASK FUNCTION ==================
@@ -2587,5 +2581,7 @@ function pickedOption() {
     }
 }
 
-//----------------------
+
+//--------------------------------
+// --- PROJECTS FOR ARRAY ---
 
