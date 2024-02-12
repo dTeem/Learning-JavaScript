@@ -7,6 +7,9 @@ section {
     margin: 5rem 0;
 }
 
+
+/* ---- DICE ROLL ----- */
+
 .dice-buttons {
     font-size: 1rem;
     padding: 10px 15px;
@@ -39,6 +42,8 @@ section {
 }
 
 
+/* ---- COUNTER NUMBER ----- */
+
 #countLabel {
     display: inline-block;
     font-size: 4em;
@@ -46,28 +51,9 @@ section {
     justify-content: center;
 }
 
-.temp-container {
-    background: rgb(220, 220, 220);
-    text-align: center;
-    max-width: 350px;
-    margin: auto;
-    padding: 2rem;
-    border-radius: .3rem;
-    box-shadow: 10px 10px rgb(78, 78, 78);
-}
-
-#tempNumber {
-    width: 50%;
-    text-align: center;
-    font-size: 2em;
-    border: none;
-    border-radius: .3rem;
-    box-shadow: inset 2px 2px rgb(78, 78, 78);
-    margin-bottom: 1rem;
-    padding: .5rem ;
-}
 
 /* ---- CART QUANTIY ----- */
+
 .cart-nav-container {
     background: #131921;
     color: white;
@@ -141,7 +127,9 @@ section {
     padding: .4rem 3.9rem;
 }
 
+
 /* ---- CALCULATOR ----- */
+
 .calc-container {
     background: #D1D1D1;
     border: 5px solid black;
@@ -256,80 +244,8 @@ section {
     justify-content: start;
 }
 
-/* ----  ----- */
 
-.unitText {
-    font-size: 1.3em;
-    font-weight: bold;
-}
-
-.convert-button {
-    margin-top: 15px;
-    background: hsl(34, 100%, 50%);
-    color: white;
-    font-size: 1.2em;
-    padding: 1rem 1.5rem;
-    box-shadow: 2px 2px rgb(78, 78, 78);
-    border: none;
-    border-radius: .3rem;
-    cursor: pointer;
-    transition: .5s;
-}
-
-.convert-button:hover {
-    background: hsl(22, 100%, 50%);
-    transition: .5s;
-}
-
-.temp-result {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.pass-word {
-    padding: .2rem;
-    text-align: center;
-    font-weight: bold;
-    width: 150px;
-}
-
-.pass-buttons {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: .1rem .5rem;
-}
-
-.password-container {
-    background: rgb(204, 204, 204);
-    padding: 1.5rem;
-    width: 350px;
-    border-radius: 5px;
-}
-
-.amazon-label {
-    margin-bottom: 2rem;
-}
-
-.amazon-cost-input {
-    padding: .6rem;
-}
-
-.amazon-btn {
-    padding: .7rem .8rem;
-    border: none;
-    border-radius: 2px;
-    color: white;
-    cursor: pointer;
-}
-
-.amazon-calculateBtn {
-    background: rgb(0, 139, 0);
-}
-
-.amazon-clearBtn {
-    background: rgb(255, 82, 19);
-}
-
+/* ---- ROCK PAPER SCISSORS GAME ----- */
 
 .rps-start-btn {
     position: relative;
@@ -390,6 +306,85 @@ section {
     transform: translate3d(0, 0, -1em);
 }
 
+
+
+/* ---- TEMPERATURE CONVERSION ----- */
+
+.unitText {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.convert-button {
+    margin-top: 15px;
+    background: hsl(34, 100%, 50%);
+    color: white;
+    font-size: 1.2em;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 2px rgb(78, 78, 78);
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.convert-button:hover {
+    background: hsl(22, 100%, 50%);
+    transition: .5s;
+}
+
+.temp-result {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.temp-container {
+    background: rgb(220, 220, 220);
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: .3rem;
+    box-shadow: 10px 10px rgb(78, 78, 78);
+}
+
+#tempNumber {
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border: none;
+    border-radius: .3rem;
+    box-shadow: inset 2px 2px rgb(78, 78, 78);
+    margin-bottom: 1rem;
+    padding: .5rem ;
+}
+
+
+/* ---- RANDOM PASSWORD GENERATOR ----- */
+
+.pass-word {
+    padding: .2rem;
+    text-align: center;
+    font-weight: bold;
+    width: 150px;
+}
+
+.pass-buttons {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .1rem .5rem;
+}
+
+.password-container {
+    background: rgb(204, 204, 204);
+    padding: 1.5rem;
+    width: 350px;
+    border-radius: 5px;
+}
+
+
+/* ---- YOUTUBE SUBSCRIBE BUTTON ----- */
+
 .sub-btn {
     background: black;
     color: white;
@@ -406,6 +401,35 @@ section {
     font-weight: bold;
 }
 
+
+/* ---- AMAZON SHIPPING CALCULATOR ----- */
+
+.amazon-label {
+    margin-bottom: 2rem;
+}
+
+.amazon-cost-input {
+    padding: .6rem;
+}
+
+.amazon-btn {
+    padding: .7rem .8rem;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+.amazon-calculateBtn {
+    background: rgb(0, 139, 0);
+}
+
+.amazon-clearBtn {
+    background: rgb(255, 82, 19);
+}
+
+
+/* ---- TOGGLED BUTTONS ----- */
 
 .tbutton {
     background: black;
