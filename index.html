@@ -157,34 +157,34 @@
     </section>
 
     <section>
-        <h3>Calculator</h3>
+        <h3>Calculator</h3><br>
         <form class="calc-container">
             <p class="calc-logo">Pumpitamps</p>
-            <div class="calc-display"><label  id="jsCalcDis"></label></div>
-            <div class="calc-top-container">
-                <button type="button" class="calc-btn calc-top" id="acBtn" onclick="acBtn()">AC</button>
-                <button type="button" class="calc-btn calc-top" onclick="posNegBtn()">+/-</button>
-                <button type="button" class="calc-btn calc-top" onclick="percentBtn()">%</button>
-            </div>
-            <div class="operators-container">
-                <button type="button" class="calc-btn operator-btn" onclick="divideBtn()">/</button>
-                <button type="button" class="calc-btn operator-btn" onclick="multBtn()">x</button>
-                <button type="button" class="calc-btn operator-btn" onclick="subBtn()">-</button>
-                <button type="button" class="calc-btn operator-btn" onclick="addBtn()">+</button>
-                <button type="button" class="calc-btn operator-btn" onclick="equalBtn()">=</button>
-            </div>
-            <div class="numbers-container">
-                <button type="button" class="calc-btn calc-number" onclick="btn7()">7</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn8()">8</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn9()">9</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn4()">4</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn5()">5</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn6()">6</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn1()">1</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn2()">2</button>
-                <button type="button" class="calc-btn calc-number" onclick="btn3()">3</button>
-                <button type="button" class="calc-btn calc-number btn-zero" onclick="btn0()">0</button>
-                <button type="button" class="calc-btn calc-number" onclick="deciBtn()">.</button>
+            <div class="calc-display"><label  id="jsCalcDis"></label>0</div>
+            <div class="calc-btns-container">
+                <div class="calc-top-container">
+                    <button type="button" class="calc-btn calc-top" id="acBtn" onclick="clacACBtn()">AC</button>
+                    <button type="button" class="calc-btn calc-top" onclick="posNegBtn()">+/-</button>
+                    <button type="button" class="calc-btn calc-top" onclick="percentBtn()">%</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn7()">7</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn8()">8</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn9()">9</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn4()">4</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn5()">5</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn6()">6</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn1()">1</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn2()">2</button>
+                    <button type="button" class="calc-btn calc-number" onclick="btn3()">3</button>
+                    <button type="button" class="calc-btn calc-number btn-zero" onclick="btn0()">0</button>
+                    <button type="button" class="calc-btn calc-number btn-deci" onclick="deciBtn()">.</button>
+                </div>
+                <div class="operators-container">
+                    <button type="button" class="calc-btn operator-btn" onclick="divideBtn()">/</button>
+                    <button type="button" class="calc-btn operator-btn" onclick="multBtn()">x</button>
+                    <button type="button" class="calc-btn operator-btn" onclick="subBtn()">-</button>
+                    <button type="button" class="calc-btn operator-btn" onclick="addBtn()">+</button>
+                    <button type="button" class="calc-btn operator-btn" onclick="equalBtn()">=</button>
+                </div>
             </div>
         </form>
 

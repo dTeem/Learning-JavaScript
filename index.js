@@ -1070,7 +1070,7 @@ function divideBtn() {
     calcDisplay.textContent = calcInput;
 }
 
-function acBtn() {
+function clacACBtn() {
     calcInput = '';
     localStorage.setItem('calcInput', JSON.stringify(calcInput));
     calcDisplay.textContent = calcInput;
