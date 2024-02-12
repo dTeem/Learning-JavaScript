@@ -765,8 +765,6 @@ const myCart = document.getElementById("myCart");
 const myCartAlert = document.getElementById("myCartAlert");
 let cartQuantity = JSON.parse(localStorage.getItem('cart')) || 0;
 
-console.log(itemQuantity.value);
-
 myCart.textContent = `${cartQuantity}`;
 
 function addToCart() {
@@ -2416,6 +2414,8 @@ window.alert
 
 // --- PROJECTS FOR DOM ---
 
+// YouTube Subscribe Button
+
 function jsSubBtn() {
     subScribe();
 }
@@ -2435,6 +2435,8 @@ function subScribe() {
 }
 
 //----------------------
+// Amazon Shipping Calculator
+
 const resultElem = document.querySelector('.js-totalResult');
 const inputElem = document.getElementById('jsInput');
 let shipping = 10;
@@ -2443,13 +2445,18 @@ let shipping = 10;
 function amazonShip() {
     let cost = Number(inputElem.value);
     
-    if(cost < 40) {
+    if(cost < 40 && cost > 0) {
+        console.log(typeof cost, cost);
         cost = cost + shipping;
-        
         resultElem.innerHTML = `$${cost}`;
     }
     else {
-        resultElem.innerHTML = `$${cost}`; 
+        if(cost < 0) {
+            resultElem.innerHTML = 'Error: cost cannot be less than $0'; 
+        }
+        else {
+            resultElem.innerHTML = `$${cost}`; 
+        }
     }
 }
 
@@ -2465,19 +2472,77 @@ function amazonInputEnterKey(event) {
     }
 }
 
-var createHelloWorld = function() {
-    return function() {
-        return "Hello World";
-    }
-};
-
 //----------------------
+// Event onkeyup
 
 function jsEventKeyUp() {
     const jsInput = document.querySelector('.jsInput');
     const onKeyDisp = document.getElementById("onKeyDisplay");
 
     onKeyDisp.textContent = jsInput.value;
+    // onKeyDisp.textContent = 'typing...';
 }
 
 //----------------------
+// Multi-choice Buttons
+
+function tGaming() {
+    isToggled('.tbtn-gaming');
+}
+
+function tMusic() {
+    isToggled('.tbtn-music');
+}
+
+function tTech() {
+    isToggled('.tbtn-tech');
+}
+
+function isToggled(toggled) {
+    const tBtn = document.querySelector(toggled);
+
+    if(!tBtn.classList.contains('is-toggled')) {
+        tBtn.classList.add('is-toggled');
+    }
+    else {
+        tBtn.classList.remove('is-toggled');
+    }
+}
+
+//----------------------
+// Single-choice Buttons
+
+function warrior() {
+    singleToggle('.js-warrior-btn');
+}
+
+function archer() {
+    singleToggle('.js-archer-btn');
+}
+
+function mage() {
+    singleToggle('.js-mage-btn');
+}
+
+function singleToggle(choice) {
+    const singleBtn = document.querySelector(choice);
+
+    if(!singleBtn.classList.contains('is-picked')) {
+        pickedOption();
+        singleBtn.classList.add('is-picked');
+    }
+    else {
+        singleBtn.classList.remove('is-picked');
+    }
+}
+
+function pickedOption() {
+    const picked = document.querySelector('.is-picked');
+
+    if(picked) {
+        picked.classList.remove('is-picked');
+    }
+}
+
+//----------------------
+

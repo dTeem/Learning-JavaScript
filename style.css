@@ -67,6 +67,7 @@ section {
     padding: .5rem ;
 }
 
+/* ---- CART QUANTIY ----- */
 .cart-nav-container {
     background: #131921;
     color: white;
@@ -104,7 +105,7 @@ section {
 .item-selector-container {
     border: .8px solid rgb(148, 148, 148);
     text-align: center;
-    padding-top: 3rem;
+    padding: 3rem 0 1.5rem 0;
 }
 
 .quantity-picker {
@@ -139,6 +140,60 @@ section {
 .resetcart-btn {
     padding: .4rem 3.9rem;
 }
+
+/* ---- CALCULATOR ----- */
+.calc-container {
+    background: #EFEFEF;
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 350px;
+}
+
+.calc-logo {
+    text-align: center;
+    font-weight: bold;
+}
+
+.calc-btn {
+    border: .1px solid black;
+    border-radius: 5rem;
+    padding: 2rem 2.2rem;
+}
+
+.btn-zero {
+    padding: 2rem 4.5rem;
+}
+
+.operator-btn {
+    background: #AD8B73;
+    border-radius: 0;
+}
+
+.calc-number {
+    background: #E3CAA5;
+}
+
+.calc-top {
+    background: #F3E9DD;
+    border-radius: 0;
+}
+
+.calc-display {
+    background: #D1D1D1;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    padding: 3rem 1rem 1rem 1rem;
+    font-size: 2rem;
+    text-align: end;
+    width: 300px;
+}
+
+#acBtn {
+    padding: 2rem ;
+}
+
+
+/* ----  ----- */
 
 .unitText {
     font-size: 1.3em;
@@ -186,22 +241,6 @@ section {
     padding: 1.5rem;
     width: 350px;
     border-radius: 5px;
-}
-
-.sub-btn {
-    background: black;
-    color: white;
-    padding: .6rem .9rem;
-    border: none;
-    border-radius: 2rem;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.is-subscribed {
-    background: rgb(240, 240, 240);
-    color: black;
-    font-weight: bold;
 }
 
 .amazon-label {
@@ -286,4 +325,49 @@ section {
 .rps-start-btn:active::before {
     box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .3em 0 0 rgb(191, 213, 191);
     transform: translate3d(0, 0, -1em);
+}
+
+.sub-btn {
+    background: black;
+    color: white;
+    padding: .6rem .9rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.is-subscribed {
+    background: rgb(240, 240, 240);
+    color: black;
+    font-weight: bold;
+}
+
+
+.tbutton {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.is-toggled {
+    background: rgb(217, 217, 217);
+    color: black;
+}
+
+.sc-btn {
+    background: rgb(217, 217, 217);
+    color: black;
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.is-picked {
+    background: black;
+    color: white;
 }

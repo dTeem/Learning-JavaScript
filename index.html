@@ -159,27 +159,33 @@
     <section>
         <h3>Calculator</h3>
         <form class="calc-container">
-            <label id="jsCalcDis"></label><br>
-            <!-- <input type="text" placeholder="0" name="display" id="calcInput" disabled><br> -->
-            <button type="button" onclick="acBtn()">AC</button>
-            <button type="button" onclick="posNegBtn()">+/-</button>
-            <button type="button" onclick="percentBtn()">%</button>
-            <button type="button" onclick="divideBtn()">/</button><br>
-            <button type="button" onclick="btn7()">7</button>
-            <button type="button" onclick="btn8()">8</button>
-            <button type="button" onclick="btn9()">9</button>
-            <button type="button" onclick="multBtn()">x</button><br>
-            <button type="button" onclick="btn4()">4</button>
-            <button type="button" onclick="btn5()">5</button>
-            <button type="button" onclick="btn6()">6</button>
-            <button type="button" onclick="subBtn()">-</button><br>
-            <button type="button" onclick="btn1()">1</button>
-            <button type="button" onclick="btn2()">2</button>
-            <button type="button" onclick="btn3()">3</button>
-            <button type="button" onclick="addBtn()">+</button><br>
-            <button type="button" onclick="btn0()">0</button>
-            <button type="button" onclick="deciBtn()">.</button>
-            <button type="button" onclick="equalBtn()">=</button>
+            <p class="calc-logo">Pumpitamps</p>
+            <div class="calc-display"><label  id="jsCalcDis"></label></div>
+            <div class="calc-top-container">
+                <button type="button" class="calc-btn calc-top" id="acBtn" onclick="acBtn()">AC</button>
+                <button type="button" class="calc-btn calc-top" onclick="posNegBtn()">+/-</button>
+                <button type="button" class="calc-btn calc-top" onclick="percentBtn()">%</button>
+            </div>
+            <div class="operators-container">
+                <button type="button" class="calc-btn operator-btn" onclick="divideBtn()">/</button>
+                <button type="button" class="calc-btn operator-btn" onclick="multBtn()">x</button>
+                <button type="button" class="calc-btn operator-btn" onclick="subBtn()">-</button>
+                <button type="button" class="calc-btn operator-btn" onclick="addBtn()">+</button>
+                <button type="button" class="calc-btn operator-btn" onclick="equalBtn()">=</button>
+            </div>
+            <div class="numbers-container">
+                <button type="button" class="calc-btn calc-number" onclick="btn7()">7</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn8()">8</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn9()">9</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn4()">4</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn5()">5</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn6()">6</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn1()">1</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn2()">2</button>
+                <button type="button" class="calc-btn calc-number" onclick="btn3()">3</button>
+                <button type="button" class="calc-btn calc-number btn-zero" onclick="btn0()">0</button>
+                <button type="button" class="calc-btn calc-number" onclick="deciBtn()">.</button>
+            </div>
         </form>
 
     </section>
@@ -297,10 +303,20 @@
         <button class="amazon-calculateBtn amazon-btn" onclick="amazonShip()">Calculate</button>
         <button class="amazon-clearBtn amazon-btn" onclick="clearAmazonShip()">Clear</button><br>
         <label class="js-totalResult"></label>
-        <p>-------------------------------------------</p><br>
+        <p>-------------------------------------------</p>
         <h4>EVENT ONKEYUP</h4>
         <input type="text" placeholder="Type anything here" onkeyup="jsEventKeyUp()" class="jsInput"><br>
-        <label id="onKeyDisplay"></label>
+        <label id="onKeyDisplay"></label><br>
+        <p>-------------------------------------------</p>
+        <h4>TOGGLED BUTTONS</h4>
+        <p>Multi-choice Buttons</p>
+        <button type="button" class="tbutton tbtn-gaming" onclick="tGaming()">Gaming</button>
+        <button type="button" class="tbutton tbtn-music" onclick="tMusic()">Music</button>
+        <button type="button" class="tbutton tbtn-tech" onclick="tTech()">Tech</button>
+        <p>Single-choice Buttons</p>
+        <button type="button" class="sc-btn js-warrior-btn" onclick="warrior()">Warrior</button>
+        <button type="button" class="sc-btn js-archer-btn" onclick="archer()">Archer</button>
+        <button type="button" class="sc-btn js-mage-btn" onclick="mage()">Mage</button>
     </section>
 
 
