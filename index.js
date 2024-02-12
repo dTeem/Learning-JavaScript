@@ -217,6 +217,8 @@ person2.fun(); // <- this will run the function about() inside the object
 
 //----------- ARRAY ------------
 // array    -   a variable like structure that can hold more than 1 value
+//          -   another type of value in JavaScript
+
 // square bracket are array literal [] <-- means empty array
 // to access the elements inside the array use index numbering [0,1,2,..]
 //array elements are dynamic and can change or add values
@@ -225,8 +227,49 @@ person2.fun(); // <- this will run the function about() inside the object
 // index value ['red' is 0, 'blue' is 1]
 // selectedColors[2] = 'green'
 //using this ^ will add green to the array of selectedColors variables which will show ['red','blue','green'] in the console.
-// you can store different types of values inside the array
+
+// you can store any type of values inside the array
 // array is a data structure to represent the list of items
+
+//ex. [1, 'hello', true, { name: 'Tim' }, [7, 9]]
+// Items that can be stored in an array:
+//  - number
+//  - string
+//  - boolean
+//  - object
+//  - array
+
+// console.log(typeof [1, 2]); <- this will show in the console object
+// An array is a special type of object
+
+// Since arrays is an object, it can also have properties and methods
+/* ex.
+    const myArray = [10, 20, 30];
+
+    **To check if the element is an array use Array.isArray();
+    console.log(Array.isArray([1, 2]));
+    this will show true in the console
+
+    console.log(myArray.length); <- this will show 3 in the console
+
+    myArray.push(100); <-.push(); adds a value to the end of the array
+
+    console.log(myArray); <- this will show [10, 20, 30, 100]
+
+    myArray.splice(); <- this will remove an value from an array
+    splice takes 2 values:
+    1. Index we want to remove
+    2. Number of values to remove starting from the index you declare in 1.
+
+    ex. 
+    const myArray = [10, 20, 30, 100];
+    myArray.splice(0, 1);
+    console.log(myArray); //<- will show [20, 30, 100]
+
+    myArray.splice(1, 2);
+    console.log(myArray); <- will show [10, 100]
+*/
+
 
 // console.log(selectedColors);
 //to select a specific array value select it by index ex. (selectedColors[0]) which shows red in the console.
