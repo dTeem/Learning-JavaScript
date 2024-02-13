@@ -2749,7 +2749,7 @@ let lastValue = '';
 
 alNums[2] = 99;
 
-console.log(alNums);
+// console.log(alNums);
 
 function getLastValue(array) {
     for(array = 0; array < alNums.length; array++) {
@@ -2758,12 +2758,9 @@ function getLastValue(array) {
 
     return;
 }
+getLastV([1,20,22,24,5]);
 
-function getLastV() {
-    let lastIndex = alNums.length - 1;
-
-    console.log(lastIndex);
-    return lastIndex;
+function getLastV(array) {
+    let lastIndex = array.length - 1;
 }
 
-console.log(getLastV());
