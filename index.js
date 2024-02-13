@@ -2715,7 +2715,7 @@ stops the loop
 
 //--------------------------------
 // --- PROJECTS FOR ARRAY ---
-const toDoArray = ['tim', 'tam'];
+const toDoArray = [];
 
 renderTodoList();
 
@@ -2742,4 +2742,28 @@ function toDoBtn() {
     renderTodoList();
 }
 
+//--------------------------------
 
+const alNums = [10, 20, 30];
+let lastValue = '';
+
+alNums[2] = 99;
+
+console.log(alNums);
+
+function getLastValue(array) {
+    for(array = 0; array < alNums.length; array++) {
+
+    }
+
+    return;
+}
+
+function getLastV() {
+    let lastIndex = alNums.length - 1;
+
+    console.log(lastIndex);
+    return lastIndex;
+}
+
+console.log(getLastV());
