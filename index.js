@@ -2758,9 +2758,13 @@ function getLastValue(array) {
 
     return;
 }
-getLastV([1,20,22,24,5]);
+// getLastV([1,20,22,24,5]);
+
 
 function getLastV(array) {
-    let lastIndex = array.length - 1;
+    array = array.length - 1;
+    return array;
 }
+
+getLastV();
 
