@@ -277,7 +277,7 @@ person2.fun(); // <- this will run the function about() inside the object
 
 // let fruits = ["apple", "orange", "banana", "coconut", "strawberry"];
 
-// fruits.sort();
+// console.log(fruits.reverse());
 // sort()           -   to sort the array alphabetically 
 // sort().reverse() -   to sort aplhabetically in reverse order
 
@@ -2752,19 +2752,44 @@ alNums[2] = 99;
 // console.log(alNums);
 
 function getLastValue(array) {
-    for(array = 0; array < alNums.length; array++) {
-
-    }
-
-    return;
+    const lastIndex = array.length - 1;
+    return array[lastIndex];
 }
-// getLastV([1,20,22,24,5]);
 
+// console.log(getLastValue([1,2,3]));
 
-function getLastV(array) {
-    array = array.length - 1;
+//--------------------------------
+
+function arraySwap(array) {
+    let firstIndex = array[0];
+    let lastIndex = array.length - 1;
+    let lastValue = array[lastIndex];
+
+    array[0] = lastValue;
+    array[lastIndex] = firstIndex;
+
     return array;
 }
 
-getLastV();
+// console.log(arraySwap([1, 2, 3]));
+
+//--------------------------------
+
+const countOneToTen = [0, 1, 2, 3, 4, 5];
+const countByTwo = [];
+
+for(let i = 0; i < countOneToTen.length; i++) {
+    const count = countOneToTen[i];
+    countByTwo.push(count * 2);
+}
+
+console.log(countByTwo);
+
+//--------------------------------
+
+for(let i = 5; i >= 0; i--) {
+    console.log(i);
+}
+
+//--------------------------------
 
