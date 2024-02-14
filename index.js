@@ -2888,8 +2888,8 @@ for(let i = 5; i >= 0; i--) {
 function minMax(nums) {
 
     const result = {
-        min: nums[0],
-        max: nums[0]
+        min: null,
+        max: null
     };
 
     for(let i = 0; i < nums.length; i++) {
@@ -2897,18 +2897,38 @@ function minMax(nums) {
 
         // If the value is less than the min,
         // update the min.
-        if (value < result.min) {
-        result.min = value;
+        if (result.min === null || value < result.min) {
+            result.min = value;
         }
 
         // If the value is greater than the max,
         // update the max.
-        if (value > result.max) {
-        result.max = value;
+        if (result.min === null || value > result.max) {
+            result.max = value;
         }
     }
     return result;
 }
 
-console.log(minMax([1, -3, 5]));
-console.log(minMax([-2, 3, -5, 7 ,10]));
+console.log(minMax([]));
+console.log(minMax([3]));
+
+//--------------------------------
+
+function countWords(words) {
+    const result = {
+        apple: 0,
+        grape: 0
+    };
+
+    for(let i = 0; i < words.length; i++) {
+        const text = words[i];
+
+        if(text === words.apple) {
+            words.apple = text;
+        }
+    }
+    return result;
+}
+
+console.log(countWords(['apple', 'grape', 'apple', 'apple']));
