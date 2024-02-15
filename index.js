@@ -2650,7 +2650,7 @@ for(let i = 0; i < todoList.length; i++) {
         const num = nums[i];
         total += num; // += also a shortcut for total = total + num;
     }
-    console.log(total);
+    console.log(total); <- this will show the sum of values inside the array
 */
 
 /* Example 1 Code explanation:
