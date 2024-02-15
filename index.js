@@ -2885,50 +2885,59 @@ for(let i = 5; i >= 0; i--) {
 
 //--------------------------------
 
-function minMax(nums) {
+// function minMax(nums) {
 
-    const result = {
-        min: null,
-        max: null
-    };
+//     const result = {
+//         min: null,
+//         max: null
+//     };
 
-    for(let i = 0; i < nums.length; i++) {
-        const value = nums[i];
+//     for(let i = 0; i < nums.length; i++) {
+//         const value = nums[i];
 
-        // If the value is less than the min,
-        // update the min.
-        if (result.min === null || value < result.min) {
-            result.min = value;
-        }
+//         // If the value is less than the min,
+//         // update the min.
+//         if (result.min === null || value < result.min) {
+//             result.min = value;
+//         }
 
-        // If the value is greater than the max,
-        // update the max.
-        if (result.min === null || value > result.max) {
-            result.max = value;
-        }
-    }
-    return result;
-}
+//         // If the value is greater than the max,
+//         // update the max.
+//         if (result.min === null || value > result.max) {
+//             result.max = value;
+//         }
+//     }
+//     return result;
+// }
 
-console.log(minMax([]));
-console.log(minMax([3]));
+// console.log(minMax([]));
+// console.log(minMax([3]));
 
 //--------------------------------
 
-function countWords(words) {
-    const result = {
-        apple: 0,
-        grape: 0
-    };
+// function countWords(words) {
+//     const result = {};
+    
+//     for(let i = 0; i < words.length; i++) {
+//         const text = words[i];
+        
+//         // result[word] adds/accesses a property using whatever is
+//         // saved inside the 'word' variable.
+//         // If word = 'apple', result[word] will do result['apple']
+//         // If word = 'grape', result[word] will do result['grape']
+        
+//         if(!result[text]) {
+//             result[text] = 1;
+//         }
+//         else {
+//             result[text]++;
+//         }
+//     }
+//     return result;
+// }
 
-    for(let i = 0; i < words.length; i++) {
-        const text = words[i];
+// countWords(['apple', 'grape', 'apple', 'apple']);
+// console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape']));
 
-        if(text === words.apple) {
-            words.apple = text;
-        }
-    }
-    return result;
-}
+//--------------------------------
 
-console.log(countWords(['apple', 'grape', 'apple', 'apple']));
