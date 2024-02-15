@@ -320,10 +320,14 @@
 
     <section>
         <label>//////////// PROJECTS FOR ARRAY ///////////</label><br><br>
-        <h4>TO DO LIST PRACTICE 1</h4>
-        <input placeholder="To Do Name" id="jsToDoIn">
-        <button onclick="toDoBtn()">Add</button><br>
-        <div class="js-todo-list"></div>
+        <h4>SIMPLE TO DO LIST</h4>
+        <div class="todo-input-grid">
+            <input placeholder="To Do Name" class="js-name-input todo-name">
+            <input type="date" class="js-date-input todo-date">
+            <input type="time" class="js-time-input todo-time">
+            <button onclick="toDoBtn()" class="add-todo-btn">Add</button>
+        </div>
+        <div class="js-todo-list todo-grid"></div>
     </section>
 
 

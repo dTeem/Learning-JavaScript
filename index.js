@@ -2715,32 +2715,34 @@ stops the loop
 
 //--------------------------------
 // --- PROJECTS FOR ARRAY ---
-const toDoArray = [];
 
-renderTodoList();
+// TODO LIST V1
+// const toDoArray = [];
 
-function renderTodoList() {
-    let todoListHTML = '';
+// renderTodoList();
+
+// function renderTodoList() {
+//     let todoListHTML = '';
     
-    for(let i = 0; i < toDoArray.length; i++) {
-        const todo = toDoArray[i];
-        const html = `<p>${todo}</p>`;
+//     for(let i = 0; i < toDoArray.length; i++) {
+//         const todo = toDoArray[i];
+//         const html = `<p>${todo}</p>`;
     
-        todoListHTML += html;
-    }
-    document.querySelector('.js-todo-list').innerHTML = todoListHTML;
-}
+//         todoListHTML += html;
+//     }
+//     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+// }
 
-function toDoBtn() {
-    const toDoInput = document.getElementById("jsToDoIn");
-    const input = toDoInput.value;
+// function toDoBtn() {
+//     const toDoInput = document.getElementById("jsToDoIn");
+//     const input = toDoInput.value;
     
-    toDoArray.push(input);
+//     toDoArray.push(input);
 
-    toDoInput.value = null;
+//     toDoInput.value = null;
 
-    renderTodoList();
-}
+//     renderTodoList();
+// }
 
 //--------------------------------
 
@@ -2940,4 +2942,186 @@ for(let i = 5; i >= 0; i--) {
 // console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape']));
 
 //--------------------------------
+// TO DO LIST V2
 
+const toDoArray = [{
+    name: 'cook',
+    date: '2024-02-14',
+    time: '20:47'
+}, {
+    name: 'eat',
+    date: '2024-02-14',
+    time: '20:50'
+}];
+
+renderTodoList();
+
+function renderTodoList() {
+    let todoListHTML = '';
+    
+    for(let i = 0; i < toDoArray.length; i++) {
+        const todoObject = toDoArray[i];
+        // const name = todoObject.name; <- below is the shortcut for this code
+        // const date = todoObject.date; that is called destructuring
+        // const time = todoObject.time; takes the property to a variable
+        const { name, date, time } = todoObject;
+        const html = `
+            <div>${name}</div>
+            <div>${date}</div>
+            <div>${time}</div>
+            <button onclick="
+                toDoArray.splice(${i}, 1);
+                renderTodoList();
+            " class="delete-todo-btn">Delete</button>
+        `;
+
+        todoListHTML += html;
+    }
+    document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+}
+
+function toDoBtn() {
+    const toDoInput = document.querySelector(".js-name-input");
+    const dateInputElement = document.querySelector('.js-date-input');
+    const timeInputElement = document.querySelector('.js-time-input');
+    const name = toDoInput.value;
+    const date = dateInputElement.value;
+    const time = timeInputElement.value;
+
+    toDoArray.push({
+        // name: name, <- the code below is the shortcut for this code
+        // date: date,  - if the property name has the same variable name
+        // time: time     you can use the shorthand property
+        name,
+        date,
+        time
+    });
+
+    toDoInput.value = null;
+
+    renderTodoList();
+}
+
+
+//======================= MORE DETAILS ABOUT ARRAYS =======================
+// Array is also a reference like object
+
+/*
+ex.
+const array1 = [1, 2, 3];
+const array2 = array1;
+
+array2.push(4);
+
+console.log(array1);
+console.log(arraty2); 
+- both will show in the console [1, 2, 3, 4]
+- even we only push the value 4 only in array2
+
+To avoid this behavior we can copy the values in the array by using .slice()
+ex.
+const array1 = [1, 2, 3];
+const array2 = array1.slice(); <- this will make a copy of the values of array1
+
+array2.push(4);
+
+console.log(array1); <- this will show [1, 2, 3]
+console.log(arraty2); <- this will show [1, 2, 3, 4]
+- the push method now only affects the array2 since it now has a 
+  different reference from array1
+*/
+
+// Shortcuts of Array
+// Destructuring
+/*
+ex.
+const array3 = [1, 2, 3];
+Let say we want to get the 1st and 2nd value out of this array
+- the standard way to do this is:
+    const firstValue = array3[0];
+    const secondValue = array3[1];
+
+- shortcut using destructuring:
+    1. to use this shortcut just put [] for declaring an array
+    2. inside the [] place the array name
+        - by default the first array name always gets the first index
+        - adding a array name by ',' will get the second index and so on..
+    ex.
+    const [firstValue, secondValue] = [1, 2, 3];
+    console.log(firstValue); <- will show 1
+    console.log(secondValue); <- will show 2
+*/
+
+
+//======================= MORE DETAILS ABOUT LOOPS =======================
+// 2 Features of loop:
+// 1. break     -   let's us exit the loop early
+// 2. continue  -   let's us skip 1 iteration of the loop
+
+/* Example of break
+for(let i = 1; i <= 10; i++) {
+    console.log(i); //<- this will count 1-10 in the console
+    //but if we use a break in this loop
+
+    if(i === 8) { <- now this will only count 1-8
+        break;    <- since we placed the break here when i = 8
+    }
+}
+*/
+
+/* Example of continue
+for(let i = 1; i <= 10; i++) {
+    if(i === 3) {
+        continue; <- this will count 1-10 but it will skip 3
+    }
+    console.log(i); 
+}
+
+// Let's say that we want to skip the number if it's divisible by 3
+for(let i = 1; i <= 10; i++) {
+    if(i % 3 === 0) { //<- using the % operator will check if the number will 
+        continue;     // have a remainder  
+    }               //in this example we are looking for the no. divisble by 3
+    console.log(i); //<- will count 1-10 while skipping no. divisible by 3
+}
+
+//Let's use continue in the while loop
+// we want to count from 1-10 using while loop
+
+let i = 1;
+
+while(i <= 10) {
+    if(i % 3 === 0) {
+        i++; //<- always remember to place an increment first before using 
+        continue; // continue in a while loop to prevent the infinite loop
+    } //<- not placing a increment before continue will skip the increment 
+    // and will be stucked in a infinite loop
+    console.log(i);
+    i++;
+} // while in the for loop, the increment will be done automatically
+// after every iteration
+*/
+
+// ----- Use loops with functions ------
+// Let say we want to take the values of an array and double each value
+// and reuse the function for any arrays
+
+/* Example of loops with function
+return is another way to stop the loop when it's inside of a function
+
+function doubleArray(nums) {
+    const arrayDoubled = [];
+    
+    for(let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        
+        if(num === 0) {
+            return arrayDoubled;
+        }
+        
+        arrayDoubled.push(num * 2);
+    }
+    return arrayDoubled;
+}
+console.log(doubleArray([2,2,0,7,2]));
+*/
