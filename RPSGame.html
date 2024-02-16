@@ -61,7 +61,7 @@
             margin-left: 1.5rem;
         }
 
-        .reset-score-btn {
+        .rps-btns {
             position: relative;
             background: rgb(235, 48, 1);
             color: white;
@@ -76,7 +76,7 @@
             transition: .15s cubic-bezier(0, 0, .6, 1);
         }
 
-        .reset-score-btn::before {
+        .rps-btns::before {
             content: '';
             position: absolute;
             top: 0;
@@ -92,22 +92,22 @@
             transition: .15s cubic-bezier(0, 0, .6, 1);
         }
 
-        .reset-score-btn:hover {
+        .rps-btns:hover {
             background-color: rgb(230, 15, 15);
             transform: translate(0, .25em);
         }
 
-        .reset-score-btn:hover::before {
+        .rps-btns::before {
             box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .5em 0 0 rgb(48, 37, 35);
             transform: translate3d(0, .5em, -1em);
         }
 
-        .reset-score-btn:active {
+        .rps-btns:active {
             background: rgb(190, 0, 0);
             transform: translate(0, .75em);
         }
 
-        .reset-score-btn:active::before {
+        .rps-btns:active::before {
             box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .3em 0 0 rgb(50, 39, 36);
             transform: translate3d(0, 0, -1em);
         }
@@ -129,7 +129,8 @@
     <div class="scores-container">
         <p class="game-moves" id="movesRPS"></p>
         <label id="scoreRPS"></label><br><br>
-        <button class="reset-score-btn" onclick="resetRPSBtn()">Reset Score</button>
+        <button class="rps-btns reset-score-btn" onclick="resetRPSBtn()">Reset Score</button>
+        <button class="rps-btns autoplay-btn" onclick="resetRPSBtn()">Auto Play</button>
     </div>
 
     <script>
