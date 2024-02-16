@@ -2944,34 +2944,30 @@ for(let i = 5; i >= 0; i--) {
 //--------------------------------
 // TO DO LIST V2
 
-const toDoArray = [{
-    name: 'cook',
-    date: '2024-02-14',
-    time: '20:47'
-}, {
-    name: 'eat',
-    date: '2024-02-14',
-    time: '20:50'
-}];
+const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
 renderTodoList();
 
-function renderTodoList() {
+function renderTodoList()
+{
     let todoListHTML = '';
     
-    for(let i = 0; i < toDoArray.length; i++) {
+    for(let i = 0; i < toDoArray.length; i++)
+    {
         const todoObject = toDoArray[i];
         // const name = todoObject.name; <- below is the shortcut for this code
         // const date = todoObject.date; that is called destructuring
         // const time = todoObject.time; takes the property to a variable
         const { name, date, time } = todoObject;
-        const html = `
+        const html = 
+        `
             <div>${name}</div>
             <div>${date}</div>
             <div>${time}</div>
             <button onclick="
                 toDoArray.splice(${i}, 1);
                 renderTodoList();
+                saveTodoStorage();
             " class="delete-todo-btn">Delete</button>
         `;
 
@@ -2980,7 +2976,8 @@ function renderTodoList() {
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 }
 
-function toDoBtn() {
+function addTodoBtn()
+{
     const toDoInput = document.querySelector(".js-name-input");
     const dateInputElement = document.querySelector('.js-date-input');
     const timeInputElement = document.querySelector('.js-time-input');
@@ -2988,7 +2985,8 @@ function toDoBtn() {
     const date = dateInputElement.value;
     const time = timeInputElement.value;
 
-    toDoArray.push({
+    toDoArray.push
+    ({
         // name: name, <- the code below is the shortcut for this code
         // date: date,  - if the property name has the same variable name
         // time: time     you can use the shorthand property
@@ -2998,8 +2996,17 @@ function toDoBtn() {
     });
 
     toDoInput.value = null;
+    dateInputElement.value = null;
+    timeInputElement.value = null;
+
+    saveTodoStorage();
 
     renderTodoList();
+}
+
+function saveTodoStorage()
+{
+    localStorage.setItem('todoList', JSON.stringify(toDoArray))
 }
 
 
@@ -3270,5 +3277,8 @@ function unique(array)
     return result;
 }
 
-console.log(unique(['green', 'red', 'blue', 'red']));
-console.log(unique(['red', 'green', 'green', 'red']));
+// console.log(unique(['green', 'red', 'blue', 'red']));
+// console.log(unique(['red', 'green', 'green', 'red']));
+
+//----------------------------------------
+// Exercise 11x
