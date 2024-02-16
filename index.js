@@ -3130,7 +3130,7 @@ console.log(doubleArray([2,2,0,7,2]));
 //----------------------------------------
 // --- PROJECTS FOR ARRAYS AND LOOPS ---
 
-
+// Exercise 11o-p
 let words = 
 [
     'hello',
@@ -3168,23 +3168,25 @@ for(let i = 0; i < words.length; i++)
 // console.log(index);
 
 //----------------------------------------
+// Exercise 11q
+// function findIndex(array, word)
+// {   
+//     for(let i = 0; i < array.length; i++)
+//     {
 
-function findIndex(array, word)
-{   
-    for(let i = 0; i < array.length; i++)
-    {
-
-        if(array[i] === word)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
+//         if(array[i] === word)
+//         {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
 // console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'red'));
 // console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
 
 //----------------------------------------
+// Exercise 11r-u
+
 const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
 
 function removeEgg(foods)
@@ -3211,23 +3213,62 @@ function removeEgg(foods)
 // console.log(foods);
 
 //----------------------------------------
+// Exercise 11v
+// for(let i = 1; i <= 20; i++)
+// {
+//     if(i % 3 === 0 && i % 5 === 0)
+//     {
+//         console.log('FizzBuzz');
+//     }
+//     else if(i % 3 === 0)
+//     {
+//         console.log('Fizz');
+//     }
+//     else if(i % 5 === 0)
+//     {
+//         console.log('Buzz');
+//     }
+//     else
+//     {
+//         console.log(i);
+//     }
+// }
 
-for(let i = 1; i <= 20; i++)
-{
-    if(i % 3 === 0 && i % 5 === 0)
+//----------------------------------------
+// Exercise 11w
+function findIndex(array, word)
+{   
+    for(let i = 0; i < array.length; i++)
     {
-        console.log('FizzBuzz');
+        if(array[i] === word)
+        {
+            return i;
+        }
     }
-    else if(i % 3 === 0)
-    {
-        console.log('Fizz');
-    }
-    else if(i % 5 === 0)
-    {
-        console.log('Buzz');
-    }
-    else
-    {
-        console.log(i);
-    }
+    return -1;
 }
+// console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'red'));
+// console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
+
+function unique(array)
+{
+    let result = [];
+
+    for(let i = 0; i < array.length; i++)
+    {
+        const word = array[i];
+
+        // Using the findIndex() function from above, we
+        // can check if the string is already in the
+        // result array. If it's not in the result array
+        // (index is -1), then add it to the result array.
+        if(findIndex(result, word) === -1)
+        {
+            result.push(word);
+        }
+    }
+    return result;
+}
+
+console.log(unique(['green', 'red', 'blue', 'red']));
+console.log(unique(['red', 'green', 'green', 'red']));
