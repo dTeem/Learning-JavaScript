@@ -3151,9 +3151,9 @@ for(let i = 0; i < words.length; i++)
     }
 }
 
-console.log(index);
+// console.log(index);
 
-words = ['not', 'found', 'search'];
+words = ['not', 'found'];
 index = -1;
 
 for(let i = 0; i < words.length; i++)
@@ -3169,4 +3169,17 @@ for(let i = 0; i < words.length; i++)
 
 //----------------------------------------
 
+function findIndex(array, word)
+{   
+    for(let i = 0; i < array.length; i++)
+    {
 
+        if(array[i] === word)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+// console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'red'));
+console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
