@@ -3182,4 +3182,26 @@ function findIndex(array, word)
     return -1;
 }
 // console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'red'));
-console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
+// console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
+
+//----------------------------------------
+
+function removeEgg(foods)
+{
+    let result = [];
+
+    for(let i = 0; i < foods.length; i++)
+    {
+        if(foods[i] === 'egg')
+        {
+            continue;
+        }
+        else
+        {
+            result.push(foods[i]);
+        }
+    }
+    return result;
+}
+
+console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
