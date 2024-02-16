@@ -3185,23 +3185,30 @@ function findIndex(array, word)
 // console.log(findIndex(['green', 'red', 'blue', 'red', 'red'], 'yellow'));
 
 //----------------------------------------
+const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
 
 function removeEgg(foods)
 {
+    const copy = foods.slice();
     let result = [];
+    let egg = 0;
 
     for(let i = 0; i < foods.length; i++)
     {
-        if(foods[i] === 'egg')
+        copy.reverse();
+        if(copy[i] === 'egg' && egg < 2)
         {
+            egg++;
             continue;
         }
-        else
-        {
-            result.push(foods[i]);
-        }
+        result.push(copy[i]);
     }
-    return result;
+    return result.reverse();
 }
 
-console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+// console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+console.log(removeEgg(foods));
+console.log(foods);
+
+//----------------------------------------
+
