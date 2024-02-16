@@ -2943,6 +2943,7 @@ for(let i = 5; i >= 0; i--) {
 
 //--------------------------------
 // TO DO LIST V2
+// Exercise 11x (add localStorage)
 
 const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
@@ -3280,5 +3281,129 @@ function unique(array)
 // console.log(unique(['green', 'red', 'blue', 'red']));
 // console.log(unique(['red', 'green', 'green', 'red']));
 
+
+//======================= ADVANCED FUNCTIONS =======================
+// functions are also values
+//  - we can save a function inside a variable
+
+/*
+ex.
+// const greeting = function()
+// {
+//     console.log('hello');
+// }
+
+// This one is the shortcut for the code above
+function greeting()
+{
+    console.log('hello');
+}
+greeting();
+// This syntax have advantages:
+// 1. Easier to read
+// 2. Hoisting (doesn't need to worry about the order of the code)
+
+
+const num = 2;
+const function1 = function() {console.log('hello2');}
+// this is called anonymous function (function without a name)
+
+console.log(function1);
+function1();
+*/
+
+
 //----------------------------------------
-// Exercise 11x
+// Save a function in an object
+// call a function use ();
+/*
+const object1 = 
+{
+    num: 2,
+    fun: function() {console.log('hello3');}
+};
+object1.fun(); // This will show hello3 in the console
+*/
+
+//----------------------------------------
+// Pass a function into a function
+/*
+function display(param)
+{
+    console.log(param);
+}
+display(2); // This will display 2 in the console
+
+function run(param)
+{
+    param();
+
+}
+// This is the function for 'param'
+run(function()// we can declare a function on parameters
+{
+    console.log('hello4');
+});
+// The function that is passing to the function is called a callback
+*/
+
+//======================= FEATURES OF JAVASCRIPT =======================
+// setTimeout() -   allows us to run a function in the future
+//              -   it needs 2 parameters to use
+//                  1. a function we want to run in the future
+//                  2. how long to wait before running this function
+//                    (a number in milliseconds, 1000 milliseconds = 1 second)
+//              -   is a asynchronous code
+
+//-------------------------------------
+// Asynchronous Code    -   won't wait for a line to finish beforer going
+//                          to the next line
+// Advantage:
+// - it doesn't block our code for a set of time
+
+/*                 
+setTimeout(function()
+{
+    console.log('timeout');
+}, 3000); // 3000 = 3 secs
+// after 3 secs the 'timeout' will display in the console
+
+console.log('next line'); 
+// This will show first in the console before the code above
+*/
+
+//-------------------------------------
+// Synchronous Code    -   will wait for a line to finish before going
+//                         to the next line
+
+/*
+setTimeout(function()// All the code inside this code called a sychronous code
+{
+    console.log('timeout');
+    console.log('timeout2');//This will show after the 'timeout' after 3 secs
+}, 3000);
+
+console.log('next line');
+// All the code inside will still run line by line
+// If the code is placed before the declared timer it will wait the finish
+// before going to the next line
+*/
+
+//-------------------------------------
+// setInterval() -   allows us to run a function in the future
+//               -   it needs 2 parameters to use
+//                   1. a function we want to run in the future
+//                   2. how long to wait before running this function
+//                    (a number in milliseconds, 1000 milliseconds = 1 second)
+//                 **if a timer isn't set it may run the code infinitely
+//               -  is a asynchronous code
+
+/*
+setInterval(function() 
+{
+    console.log('interval');
+}, 3000); // This will run the code every 3 sec
+
+console.log('next line 2')// This code will run first before the interval
+*/
+
