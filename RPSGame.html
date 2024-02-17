@@ -87,8 +87,8 @@
             height: 100%;
             border-radius: inherit;
             background: rgb(140, 0, 0);
-            box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .625em 0 0 rgb(48, 37, 35);
-            transform: translate3d(0, .75rem, -1em);
+            box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .6em 0 0 rgb(48, 37, 35);
+            transform: translate3d(0, 0.75rem, -1em);
             transition: .15s cubic-bezier(0, 0, .6, 1);
         }
 
@@ -97,19 +97,46 @@
             transform: translate(0, .25em);
         }
 
-        .rps-btns::before {
+        .rps-btns:hover::before {
             box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .5em 0 0 rgb(48, 37, 35);
-            transform: translate3d(0, .5em, -1em);
+            transform: translate3d(0, .35em, -1em);
         }
 
         .rps-btns:active {
             background: rgb(190, 0, 0);
-            transform: translate(0, .75em);
+            transform: translate(0, .85em);
         }
 
         .rps-btns:active::before {
             box-shadow: 0 0 0 2px rgb(130, 0, 0), 0 .3em 0 0 rgb(50, 39, 36);
-            transform: translate3d(0, 0, -1em);
+            transform: translate3d(0, .1em, -2em);
+        }
+
+        .autoplay-btn 
+        {
+            background: rgb(255, 180, 0);
+            border: 2px solid rgb(255, 130, 0);
+        }
+
+        .autoplay-btn::before {
+            background: rgb(255, 110, 0);
+            box-shadow: 0 0 0 2px rgb(255, 100, 0), 0 .6em 0 0 rgb(48, 37, 35);
+        }
+
+        .autoplay-btn:hover {
+            background-color: rgb(255, 170, 15);
+        }
+
+        .autoplay-btn:hover::before {
+            box-shadow: 0 0 0 2px rgb(255, 100, 0), 0 .5em 0 0 rgb(48, 43, 35);
+        }
+
+        .autoplay-btn:active {
+            background: rgb(255, 130, 0);
+        }
+
+        .autoplay-btn:active::before {
+            box-shadow: 0 0 0 2px rgb(255, 130, 0), 0 .3em 0 0 rgb(48, 43, 35);
         }
 
 
@@ -130,7 +157,7 @@
         <p class="game-moves" id="movesRPS"></p>
         <label id="scoreRPS"></label><br><br>
         <button class="rps-btns reset-score-btn" onclick="resetRPSBtn()">Reset Score</button>
-        <button class="rps-btns autoplay-btn" onclick="resetRPSBtn()">Auto Play</button>
+        <button class="rps-btns autoplay-btn" onclick="autoPlayBtn()">Auto Play</button>
     </div>
 
     <script>
@@ -245,6 +272,32 @@
 
             scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
         }
+
+        let isAutoPlaying = false;
+        let intervalId;
+
+        function autoPlayBtn()
+        {
+            const autoplayText = document.querySelector('.autoplay-btn');
+
+            if(!isAutoPlaying)
+            {
+                intervalId = setInterval(function()
+                {
+                    const playerMove = pickComputerMove();
+                    playGame(playerMove);
+                }, 1000);
+                isAutoPlaying = true;
+                autoplayText.textContent = 'Stop Auto';
+            }
+            else 
+            {
+                clearInterval(intervalId);
+                isAutoPlaying = false;
+                autoplayText.textContent = 'Auto Play';
+            }
+        }
+
     </script>
 
 </body>

@@ -305,7 +305,7 @@ section {
 
 .rps-start-btn:active::before {
     box-shadow: 0 0 0 2px rgb(0, 130, 0), 0 .3em 0 0 rgb(191, 213, 191);
-    transform: translate3d(0, 0, -1em);
+    transform: translate3d(0, .5em, -1em);
 }
 
 
