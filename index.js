@@ -1796,30 +1796,6 @@ function resetPassBtn() {
 //     console.log(fn);
 // });
 
-
-// ======================= FOR EACH ======================
-// forEach()    -   method used to iterate (loop through) over the elements of 
-//                  an array and apply a specific function (callback) to each
-//                  element
-
-//                  array.forEach(callback)
-//                  element, index, array are provided
-
-// let numbersFor = [1, 2, 3, 4, 5];
-
-// function display(element) {
-//     console.log(element);
-// }
-
-// function double(element, index, array) {
-//     array[index] = element * 2; //<- the index inside the array will be
-//                                 //    multiplied to 2
-// }
-
-// numbersFor.forEach(double); //<- this will do the function double before 
-//                             //   displaying it
-// numbersFor.forEach(display);
-
  
 // ======================= JSON ========================
 // JSON     -   JavaScript Object Notation
@@ -2943,7 +2919,7 @@ for(let i = 5; i >= 0; i--) {
 
 //--------------------------------
 // TO DO LIST V2
-// Exercise 11x (add localStorage)
+// Exercise 11x (added localStorage)
 
 const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
@@ -3136,7 +3112,7 @@ console.log(doubleArray([2,2,0,7,2]));
 
 
 //----------------------------------------
-// --- PROJECTS FOR ARRAYS AND LOOPS ---
+// --- EXERCISES FOR ARRAYS AND LOOPS ---
 
 // Exercise 11o-p
 let words = 
@@ -3407,3 +3383,64 @@ setInterval(function()
 console.log('next line 2')// This code will run first before the interval
 */
 
+
+//======================= LOOP THROUGH AN ARRAY =======================
+// ------- FOR EACH --------
+// forEach()    -   method used to iterate (loop through) over the elements of 
+//                  an array and apply a specific function (callback) to each
+//                  element
+
+//                  array.forEach(callback)
+//                  element, index, array are provided
+
+// let numbersFor = [1, 2, 3, 4, 5];
+
+// function display(element) {
+//     console.log(element);
+// }
+
+// function double(element, index, array) {
+//     array[index] = element * 2; //<- the index inside the array will be
+//                                 //    multiplied to 2
+// }
+
+// numbersFor.forEach(double); //<- this will do the function double before 
+//                             //   displaying it
+// numbersFor.forEach(display);
+
+
+/*
+Before the way we do it is using the for loop:
+for(let i = 0; i < array.length; i++) {}
+
+another way is:
+.forEach()
+*/
+
+[
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+].forEach(function(value, index)// Passing a function into another function
+{
+    console.log(index);
+    console.log(value);
+});
+// The .forEach() save each values of the array inside the parameter 'value'
+// The value of array saves into the parameter and runs the code
+// the index parameter gets the index of the values of array
+
+/*
+Easier to read than:
+for(let i = 0; i <= array.length; i++)
+{
+    const value = array[i];
+    console.log(value);
+}
+*/
+
+
+//----------------------------------------
+// --- EXERCISES USING FOREACH ---
+
+// Exercise 12
