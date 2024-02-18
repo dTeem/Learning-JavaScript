@@ -3450,8 +3450,8 @@ another way is:
         return;
     }
 
-    console.log(index);
-    console.log(value);
+    // console.log(index);
+    // console.log(value);
 });
 // forEach doesn't have 'continue' but we can use 'return' statement
 // The .forEach() save each values of the array inside the parameter 'value'
@@ -3471,4 +3471,41 @@ for(let i = 0; i <= array.length; i++)
 //----------------------------------------
 // --- EXERCISES USING FOREACH ---
 
-// Exercise 12
+// Exercise 12a
+
+let add = function() 
+{
+    console.log(2 + 3);
+}
+
+// add();
+// add();
+
+//---------------------------
+// Exercise 12b
+
+function runTwice(fun)
+{
+    fun();
+    fun();
+}
+
+runTwice(function() {console.log('12b');});
+
+runTwice(add);
+
+//---------------------------
+// Exercise 12c
+
+function setTimeoutBtn()
+{
+    const setTimeBtn = document.getElementById("setTimeBtn");
+
+    setTimeout(function()
+    {
+        setTimeBtn.textContent = 'Finished!';
+    }, 2500);
+}
+
+
+
