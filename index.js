@@ -2920,7 +2920,7 @@ for(let i = 5; i >= 0; i--) {
 //--------------------------------
 // TO DO LIST V2
 // Exercise 11x (added localStorage)
-// Exercise 12
+// Exercise 12 (replaced for loop with forEach)
 
 const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
@@ -2932,9 +2932,6 @@ function renderTodoList()
     
 toDoArray.forEach(function(todoObject, index)
 {
-    // const name = todoObject.name; <- below is the shortcut for this code
-    // const date = todoObject.date; that is called destructuring
-    // const time = todoObject.time; takes the property to a variable
     const { name, date, time } = todoObject;
     const html = 
     `
@@ -2952,7 +2949,7 @@ toDoArray.forEach(function(todoObject, index)
 });
     // This code is the same with forEach code above but forEach is much
     //easier to read
-    
+
     // for(let i = 0; i < toDoArray.length; i++)
     // {
     //     const todoObject = toDoArray[i];
@@ -3446,10 +3443,17 @@ another way is:
     'wash dishes',
     'watch youtube'
 ].forEach(function(value, index)// Passing a function into another function
-{
+{ 
+    // for example we need to skip wash dishes
+    if(value === 'wash dishes')
+    {
+        return;
+    }
+
     console.log(index);
     console.log(value);
 });
+// forEach doesn't have 'continue' but we can use 'return' statement
 // The .forEach() save each values of the array inside the parameter 'value'
 // The value of array saves into the parameter and runs the code
 // the index parameter gets the index of the values of array
