@@ -3529,17 +3529,42 @@ function cartTimeoutBtn()
 }
 
 //---------------------------
-// Exercise 12g-h
+// Exercise 12g-i
 
 document.title = "Inbox";
 
-let messages = 1;
+let messages = 0;
+let inboxTimeout;
+
+if(messages === 0)
+{
+    document.title = "Inbox";
+}
 
 function addTimeout()
 {
     messages++;
-    
-    setInterval(function()
+    clearTimeout(inboxTimeout);
+
+    inboxTimeout = setInterval(function()
+    {
+        if(document.title === 'Inbox')
+        {
+            document.title = `(${messages}) New Messages`;
+        }
+        else
+        {
+            document.title = "Inbox";
+        }
+    }, 1000);
+}
+
+function removeTimeout()
+{
+    messages--;
+    clearTimeout(inboxTimeout);
+
+    inboxTimeout = setInterval(function()
     {
         if(document.title === 'Inbox')
         {
