@@ -2930,23 +2930,23 @@ function renderTodoList()
 {
     let todoListHTML = '';
     
-toDoArray.forEach(function(todoObject, index)
-{
-    const { name, date, time } = todoObject;
-    const html = 
-    `
-        <div>${name}</div>
-        <div>${date}</div>
-        <div>${time}</div>
-        <button onclick="
-            toDoArray.splice(${index}, 1);
-            renderTodoList();
-            saveTodoStorage();
-        " class="delete-todo-btn">Delete</button>
-    `;
+    toDoArray.forEach((todoObject, index) =>
+    {
+        const { name, date, time } = todoObject;
+        const html = 
+        `
+            <div>${name}</div>
+            <div>${date}</div>
+            <div>${time}</div>
+            <button onclick="
+                toDoArray.splice(${index}, 1);
+                renderTodoList();
+                saveTodoStorage();
+            " class="delete-todo-btn">Delete</button>
+        `;
 
-    todoListHTML += html;
-});
+        todoListHTML += html;
+    });
     // This code is the same with forEach code above but forEach is much
     //easier to read
 
@@ -3279,7 +3279,7 @@ function unique(array)
 // console.log(unique(['red', 'green', 'green', 'red']));
 
 
-//======================= ADVANCED FUNCTIONS =======================
+//======================= ADVANCED FUNCTIONS P1 =======================
 // functions are also values
 //  - we can save a function inside a variable
 
@@ -3438,21 +3438,21 @@ another way is:
 .forEach()
 */
 
-[
-    'make dinner',
-    'wash dishes',
-    'watch youtube'
-].forEach(function(value, index)// Passing a function into another function
-{ 
-    // for example we need to skip wash dishes
-    if(value === 'wash dishes')
-    {
-        return;
-    }
+// [
+//     'make dinner',
+//     'wash dishes',
+//     'watch youtube'
+// ].forEach(function(value, index)// Passing a function into another function
+// { 
+//     // for example we need to skip wash dishes
+//     if(value === 'wash dishes')
+//     {
+//         return;
+//     }
 
-    // console.log(index);
-    // console.log(value);
-});
+//     // console.log(index);
+//     // console.log(value);
+// });
 // forEach doesn't have 'continue' but we can use 'return' statement
 // The .forEach() save each values of the array inside the parameter 'value'
 // The value of array saves into the parameter and runs the code
@@ -3473,10 +3473,10 @@ for(let i = 0; i <= array.length; i++)
 
 // Exercise 12a
 
-let add = function() 
-{
-    console.log(2 + 3);
-}
+// let add = function() 
+// {
+//     console.log(2 + 3);
+// }
 
 // add();
 // add();
@@ -3484,15 +3484,15 @@ let add = function()
 //---------------------------
 // Exercise 12b
 
-function runTwice(fun)
-{
-    fun();
-    fun();
-}
+// function runTwice(fun)
+// {
+//     fun();
+//     fun();
+// }
 
-runTwice(function() {console.log('12b');});
+// runTwice(function() {console.log('12b');});
 
-runTwice(add);
+// // runTwice(add);
 
 //---------------------------
 // Exercise 12c-d (added loading onclick)
@@ -3575,4 +3575,82 @@ function removeTimeout()
             document.title = "Inbox";
         }
     }, 1000);
+}
+
+
+//======================= ADVANCED FUNCTIONS P2 =======================
+// Arrow Functions  -   a shorter way to write functions
+
+// const regularFunction = function(param, param2)
+// {
+//     console.log('hello');
+//     return 5;
+// }
+// regularFunction();
+
+
+// const arrowFunction = (param, param2) =>
+// {
+//     console.log('hello2');
+//     return 5;
+// };
+// arrowFunction();
+
+// // Differences of regular and arrow function:
+// // regular functions has hoisting features 
+// //   (the order of the code is not needed)
+
+// // If the arrow function only have one parameters you can remove the brackets
+// const oneParam = param =>
+// {
+//     console.log(param + 1);
+// };
+
+// oneParam(2); // This will show 3 in the console
+
+// // If the arrow function only has one line of code you can use this shortcut.
+// const oneLine = () => 2 + 3; // this is a shortcut for the code below
+// // Just having an arrow it will automatically return the result on the right.
+// /*
+//     const oneLine = () => 
+//     {
+//         return 2 + 3;
+//     };
+// */
+// console.log(oneLine()); // This will show 5 in the console
+
+
+//----------------------------------------
+// --- EXERCISES USING ARROW FUNCTIONS ---
+
+// If we are passing a function into another function it's recommended to use 
+// arrow function because it's easier to read
+[
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+].forEach((value, index) =>// Passing a function into another function
+{ 
+    // for example we need to skip wash dishes
+    if(value === 'wash dishes')
+    {
+        return;
+    }
+
+    // console.log(index);
+    // console.log(value);
+});
+
+// Arrow function inside an onbject
+
+const obj2 = 
+{
+    method: () => // this is a arrow function inside the object
+    {
+
+    },
+    method2() // this is a shorthand method is the same as the 'method' object
+    {
+
+    }
 }
