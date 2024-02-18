@@ -2920,6 +2920,7 @@ for(let i = 5; i >= 0; i--) {
 //--------------------------------
 // TO DO LIST V2
 // Exercise 11x (added localStorage)
+// Exercise 12
 
 const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
@@ -2929,6 +2930,11 @@ function renderTodoList()
 {
     let todoListHTML = '';
     
+toDoArray.forEach(function(todoObject, index)
+{
+    
+});
+
     for(let i = 0; i < toDoArray.length; i++)
     {
         const todoObject = toDoArray[i];
