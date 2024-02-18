@@ -2932,30 +2932,48 @@ function renderTodoList()
     
 toDoArray.forEach(function(todoObject, index)
 {
-    
+    // const name = todoObject.name; <- below is the shortcut for this code
+    // const date = todoObject.date; that is called destructuring
+    // const time = todoObject.time; takes the property to a variable
+    const { name, date, time } = todoObject;
+    const html = 
+    `
+        <div>${name}</div>
+        <div>${date}</div>
+        <div>${time}</div>
+        <button onclick="
+            toDoArray.splice(${index}, 1);
+            renderTodoList();
+            saveTodoStorage();
+        " class="delete-todo-btn">Delete</button>
+    `;
+
+    todoListHTML += html;
 });
+    // This code is the same with forEach code above but forEach is much
+    //easier to read
+    
+    // for(let i = 0; i < toDoArray.length; i++)
+    // {
+    //     const todoObject = toDoArray[i];
+    //     // const name = todoObject.name; <- below is the shortcut for this code
+    //     // const date = todoObject.date; that is called destructuring
+    //     // const time = todoObject.time; takes the property to a variable
+    //     const { name, date, time } = todoObject;
+    //     const html = 
+    //     `
+    //         <div>${name}</div>
+    //         <div>${date}</div>
+    //         <div>${time}</div>
+    //         <button onclick="
+    //             toDoArray.splice(${i}, 1);
+    //             renderTodoList();
+    //             saveTodoStorage();
+    //         " class="delete-todo-btn">Delete</button>
+    //     `;
 
-    for(let i = 0; i < toDoArray.length; i++)
-    {
-        const todoObject = toDoArray[i];
-        // const name = todoObject.name; <- below is the shortcut for this code
-        // const date = todoObject.date; that is called destructuring
-        // const time = todoObject.time; takes the property to a variable
-        const { name, date, time } = todoObject;
-        const html = 
-        `
-            <div>${name}</div>
-            <div>${date}</div>
-            <div>${time}</div>
-            <button onclick="
-                toDoArray.splice(${i}, 1);
-                renderTodoList();
-                saveTodoStorage();
-            " class="delete-todo-btn">Delete</button>
-        `;
-
-        todoListHTML += html;
-    }
+    //     todoListHTML += html;
+    // }
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 }
 
