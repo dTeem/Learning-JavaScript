@@ -3495,11 +3495,13 @@ runTwice(function() {console.log('12b');});
 runTwice(add);
 
 //---------------------------
-// Exercise 12c
+// Exercise 12c-d (added loading onclick)
 
 function setTimeoutBtn()
 {
     const setTimeBtn = document.getElementById("setTimeBtn");
+
+    setTimeBtn.textContent = 'Loading...';
 
     setTimeout(function()
     {
@@ -3507,5 +3509,45 @@ function setTimeoutBtn()
     }, 2500);
 }
 
+//---------------------------
+// Exercise 12e-f
 
+function cartTimeoutBtn()
+{
+    const cartTimerText = document.getElementById("cartTimerText");
+    let click;
 
+    cartTimerText.textContent = 'Added';
+    // First, cancel the previous timeout so that
+    // it doesn't remove the message to quickly
+    clearTimeout(click);
+
+    click = setTimeout(function()
+    {
+        cartTimerText.textContent = null;
+    }, 2000);
+}
+
+//---------------------------
+// Exercise 12g-h
+
+document.title = "Inbox";
+
+let messages = 1;
+
+function addTimeout()
+{
+    messages++;
+    
+    setInterval(function()
+    {
+        if(document.title === 'Inbox')
+        {
+            document.title = `(${messages}) New Messages`;
+        }
+        else
+        {
+            document.title = "Inbox";
+        }
+    }, 1000);
+}
