@@ -1883,7 +1883,7 @@ function resetPassBtn() {
 //  1/3 -> 2/3 = paper
 //  2/3 -> 1   = scissors
 function rpsGame() {
-    let options = 'statubar=no, height=700, width=500';
+    let options = 'statubar=no, height=800, width=500';
     window.open('RPSGame.html', 'RPS Game', options);
 }
 /*
@@ -2938,11 +2938,7 @@ function renderTodoList()
             <div>${name}</div>
             <div>${date}</div>
             <div>${time}</div>
-            <button onclick="
-                toDoArray.splice(${index}, 1);
-                renderTodoList();
-                saveTodoStorage();
-            " class="delete-todo-btn">Delete</button>
+            <button class="delete-todo-btn js-delete-btn">Delete</button>
         `;
 
         todoListHTML += html;
@@ -2972,7 +2968,29 @@ function renderTodoList()
     //     todoListHTML += html;
     // }
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+
+
+    //.querySelectorAll - will give us all the elements that has the same class
+    document.querySelectorAll('.js-delete-btn')
+    // Everytime we loop this code, forEach needs 2 parameters
+    // 1. Value
+    // 2. Index
+        .forEach((deleteButton, index) =>
+        {
+            deleteButton.addEventListener('click', () =>
+            {
+                toDoArray.splice(index, 1);
+                renderTodoList();
+                saveTodoStorage();
+            });
+        });
 }
+
+document.querySelector('.js-add-btn')
+    .addEventListener('click', () =>
+    {
+        addTodoBtn()
+    });
 
 function addTodoBtn()
 {
@@ -3588,7 +3606,6 @@ function removeTimeout()
 // }
 // regularFunction();
 
-
 // const arrowFunction = (param, param2) =>
 // {
 //     console.log('hello2');
@@ -3620,9 +3637,6 @@ function removeTimeout()
 // console.log(oneLine()); // This will show 5 in the console
 
 
-//----------------------------------------
-// --- EXERCISES USING ARROW FUNCTIONS ---
-
 // If we are passing a function into another function it's recommended to use 
 // arrow function because it's easier to read
 [
@@ -3636,7 +3650,7 @@ function removeTimeout()
     {
         return;
     }
-
+    
     // console.log(index);
     // console.log(value);
 });
@@ -3647,10 +3661,55 @@ const obj2 =
 {
     method: () => // this is a arrow function inside the object
     {
-
+        
     },
     method2() // this is a shorthand method is the same as the 'method' object
-    {
-
+    {// It is recommended to use shorthand when saving a function in object
+        
     }
 }
+
+// .addEventListener()  -   lets us run some code when we interact with the elem
+// .addEventListener() for using a JS onclick event
+
+/*
+Ex.
+<button onclick="" class="js-button">Click</button>
+*/
+const buttonElement = document.querySelector('.js-button');
+
+// buttonElement.addEventListener('click', () => 
+// {
+//     console.log('click');
+// });
+// addEventListener has 2 parameters:
+// 1. event
+// 2. function we want to run
+
+// It has a advantage over using an attribute
+// 1. Add multiple event listeners for an event
+// 2. We can remove an event listener .removeEventListener()
+//      removeEventListener has also need 2 parameters:
+//      1. event
+//      2. function want to remove
+
+const eventListener = () => 
+{
+    console.log('click'); 
+}
+
+buttonElement.addEventListener('click', eventListener); // This will show in the console when you click the button it will
+// run both the code
+
+buttonElement.removeEventListener('click', eventListener);
+
+buttonElement.addEventListener('click', () => 
+{
+    console.log('click2');
+});
+
+
+//----------------------------------------
+// --- EXERCISES USING ARROW FUNCTIONS ---
+
+

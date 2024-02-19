@@ -146,9 +146,10 @@
 
     <h4>Rock Paper Scissors</h4>
     <div class="btn-container">
-        <button class="rps-icons" id="rockBtn" onclick="rock()">🪨</button>
-        <button class="rps-icons" id="paperBtn" onclick="paper()">📄</button>
-        <button class="rps-icons" id="scissorsBtn" onclick="scissors()">✂️</button>
+        <button class="rps-icons js-rock-button" id="rockBtn" onclick="rock()">🪨</button>
+        <button class="rps-icons js-paper-button" id="paperBtn" onclick="paper()">📄</button>
+        <button class="rps-icons js-scissors-button" id="scissorsBtn" onclick="scissors()">✂️</button><br><br>
+        <label for="">On keyboard Q: rock, W: paper, E: scissors</label>
     </div>
     <div class="results-container">
         <p class="rps-labels game-result" id="resultRPS"></p>
@@ -171,17 +172,64 @@
 
         rpsScore();
 
-        function rock() {
-            playGame('🪨');
-        }
 
-        function paper() {
-            playGame('📄');
-        }
+        // Replaced onlick function with addEventListener
 
-        function scissors() {
-            playGame('✂️');
-        }
+        // function rock() {
+        //     playGame('🪨');
+        // }
+
+        // function paper() {
+        //     playGame('📄');
+        // }
+
+        // function scissors() {
+        //     playGame('✂️');
+        // }
+
+        document.querySelector('.js-rock-button')
+            .addEventListener('click', () => 
+            {
+                playGame('🪨');
+            });
+
+        document.querySelector('.js-paper-button')
+            .addEventListener('click', () => 
+            {
+                playGame('📄');
+            });
+
+        document.querySelector('.js-scissors-button')
+            .addEventListener('click', () => 
+            {
+                playGame('✂️');
+            });
+
+        document.body.addEventListener('keydown', (event) => 
+        {
+        // console.log(event.key); // will show the key you pressed on keyboard
+            if(event.key === 'q')
+            {
+                playGame('🪨');
+            }
+            else if(event.key === 'w')
+            {
+                playGame('📄');
+            }
+            else if(event.key === 'e')
+            {
+                playGame('✂️');
+            }
+        });
+
+        /*
+        onkeydown="
+        if(event.key === 'r')
+        {
+            ...
+        }"
+        */
+
 
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
@@ -297,6 +345,8 @@
                 autoplayText.textContent = 'Auto Play';
             }
         }
+
+
 
     </script>
 
