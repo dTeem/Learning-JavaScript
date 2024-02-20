@@ -2930,7 +2930,7 @@ function renderTodoList()
 {
     let todoListHTML = '';
     
-    toDoArray.forEach((todoObject, index) =>
+    toDoArray.forEach((todoObject) =>
     {
         const { name, date, time } = todoObject;
         const html = 
@@ -3693,6 +3693,7 @@ const buttonElement = document.querySelector('.js-button');
 //      1. event
 //      2. function want to remove
 
+/*
 const eventListener = () => 
 {
     console.log('click'); 
@@ -3707,6 +3708,63 @@ buttonElement.addEventListener('click', () =>
 {
     console.log('click2');
 });
+*/
+
+
+//======================= ADVANCED ARRAY METHODS =======================
+// 2 more array methods:
+//  1. .filter() - works the same as forEach
+//               - needs 2 parameters value and index
+
+//  2. .map()    - works the same as forEach and filter
+//               - 
+
+/*
+ex. we have na array that we want to copy but remove the negative numbers
+.filter()
+[1, -3, 5] -> [1, 5]
+
+// .filter()
+//  1. Creates a new array[]
+//  2. return true, -> put value in array
+
+console.log([1, -3, 5].filter((value, index) =>
+{
+    /*
+    if(value >= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    *
+   // the code below is the same as the code above
+   return value >= 0;
+}));
+// -return true if positive
+// -return false if negative
+*/
+
+
+// .map()   - transform an array into another array
+//  1. creates a new array[]
+//  2. Whatever we return -> added to new array
+
+// console.log([1, 1, 3].map((value, index) =>
+// {
+//     // return 10; // will show in the console [10, 10, 10]
+//     return value + 10;
+// }));
+
+//----------------------------------------
+// --- SHORTCUTS OF ARROW FUNCTIONS ---
+console.log([1, 1, 3].map(value => value + 10));
+// This code is the same as the code above
+
+
+
 
 
 //----------------------------------------
