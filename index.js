@@ -2984,6 +2984,7 @@ function renderTodoList()
                 saveTodoStorage();
             });
         });
+
 }
 
 document.querySelector('.js-add-btn')
@@ -3713,11 +3714,27 @@ buttonElement.addEventListener('click', () =>
 //------- CLOSURE --------
 // - if a function has access to that value
 // - it will always have access to that value
+// - value gets packaged together (enclosed) with the function
+// - it automatically happens in the js code
 
 /*
+ex.
+    document.querySelectorAll('.js-delete-btn')
+    // Everytime we loop this code, forEach needs 2 parameters
+    // 1. Value
+    // 2. Index
+        .forEach((deleteButton, index) =>
+        {
+            deleteButton.addEventListener('click', () =>
+            {
+                toDoArray.splice(index, 1);
+                renderTodoList();
+                saveTodoStorage();
+            });
+        });
+        console.log(index); <- this will show error in the console since the 
+        since the index didn't exist outside the function
 */
-
-
 
 
 //======================= ADVANCED ARRAY METHODS =======================
@@ -3769,14 +3786,26 @@ console.log([1, -3, 5].filter((value, index) =>
 
 //----------------------------------------
 // --- SHORTCUTS OF ARROW FUNCTIONS ---
-console.log([1, 1, 3].map(value => value + 10));
+// console.log([1, 1, 3].map(value => value + 10));
 // This code is the same as the code above
-
-
-
 
 
 //----------------------------------------
 // --- EXERCISES USING ARROW FUNCTIONS ---
 
+// Exercise 12j
 
+const multiply = (param1, param2) => console.log(param1 * param2);
+
+multiply(2, 3);
+multiply(7, 10);
+
+// Exercise 12l
+
+function countPositive(nums)
+{
+    
+}
+
+countPositive([1, -3, 5]);
+countPositive([-2, 3, -5, 7, 10]);
