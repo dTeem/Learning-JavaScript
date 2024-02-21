@@ -3406,7 +3406,7 @@ console.log('next line');
 */
 
 //-------------------------------------
-// setInterval() -   allows us to run a function in the future
+// setInterval() -   allows us to run a function in the future continously
 //               -   it needs 2 parameters to use
 //                   1. a function we want to run in the future
 //                   2. how long to wait before running this function
@@ -3969,3 +3969,37 @@ setTimeBtn.addEventListener('click', () =>
 // Exercise 12r
 // Check the RPS Game added some keyboard shortcuts and features
 
+
+// ======== MINI APP PROJECTS =========
+// STOP WATCH
+
+const swCounter = document.getElementById("swCounterTimer");
+const swStartBtn = document.querySelector('.js-sw-start');
+let miliSec = 0;
+let seconds = 0;
+let minutes = 0;
+
+swStartBtn.addEventListener('click', () =>
+{
+    setInterval(()=>
+    {
+        if(miliSec < 99)
+        {
+            miliSec++;
+            swCounter.textContent = miliSec;
+            if(miliSec === 99)
+            {
+                seconds++;
+                swCounter.textContent = `${seconds}.${miliSec}`;
+            }
+            seconds++;
+            swCounter.textContent = `${seconds}.${miliSec}`;
+        }
+    }, 10);
+});
+
+
+function updateTimer()
+{
+    seconds = Math.floor(1000 / 1000) % 60;
+}
