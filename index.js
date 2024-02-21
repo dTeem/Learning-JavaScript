@@ -3967,3 +3967,5 @@ setTimeBtn.addEventListener('click', () =>
 
 //---------------------------
 // Exercise 12r
+// Check the RPS Game added some keyboard shortcuts and features
+

@@ -149,7 +149,7 @@
         <button class="rps-icons js-rock-button" id="rockBtn" onclick="rock()">🪨</button>
         <button class="rps-icons js-paper-button" id="paperBtn" onclick="paper()">📄</button>
         <button class="rps-icons js-scissors-button" id="scissorsBtn" onclick="scissors()">✂️</button><br><br>
-        <label for="">On keyboard Q: rock, W: paper, E: scissors</label>
+        <label for="">On keyboard Q: rock, W: paper, E: scissors, A: Autoplay</label>
     </div>
     <div class="results-container">
         <p class="rps-labels game-result" id="resultRPS"></p>
@@ -157,6 +157,7 @@
     <div class="scores-container">
         <p class="game-moves" id="movesRPS"></p>
         <label id="scoreRPS"></label><br><br>
+        <p class="js-reset-confirmation"></p>
         <button class="rps-btns reset-score-btn" onclick="resetRPSBtn()">Reset Score</button>
         <button class="rps-btns autoplay-btn" onclick="autoPlayBtn()">Auto Play</button>
     </div>
@@ -164,6 +165,7 @@
     <script>
         const resultRPS = document.getElementById("resultRPS");
         const movesRPS = document.getElementById("movesRPS");
+        const resetConfirm = document.querySelector('.js-reset-confirmation');
         let score = JSON.parse(localStorage.getItem('score')) || {
             wins: 0,
             losses: 0,
@@ -220,6 +222,10 @@
             {
                 playGame('✂️');
             }
+            else if(event.key === 'a')
+            {
+                autoPlayBtn();
+            }
         });
 
         /*
@@ -229,7 +235,6 @@
             ...
         }"
         */
-
 
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
@@ -303,7 +308,22 @@
             return computerMove;
         }
 
-        function resetRPSBtn() {
+        // This function ask for the reset confirmation onclick
+        function resetRPSBtn() 
+        {
+            if(score.wins === 0 && score.losses === 0 && score.ties === 0)
+            {
+                resetConfirm.innerHTML = 'You already reset the score!'
+            }
+            else
+            {
+                showResetConfirmation();
+            }
+        }
+
+        // This function resets the score
+        function resetRPSScore()
+        {
             score.wins = 0;
             score.losses = 0;
             score.ties = 0;
@@ -315,12 +335,44 @@
             rpsScore();
         }
 
+        // This function shows the reset confirmation
+        function showResetConfirmation()
+        {
+            resetConfirm.innerHTML =
+                `
+                Are you sure you want to reset the score?
+                <button class="js-reset-confirm-yes confirm-btn">Yes</button>
+                <button class="js-reset-confirm-no confirm-btn">No</button>
+                `;
+
+            document.querySelector('.js-reset-confirm-yes')
+                .addEventListener('click', () =>
+                {
+                    resetRPSScore();
+                    hideResetConfirmation();
+                });
+
+            document.querySelector('.js-reset-confirm-no')
+                .addEventListener('click', () =>
+                {
+                    hideResetConfirmation();
+                });
+        }
+
+        // This function hides the confirmation after an option in clicked
+        function hideResetConfirmation()
+        {
+            resetConfirm.innerHTML = '';
+        }
+
+        // This function shows the score
         function rpsScore() {
             const scoreRPS = document.getElementById("scoreRPS");
 
             scoreRPS.textContent = `Wins: ${score.wins}, Losses: ${score.losses},  Ties: ${score.ties}`;
         }
 
+        // This function lets you autoplay the rps game
         let isAutoPlaying = false;
         let intervalId;
 
