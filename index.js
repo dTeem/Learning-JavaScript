@@ -3710,6 +3710,15 @@ buttonElement.addEventListener('click', () =>
 });
 */
 
+//------- CLOSURE --------
+// - if a function has access to that value
+// - it will always have access to that value
+
+/*
+*/
+
+
+
 
 //======================= ADVANCED ARRAY METHODS =======================
 // 2 more array methods:
