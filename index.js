@@ -3469,8 +3469,8 @@ another way is:
 //         return;
 //     }
 
-//     // console.log(index);
-//     // console.log(value);
+//     console.log(index);
+//     console.log(value);
 // });
 // forEach doesn't have 'continue' but we can use 'return' statement
 // The .forEach() save each values of the array inside the parameter 'value'
@@ -3488,7 +3488,7 @@ for(let i = 0; i <= array.length; i++)
 
 
 //----------------------------------------
-// --- EXERCISES USING FOREACH ---
+// --- EXERCISES USING ADVANCED FUNCTION ---
 
 // Exercise 12a
 
@@ -3516,17 +3516,19 @@ for(let i = 0; i <= array.length; i++)
 //---------------------------
 // Exercise 12c-d (added loading onclick)
 
-function setTimeoutBtn()
-{
-    const setTimeBtn = document.getElementById("setTimeBtn");
+// This is using onlick function
+// see exercise 12q using the addEventListener
+// function setTimeoutBtn()
+// {
+//     const setTimeBtn = document.getElementById("setTimeBtn");
 
-    setTimeBtn.textContent = 'Loading...';
+//     setTimeBtn.textContent = 'Loading...';
 
-    setTimeout(function()
-    {
-        setTimeBtn.textContent = 'Finished!';
-    }, 2500);
-}
+//     setTimeout(function()
+//     {
+//         setTimeBtn.textContent = 'Finished!';
+//     }, 2500);
+// }
 
 //---------------------------
 // Exercise 12e-f
@@ -3670,19 +3672,22 @@ const obj2 =
     }
 }
 
+
+// ------- EventListener --------
 // .addEventListener()  -   lets us run some code when we interact with the elem
 // .addEventListener() for using a JS onclick event
 
 /*
 Ex.
 <button onclick="" class="js-button">Click</button>
-*/
 const buttonElement = document.querySelector('.js-button');
 
-// buttonElement.addEventListener('click', () => 
-// {
-//     console.log('click');
-// });
+buttonElement.addEventListener('click', () => 
+{
+    console.log('click');
+});
+*/
+
 // addEventListener has 2 parameters:
 // 1. event
 // 2. function we want to run
@@ -3690,7 +3695,7 @@ const buttonElement = document.querySelector('.js-button');
 // It has a advantage over using an attribute
 // 1. Add multiple event listeners for an event
 // 2. We can remove an event listener .removeEventListener()
-//      removeEventListener has also need 2 parameters:
+//      removeEventListener also need 2 parameters:
 //      1. event
 //      2. function want to remove
 
@@ -3700,8 +3705,8 @@ const eventListener = () =>
     console.log('click'); 
 }
 
-buttonElement.addEventListener('click', eventListener); // This will show in the console when you click the button it will
-// run both the code
+buttonElement.addEventListener('click', eventListener); 
+// This will show in the console when you click the button it will run both the code
 
 buttonElement.removeEventListener('click', eventListener);
 
@@ -3749,40 +3754,53 @@ ex.
 ex. we have na array that we want to copy but remove the negative numbers
 .filter()
 [1, -3, 5] -> [1, 5]
-
+*/
 // .filter()
 //  1. Creates a new array[]
 //  2. return true, -> put value in array
 
-console.log([1, -3, 5].filter((value, index) =>
-{
-    /*
-    if(value >= 0)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-    *
-   // the code below is the same as the code above
-   return value >= 0;
-}));
+// console.log([1, -3, 5].filter((value) =>
+// {
+    
+//     if(value >= 0)
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return false;
+//     }
+//    // the code below is the same as the code above
+// //    return value >= 0;
+// })); // this will show in the console [1, 5]
+
 // -return true if positive
 // -return false if negative
-*/
+
 
 
 // .map()   - transform an array into another array
 //  1. creates a new array[]
 //  2. Whatever we return -> added to new array
 
-// console.log([1, 1, 3].map((value, index) =>
+// console.log([1, 1, 3].map((value) =>
 // {
 //     // return 10; // will show in the console [10, 10, 10]
 //     return value + 10;
 // }));
+
+// ex. we want the function to return an array that each value is increased by
+// the 2 parameter.
+/*
+function addNum(array, num)
+{
+    return array.map((value) => value + num);
+}
+
+console.log(addNum([1, 2, 3], 2)); <- this will show [3, 4, 5]
+console.log(addNum([-2, -1, 0, 99], 2)); <- this will show [0, 1, 2, 101]
+*/
+
 
 //----------------------------------------
 // --- SHORTCUTS OF ARROW FUNCTIONS ---
@@ -3795,17 +3813,157 @@ console.log([1, -3, 5].filter((value, index) =>
 
 // Exercise 12j
 
-const multiply = (param1, param2) => console.log(param1 * param2);
+// const multiply = (param1, param2) => console.log(param1 * param2);
 
-multiply(2, 3);
-multiply(7, 10);
+// multiply(2, 3);
+// multiply(7, 10);
 
+//------------------------------
 // Exercise 12l
 
-function countPositive(nums)
-{
-    
-}
+// function countPositive(nums)
+// {
+//     let positive = 0;
 
-countPositive([1, -3, 5]);
-countPositive([-2, 3, -5, 7, 10]);
+//     nums.forEach((num) => 
+//     {
+//         if(num > 0)
+//         {
+//             positive++;
+//         }
+//     });
+//     return positive;
+// }
+
+// console.log(countPositive([1, -3, 5]));
+// console.log(countPositive([-2, 3, -5, 7, 10]));
+
+//------------------------------
+// Exercise 12m
+
+// function addNum(array, num)
+// {
+//     return array.map((value) => value + num);
+// }
+
+// console.log(addNum([1, 2, 3], 2));
+// console.log(addNum([-2, -1, 0, 99], 2));
+
+//------------------------------
+// Exercise 12n-o
+
+// function removeEgg(foods)
+// {
+    // return foods.filter((value) =>
+    // {
+    //     if(value === 'egg')
+    //     {
+    //         return false;
+    //     }
+    //     else
+    //     {
+    //         return true;
+    //     }
+    // });
+                
+    // OR in one line short cut
+    // return foods.filter((value) => value !== 'egg');
+    // '!==' is a strict inequality operator
+    // same with '===' but false 
+                
+//     let egg = 0;
+
+//     return foods.filter((value) =>
+//     {
+//         if(value === 'egg' && egg < 2)
+//         {
+//             egg++;
+//             return false;
+//         }
+//         return true;
+//     });
+
+// }
+
+// console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+
+//------------------------------
+// Exercise 12p
+// change to using arrow function
+
+// From Exercise 12c-d (added loading onclick)
+
+// function setTimeoutBtn()
+// {
+//     const setTimeBtn = document.getElementById("setTimeBtn");
+
+//     setTimeBtn.textContent = 'Loading...';
+
+//     setTimeout(() =>
+//     {
+//         setTimeBtn.textContent = 'Finished';
+//     }, 2500);
+// }
+
+// This setTimeout function is the same code as above
+// only using the arrow function
+//     setTimeout(function()
+//     {
+//         setTimeBtn.textContent = 'Finished!';
+//     }, 2500);
+// }
+
+// From Exercise 12e-f
+// function cartTimeoutBtn()
+// {
+//     const cartTimerText = document.getElementById("cartTimerText");
+//     let click;
+
+//     cartTimerText.textContent = 'Added';
+//     // First, cancel the previous timeout so that
+//     // it doesn't remove the message to quickly
+//     clearTimeout(click);
+
+//     click = setTimeout(() =>
+//     {
+//         cartTimerText.textContent = null;
+//     }, 2000);
+
+        // only used the arrow function in the code above
+//     // click = setTimeout(function()
+//     // {
+//     //     cartTimerText.textContent = null;
+//     // }, 2000);
+// }
+
+//---------------------------
+// Exercise 12q
+// Use EventListener instead onlick on exercise 12c
+
+// function setTimeoutBtn()
+// {
+//     const setTimeBtn = document.getElementById("setTimeBtn");
+
+//     setTimeBtn.textContent = 'Loading...';
+
+//     setTimeout(() =>
+//     {
+//         setTimeBtn.textContent = 'Finished';
+//     }, 2500);
+// }
+
+const setTimeBtn = document.getElementById("setTimeBtn");
+
+setTimeBtn.addEventListener('click', () =>
+{
+    setTimeBtn.textContent = 'Loading!!!';
+
+    setTimeout(() =>
+    {
+        setTimeBtn.textContent = 'Finished';
+    }, 2500);
+});
+
+//---------------------------
+// Exercise 12r
