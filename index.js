@@ -3975,6 +3975,7 @@ setTimeBtn.addEventListener('click', () =>
 
 const swCounter = document.getElementById("swCounterTimer");
 const swStartBtn = document.querySelector('.js-sw-start');
+const swResetBtn = document.querySelector('.js-sw-reset');
 let miliSec = 0;
 let seconds = 0;
 let minutes = 0;
@@ -3983,10 +3984,18 @@ let timer = false;
 
 swStartBtn.addEventListener('click', () =>
 {
-    timer = true;
-    stopWatch();
+    if(!timer)
+    {
+        timer = true;
+        stopWatch();
+        swStartBtn.textContent = `Stop`;
+    }
+    else
+    {
+        timer = false;
+        swStartBtn.textContent = `Start`;
+    }
 });
-
 
 
 function stopWatch()
@@ -4033,7 +4042,23 @@ function stopWatch()
 }
 
 
+swResetBtn.addEventListener('click', () =>
+{
+    resetTimer();
+});
+
+
+function stopTimer()
+{
+    swCounter.textContent = `${minString}:${secString}.${milString}`;
+}
+
 function resetTimer()
 {
+    timer = false;
+    miliSec = 0;
+    seconds = 0;
+    minutes = 0;
 
+    swCounter.textContent = `00:00.00`;
 }
