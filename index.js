@@ -3978,28 +3978,62 @@ const swStartBtn = document.querySelector('.js-sw-start');
 let miliSec = 0;
 let seconds = 0;
 let minutes = 0;
+let timer = false;
+// let hours = 0;
 
 swStartBtn.addEventListener('click', () =>
 {
-    setInterval(()=>
-    {
-        if(miliSec < 99)
-        {
-            miliSec++;
-            swCounter.textContent = miliSec;
-            if(miliSec === 99)
-            {
-                seconds++;
-                swCounter.textContent = `${seconds}.${miliSec}`;
-            }
-            seconds++;
-            swCounter.textContent = `${seconds}.${miliSec}`;
-        }
-    }, 10);
+    timer = true;
+    stopWatch();
 });
 
 
-function updateTimer()
+
+function stopWatch()
 {
-    seconds = Math.floor(1000 / 1000) % 60;
+    if(timer)
+    {
+        miliSec++;
+
+        if(miliSec == 100)
+        {
+            seconds++;
+            miliSec = 0;
+        }
+        if(seconds == 60)
+        {
+            minutes++;
+            seconds = 0;
+        }
+        // if(minutes == 60)
+        // {
+        //     hours++;
+        //     minutes = 0;
+        // }
+        let minString = minutes;
+        let secString = seconds;
+        let milString = miliSec;
+
+        if(minutes < 10)
+        {
+            minString = "0" + minString;
+        }
+        if(seconds < 10)
+        {
+            secString = "0" + secString;
+        }
+        if(miliSec < 10)
+        {
+            milString = '0' + milString;
+        }
+
+        swCounter.textContent = `${minString}:${secString}.${milString}`;
+        setTimeout(stopWatch, 10);
+    }
+}
+
+
+function resetTimer()
+{
+
 }
