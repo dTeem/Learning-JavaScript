@@ -4062,3 +4062,110 @@ function resetTimer()
 
     swCounter.textContent = `00:00.00`;
 }
+
+
+//---------------------------
+// TIC TAC TOE
+
+let boxes = document.querySelectorAll('.box');
+let turn = 'X';
+let isGameOver = false;
+
+boxes.forEach(box =>
+{
+    box.innerHTML = ''
+    box.addEventListener('click', () =>
+    {
+        if(!isGameOver && box.innerHTML === '')
+        {
+            box.innerHTML = turn;
+            checkWin();
+            checkDraw();
+            changeTurn();
+        }
+    })
+})
+
+function changeTurn()
+{
+    if(turn === 'X')
+    {
+        turn = 'O';
+        document.querySelector('.turn-bg').style.left = "85px";
+    }
+    else
+    {
+        turn = 'X';
+        document.querySelector('.turn-bg').style.left = "0";
+    }
+}
+
+function checkWin()
+{
+    const winMoves =
+    [
+     [0, 1, 2],
+     [3, 4, 5],
+     [6, 7, 8],
+     [0, 3, 6],
+     [1, 4, 7],
+     [2, 5, 8],
+     [0, 4, 8],
+     [2, 4, 6],
+    ];
+
+    for(let i = 0; i < winMoves.length; i++)
+    {
+        let v0 = boxes[winMoves[i][0]].innerHTML;
+        let v1 = boxes[winMoves[i][1]].innerHTML;
+        let v2 = boxes[winMoves[i][2]].innerHTML;
+
+        if(v0 != '' && v0 === v1 && v0 === v2)
+        {
+            isGameOver = true;
+            document.getElementById("tictacResults").innerHTML = `${turn} Wins!`;
+            document.getElementById("playAgain").style.display = 'inline';
+
+            for(t = 0; t < 3; t++)
+            {
+                boxes[winMoves[i][t]].style.backgroundColor = "#ff3c2e"
+                document.querySelector('.turn-bg').style.display = 'none'
+                boxes[winMoves[i][t]].style.color = "#000"
+            }
+        }
+    }
+}
+
+function checkDraw()
+{
+    if(!isGameOver)
+    {
+        let isDraw = true;
+        boxes.forEach(box =>
+            {
+                if(box.innerHTML === '') isDraw = false;
+            })
+        if(isDraw)
+        {
+            isGameOver = true;
+            document.getElementById('tictacResults').innerHTML = 'Draw'
+            document.getElementById('playAgain').style.display = 'inline'
+        }
+    }
+}
+
+document.getElementById('playAgain').addEventListener('click', () =>
+{
+    isGameOver = false;
+    turn = 'X';
+    document.querySelector('.turn-bg').style.left = '0'
+    document.getElementById('tictacResults').innerHTML = null
+    document.getElementById('playAgain').style.display = 'none'
+
+    boxes.forEach(box =>
+        {
+            box.innerHTML = ''
+            box.style.removeProperty('background-color');
+            box.style.color = '#fff'
+        })
+})

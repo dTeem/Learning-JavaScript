@@ -1,3 +1,9 @@
+*
+{
+    transition: 0.2s ease-in-out;
+    user-select: none;
+}
+
 body {
     font-family: Poppins, system-ui;
     background: rgb(13, 13, 13);
@@ -497,4 +503,102 @@ section {
 .delete-todo-btn {
     background: darkred;
     padding: 10px;
+}
+
+
+/* ---- TIC TAC TOE---- */
+.tictac-game-container
+{
+    text-align: center;
+}
+
+.tictac-turn-container
+{
+    width: 170px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+}
+
+.tictac-turn-container h4
+{
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.tictac-turn-container .turn-box
+{
+    border: 3px solid rgb(196, 196, 196);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.align
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.turn-box:nth-child(even)
+{
+    border-right: none;
+}
+
+.turn-bg
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85px;
+    height: 42px;
+    background-color: #ff8c2e;
+    z-index: -1;
+}
+
+.main-grid
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 250px;
+    width: 250px;
+    margin: 30px auto;
+    border: 5px solid rgb(196, 196, 196);
+
+}
+
+.box
+{
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 3px solid rgb(196, 196, 196);
+}
+
+.box:hover
+{
+    background-color: #ff8c2e;
+}
+
+#playAgain
+{
+    background-color: #ff8c2e;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+#playAgain:hover{
+    padding: 10px 40px;
+    background-color: #ff3c2e;
 }
