@@ -512,6 +512,11 @@ section {
     text-align: center;
 }
 
+.tictac-title
+{
+    margin-bottom: 5rem;
+}
+
 .tictac-turn-container
 {
     width: 170px;
