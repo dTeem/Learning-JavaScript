@@ -4169,3 +4169,5 @@ document.getElementById('playAgain').addEventListener('click', () =>
             box.style.color = '#fff'
         })
 })
+
+// put a name input for the players and score
