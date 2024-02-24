@@ -511,6 +511,7 @@ section {
 {
     text-align: center;
     align-items: center;
+    justify-content: center;
     margin: auto;
 }
 
@@ -549,6 +550,8 @@ section {
     text-align: center;
     align-items: center;
     justify-content: center;
+    margin: auto;
+    /* display: none; */
 }
 
 .player-inputs
@@ -559,6 +562,7 @@ section {
     text-align: center;
     width: 100%;
     margin-bottom: 20px;
+    display: none;
 }
 
 .player-label
@@ -594,7 +598,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    position: relative;
+    display: none;
 }
 
 .pick-container h4
@@ -622,6 +626,15 @@ section {
     background-color: #ff8c2e;
 }
 
+.startbtn-con
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 3rem;
+    display: none;
+}
+
 .startgame-btn
 {
     background: #ff3c2e;
@@ -631,16 +644,27 @@ section {
     padding: 1rem 2rem;
     font-size: 1.3rem;
     font-weight: 700;
-    margin: 2rem;
 }
 
 .player-names
 {
     display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
+    justify-content: center;
     justify-content: space-around;
+}
+
+.players
+{
+    color: #ff8c2e;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.pick
+{
+    color: #ff3c2e;
+    font-size: 2.3rem;
+    font-weight: 800;
 }
 
 .tictac-turn-container

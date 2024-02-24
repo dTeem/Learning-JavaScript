@@ -4077,7 +4077,11 @@ let isGameOver = false;
 
 tictacPlay.addEventListener('click', () =>
 {
-    document.querySelector('.player-input-container').style.display = 'inline';
+    document.querySelector('.player-input-container').style.display = 'block';
+    document.querySelector('.player-inputs').style.display = 'flex';
+    document.querySelector('.pick-container').style.display = 'grid';
+    document.querySelector('.startbtn-con').style.display = 'flex';
+
     tictacPlay.style.display = 'none';
 });
 
