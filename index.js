@@ -4067,9 +4067,27 @@ function resetTimer()
 //---------------------------
 // TIC TAC TOE
 
+const tictacPlay = document.querySelector('.tictac-play-btn');
+const firstPlayerInput =  document.querySelector('.first-player-input');
+const secondPlayerInput = document.querySelector('.second-player-input');
+const startGame = document.querySelector('.startgame-btn');
 let boxes = document.querySelectorAll('.box');
 let turn = 'X';
 let isGameOver = false;
+
+tictacPlay.addEventListener('click', () =>
+{
+    document.querySelector('.player-input-container').style.display = 'inline';
+});
+
+startGame.addEventListener('click', () =>
+{
+
+    document.querySelector('.first-player').textContent = firstPlayerInput.value;
+    document.querySelector('.second-player').textContent = secondPlayerInput.value;
+    document.querySelector('.player-input-container').style.display = 'none';
+    document.querySelector('.main-grid').style.display = 'grid';
+});
 
 boxes.forEach(box =>
 {

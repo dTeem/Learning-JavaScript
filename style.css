@@ -517,6 +517,12 @@ section {
     margin-bottom: 5rem;
 }
 
+.player-input-container
+{
+    /* display: none; */
+    
+}
+
 .tictac-turn-container
 {
     width: 170px;
@@ -526,6 +532,7 @@ section {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     position: relative;
+    display: none;
 }
 
 .tictac-turn-container h4
@@ -575,7 +582,7 @@ section {
     width: 250px;
     margin: 30px auto;
     border: 5px solid rgb(196, 196, 196);
-
+    display: none;
 }
 
 .box
