@@ -510,6 +510,8 @@ section {
 .tictac-game-container
 {
     text-align: center;
+    align-items: center;
+    margin: auto;
 }
 
 .tictac-play-btn
@@ -536,12 +538,6 @@ section {
     box-shadow: inset 4px 4px 2px 0 rgba(0, 0, 0, 0.9);
 }
 
-.player-input-container
-{
-    display: flex;
-
-}
-
 .tictac-title
 {
     margin-bottom: 5rem;
@@ -549,7 +545,45 @@ section {
 
 .player-input-container
 {
-    display: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-inputs
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.player-label
+{
+    color: #ff8c2e;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.pinput
+{
+    border: none;
+    border-radius: 5rem;
+    padding: .5rem 1rem;
+    margin: .3rem;
+    width: 150px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.pinput::placeholder
+{
+    text-align: center;
 }
 
 .pick-container
@@ -586,6 +620,27 @@ section {
 .pick-box:hover
 {
     background-color: #ff8c2e;
+}
+
+.startgame-btn
+{
+    background: #ff3c2e;
+    color: white;
+    border: none;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem;
+}
+
+.player-names
+{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .tictac-turn-container

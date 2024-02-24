@@ -354,28 +354,28 @@
         <div class="tictac-game-container">
             <h3 class="tictac-title">TIC TAC TOE</h3>
 
-            <button class="tictac-play-btn">Play Game</button><br>
+            <button class="tictac-play-btn">PLAY GAME</button>
             <div class="player-input-container">
-                <label for="">Player 1:</label>
-                <input type="text" placeholder="Insert Name here" class="first-player-input"><br>
-                <label for="">Player 2:</label>
-                <input type="text" placeholder="Insert Name here" class="second-player-input"><br>
-                <div class="pick-container">
-                    <h4 for="">Player 1 Pick:</h4>
-                    <div class="pick-x pick-box align">X</div>
-                    <div class="pick-o pick-box align">O</div>
+                <div class="player-inputs">
+                    <label class="player-label"><input type="text" placeholder="player 1" class="first-player-input pinput"></label>
+                    <label class="player-label"><input type="text" placeholder="player 2" class="second-player-input pinput"></label>
                 </div>
-                <button class="startgame-btn">Start</button>
             </div>
+            <div class="pick-container">
+                <h4 for="">PLAYER 1 PICK:</h4>
+                <div class="pick-x pick-box align">X</div>
+                <div class="pick-o pick-box align">O</div>
+            </div>
+            <button class="startgame-btn">START</button>
             <h2 id="tictacResults"> </h2>
             <button id="playAgain">Play Again</button>
-            <div>
-                <div>
-                    <label class="first-player"></label>
-                </div>
-                <div>
-                    <label class="second-player"></label>
-                </div>
+            <div class="player-names">
+                <label class="players first-player">
+                    TIM:
+                </label>
+                <div class="player1-pick">X</div>
+                <div class="player2-pick">O</div>
+                <label class="players second-player"> :TAM</label>
             </div>
             
             <div class="main-grid">
