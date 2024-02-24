@@ -512,6 +512,36 @@ section {
     text-align: center;
 }
 
+.tictac-play-btn
+{
+    background: #ffcb2e;
+    border: none;
+    border-radius: 5rem;
+    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tictac-play-btn:hover
+{
+    background: red;
+    color: white;
+}
+
+.tictac-play-btn:active
+{
+    color: rgba(223, 223, 223, 0.3);
+    padding: 1rem 2.6rem;
+    box-shadow: inset 4px 4px 2px 0 rgba(0, 0, 0, 0.9);
+}
+
+.player-input-container
+{
+    display: flex;
+
+}
+
 .tictac-title
 {
     margin-bottom: 5rem;
@@ -519,8 +549,43 @@ section {
 
 .player-input-container
 {
-    /* display: none; */
-    
+    display: none;
+}
+
+.pick-container
+{
+    width: 170px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+}
+
+.pick-container h4
+{
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.pick-box
+{
+    border: 3px solid rgb(196, 196, 196);
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pick-box:nth-child(even)
+{
+    border-right: none;
+}
+
+.pick-box:hover
+{
+    background-color: #ff8c2e;
 }
 
 .tictac-turn-container

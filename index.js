@@ -4078,15 +4078,16 @@ let isGameOver = false;
 tictacPlay.addEventListener('click', () =>
 {
     document.querySelector('.player-input-container').style.display = 'inline';
+    tictacPlay.style.display = 'none';
 });
 
 startGame.addEventListener('click', () =>
 {
-
     document.querySelector('.first-player').textContent = firstPlayerInput.value;
     document.querySelector('.second-player').textContent = secondPlayerInput.value;
     document.querySelector('.player-input-container').style.display = 'none';
     document.querySelector('.main-grid').style.display = 'grid';
+    document.querySelector('.tictac-turn-container').style.display = 'grid';
 });
 
 boxes.forEach(box =>
