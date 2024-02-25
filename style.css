@@ -155,6 +155,7 @@ section {
 
 .calc-display {
     background: #D1D1D1;
+    color: black;
     /* border: 5px solid black; */
     border-radius: .5rem;
     border-top-left-radius: 8rem;
@@ -177,7 +178,7 @@ section {
 
 .calc-btn {
     border: 3px solid black;
-    color: white;
+    color: black;
     /* border: none; */
     border-radius: 5rem;
     padding: 1rem 1.5rem;
@@ -186,8 +187,8 @@ section {
     cursor: pointer;
 }
 
-
 .operator-btn {
+    border-bottom: none;
     display: flex;
     background: #AD8B73;
     border-radius: 0;
@@ -217,21 +218,25 @@ section {
 }
 
 #acBtn {
+    border-right: none;
     border-top-left-radius: 3rem;
     border-bottom-left-radius: 3rem;
 }
 
 #percBtn {
+    border-left: none;
     border-top-right-radius: 3rem;
     border-bottom-right-radius: 3rem;
 }
 
 #divideBtn {
+    border-bottom: none;
     border-top-left-radius: 3rem;
     border-top-right-radius: 3rem;
 }
 
 #equalBtn {
+    border-bottom: 3px solid black;
     border-bottom-left-radius: 3rem;
     border-bottom-right-radius: 10rem;
 }
