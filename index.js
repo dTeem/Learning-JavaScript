@@ -4070,6 +4070,7 @@ function resetTimer()
 const tictacPlay = document.querySelector('.tictac-play-btn');
 const firstPlayerInput =  document.querySelector('.first-player-input');
 const secondPlayerInput = document.querySelector('.second-player-input');
+const inputAlert = document.querySelector('.input-alert');
 const startGame = document.querySelector('.startgame-btn');
 const pickX = document.querySelector('.pick-x');
 const pickO = document.querySelector('.pick-o');
@@ -4091,37 +4092,37 @@ tictacPlay.addEventListener('click', () =>
 
 startGame.addEventListener('click', () =>
 {
-    document.querySelector('.first-player').textContent = firstPlayerInput.value;
-    document.querySelector('.second-player').textContent = secondPlayerInput.value;
-    document.querySelector('.player-input-container').style.display = 'none';
-    document.querySelector('.main-grid').style.display = 'grid';
-    document.querySelector('.tictac-turn-container').style.display = 'grid';
+    if(!firstPlayerInput.value || !secondPlayerInput.value)
+    {
+        inputAlert.textContent = 'Please enter your name';
+    }
+    else
+    {
+        document.querySelector('.first-player').innerHTML = firstPlayerInput.value;
+        document.querySelector('.second-player').innerHTML = secondPlayerInput.value;
+        document.querySelector('.player-inputs').style.display = 'none';
+        document.querySelector('.main-grid').style.display = 'grid';
+        document.querySelector('.tictac-turn-container').style.display = 'grid';
+        startGame.style.display = ' none';
+    }   
 });
 
-document.querySelector('.pick-x').addEventListener('click', () =>
+
+pickX.addEventListener('click', () =>
 {
-    pickChoice();
+    firstP = 'X';
+    secondP = 'O';
 });
 
-document.querySelector('.pick-o').addEventListener('click', () =>
+pickO.addEventListener('click', () =>
 {
-    pickChoice();
+    firstP = 'O';
+    secondP = 'X';
 });
 
 function pickChoice()
 {
-    if(pickX)
-    {
-        firstP = 'X';
-        secondP = 'O';
-    }
-    if(pickO)
-    {
-        firstP = 'O';
-        secondP = 'X';
-    }
-    console.log(firstP);
-    return;
+    pickX = event.target.textContent;
 }
 
 boxes.forEach(box =>
