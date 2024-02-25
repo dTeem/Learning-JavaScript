@@ -4071,7 +4071,11 @@ const tictacPlay = document.querySelector('.tictac-play-btn');
 const firstPlayerInput =  document.querySelector('.first-player-input');
 const secondPlayerInput = document.querySelector('.second-player-input');
 const startGame = document.querySelector('.startgame-btn');
+const pickX = document.querySelector('.pick-x');
+const pickO = document.querySelector('.pick-o');
 let boxes = document.querySelectorAll('.box');
+let firstP = '';
+let secondP = '';
 let turn = 'X';
 let isGameOver = false;
 
@@ -4093,6 +4097,32 @@ startGame.addEventListener('click', () =>
     document.querySelector('.main-grid').style.display = 'grid';
     document.querySelector('.tictac-turn-container').style.display = 'grid';
 });
+
+document.querySelector('.pick-x').addEventListener('click', () =>
+{
+    pickChoice();
+});
+
+document.querySelector('.pick-o').addEventListener('click', () =>
+{
+    pickChoice();
+});
+
+function pickChoice()
+{
+    if(pickX)
+    {
+        firstP = 'X';
+        secondP = 'O';
+    }
+    if(pickO)
+    {
+        firstP = 'O';
+        secondP = 'X';
+    }
+    console.log(firstP);
+    return;
+}
 
 boxes.forEach(box =>
 {
