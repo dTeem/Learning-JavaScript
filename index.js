@@ -4226,3 +4226,5 @@ document.getElementById('playAgain').addEventListener('click', () =>
 
 // put a name input for the players and score
 // update mo to
+
+// compare the turn to the pick of the first player
