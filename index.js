@@ -4225,3 +4225,4 @@ document.getElementById('playAgain').addEventListener('click', () =>
 })
 
 // put a name input for the players and score
+// update mo to
