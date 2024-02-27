@@ -4228,3 +4228,4 @@ document.getElementById('playAgain').addEventListener('click', () =>
 // update mo to
 
 // compare the turn to the pick of the first player
+// make time for this code
