@@ -4123,7 +4123,10 @@ pickO.addEventListener('click', () =>
 function pickChoice()
 {
     pickX = event.target.textContent;
+    console.log(pickX);
+
 }
+
 
 boxes.forEach(box =>
 {
