@@ -4110,8 +4110,8 @@ startGame.addEventListener('click', () =>
 
 pickX.addEventListener('click', () =>
 {
-    firstP = 'X';
-    secondP = 'O';
+    firstP = event.target.textContent;
+    // console.log(firstP);
 });
 
 pickO.addEventListener('click', () =>
@@ -4123,10 +4123,10 @@ pickO.addEventListener('click', () =>
 function pickChoice()
 {
     pickX = event.target.textContent;
-    console.log(pickX);
 
 }
 
+console.log(firstP);
 
 boxes.forEach(box =>
 {
