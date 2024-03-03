@@ -4090,6 +4090,22 @@ tictacPlay.addEventListener('click', () =>
     tictacPlay.style.display = 'none';
 });
 
+pickX.addEventListener('click', () =>
+{
+    pickChoice('X');
+});
+
+pickO.addEventListener('click', () =>
+{
+    pickChoice('O');
+});
+
+function pickChoice(firstP)
+{
+    pickX = event.target.textContent;
+
+}
+
 startGame.addEventListener('click', () =>
 {
     if(!firstPlayerInput.value || !secondPlayerInput.value)
@@ -4106,25 +4122,6 @@ startGame.addEventListener('click', () =>
         startGame.style.display = ' none';
     }   
 });
-
-
-pickX.addEventListener('click', () =>
-{
-    firstP = event.target.textContent;
-    // console.log(firstP);
-});
-
-pickO.addEventListener('click', () =>
-{
-    firstP = 'O';
-    secondP = 'X';
-});
-
-function pickChoice()
-{
-    pickX = event.target.textContent;
-
-}
 
 console.log(firstP);
 
