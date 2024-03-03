@@ -484,6 +484,11 @@ section {
     align-items: center;
 }
 
+.todo-grid
+{
+    grid-template-columns: 20px 150px 140px 100px 100px 100px;
+}
+
 .todo-input-grid {
     margin-bottom: 15px;
     align-items: stretch;

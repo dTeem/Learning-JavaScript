@@ -2932,13 +2932,15 @@ function renderTodoList()
     
     toDoArray.forEach((todoObject) =>
     {
-        const { name, date, time } = todoObject;
+        const { status, name, date, time } = todoObject;
         const html = 
         `
+            <input type="checkbox" class="js-todo-checkbox">
             <div>${name}</div>
             <div>${date}</div>
             <div>${time}</div>
             <button class="delete-todo-btn js-delete-btn">Delete</button>
+            <div class="check-status"></div>
         `;
 
         todoListHTML += html;
@@ -2998,6 +3000,7 @@ function addTodoBtn()
     const toDoInput = document.querySelector(".js-name-input");
     const dateInputElement = document.querySelector('.js-date-input');
     const timeInputElement = document.querySelector('.js-time-input');
+    const status = document.querySelector('.js-todo-checkbox');
     const name = toDoInput.value;
     const date = dateInputElement.value;
     const time = timeInputElement.value;
@@ -3007,10 +3010,25 @@ function addTodoBtn()
         // name: name, <- the code below is the shortcut for this code
         // date: date,  - if the property name has the same variable name
         // time: time     you can use the shorthand property
+        status,
         name,
         date,
         time
     });
+
+    status.addEventListener('change', () =>
+    {
+        if(status.checked)
+        {
+            document.querySelector('.check-status').innerHTML = 'Completed';
+        }
+        else
+        {
+            document.querySelector('.check-status').style.display = 'none';
+        }
+    });
+
+
 
     toDoInput.value = null;
     dateInputElement.value = null;
@@ -3966,7 +3984,7 @@ setTimeBtn.addEventListener('click', () =>
 });
 
 //---------------------------
-// Exercise 12r
+// Exercise 12r-x
 // Check the RPS Game added some keyboard shortcuts and features
 
 
