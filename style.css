@@ -656,6 +656,7 @@ section {
     display: flex;
     justify-content: center;
     justify-content: space-around;
+    text-transform: uppercase;
 }
 
 .players
@@ -745,6 +746,11 @@ section {
 .box:hover
 {
     background-color: #ff8c2e;
+}
+
+#tictacResults
+{
+    text-transform: uppercase;
 }
 
 #playAgain

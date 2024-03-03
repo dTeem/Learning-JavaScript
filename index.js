@@ -4075,8 +4075,7 @@ const startGame = document.querySelector('.startgame-btn');
 const pickX = document.querySelector('.pick-x');
 const pickO = document.querySelector('.pick-o');
 let boxes = document.querySelectorAll('.box');
-let firstP = '';
-let secondP = '';
+let picks = {};
 let turn = 'X';
 let isGameOver = false;
 
@@ -4102,8 +4101,17 @@ pickO.addEventListener('click', () =>
 
 function pickChoice(firstP)
 {
-    pickX = event.target.textContent;
-
+    if(firstP === 'X')
+    {
+        picks.firstP = 'X',
+        picks.secondP = 'O'
+    }
+    else if(firstP === 'O')
+    {
+        picks.firstP = 'O',
+        picks.secondP = 'X'
+    }
+    return picks;
 }
 
 startGame.addEventListener('click', () =>
@@ -4115,15 +4123,16 @@ startGame.addEventListener('click', () =>
     else
     {
         document.querySelector('.first-player').innerHTML = firstPlayerInput.value;
+        document.querySelector('.player1-pick').textContent = picks.firstP;
+        document.querySelector('.player2-pick').textContent = picks.secondP;
         document.querySelector('.second-player').innerHTML = secondPlayerInput.value;
         document.querySelector('.player-inputs').style.display = 'none';
         document.querySelector('.main-grid').style.display = 'grid';
         document.querySelector('.tictac-turn-container').style.display = 'grid';
+        document.querySelector('.pick-container').style.display = 'none';
         startGame.style.display = ' none';
     }   
 });
-
-console.log(firstP);
 
 boxes.forEach(box =>
 {
@@ -4176,9 +4185,19 @@ function checkWin()
 
         if(v0 != '' && v0 === v1 && v0 === v2)
         {
-            isGameOver = true;
-            document.getElementById("tictacResults").innerHTML = `${turn} Wins!`;
-            document.getElementById("playAgain").style.display = 'inline';
+            if(picks.firstP === turn)
+            {
+                isGameOver = true;
+                document.getElementById("tictacResults").innerHTML = `${document.querySelector('.first-player').innerHTML} Wins!`;
+                document.getElementById("playAgain").style.display = 'inline';
+            }
+            else if(picks.secondP === turn)
+            {
+                isGameOver = true;
+                document.getElementById("tictacResults").innerHTML = `${document.querySelector('.second-player').innerHTML} Wins!`;
+                document.getElementById("playAgain").style.display = 'inline';
+            }
+
 
             for(t = 0; t < 3; t++)
             {
@@ -4224,11 +4243,4 @@ document.getElementById('playAgain').addEventListener('click', () =>
         })
 })
 
-// put a name input for the players and score
-// update mo to
 
-// compare the turn to the pick of the first player
-// make time for this code
-// please update me!!
-// ill do you tomorrow
-// tomorrow promise
