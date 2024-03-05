@@ -3030,6 +3030,7 @@ function addTodoBtn()
 
 
 //update this
+// make a checkbox for the to do items
 
     toDoInput.value = null;
     dateInputElement.value = null;
