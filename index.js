@@ -2922,6 +2922,7 @@ for(let i = 5; i >= 0; i--) {
 // Exercise 11x (added localStorage)
 // Exercise 12 (replaced for loop with forEach)
 
+
 const toDoArray = JSON.parse(localStorage.getItem('todoList')) || [];
 
 renderTodoList();
@@ -2940,7 +2941,7 @@ function renderTodoList()
             <div>${date}</div>
             <div>${time}</div>
             <button class="delete-todo-btn js-delete-btn">Delete</button>
-            <div class="check-status"></div>
+            <div class="check-status">${status}</div>
         `;
 
         todoListHTML += html;
@@ -2989,19 +2990,23 @@ function renderTodoList()
 
 }
 
+
 function checkStatus()
 {
-    const status = document.querySelector('.js-todo-checkbox');
+    const cStatus = document.querySelector('.js-todo-checkbox');
 
-    if(status.checked)
+    document.querySelector('.check-status').textContent = null;
+
+    if(cStatus.checked)
     {
         console.log('Completed');
+        document.querySelector('.check-status').style.display = 'grid';
         document.querySelector('.check-status').textContent = 'Completed';
     }
     else
     {
         console.log('not');
-        document.querySelector('.check-status').textContent = 'not';
+        document.querySelector('.check-status').textContent = null;
     }
 }
 
@@ -3016,6 +3021,8 @@ function addTodoBtn()
     const toDoInput = document.querySelector(".js-name-input");
     const dateInputElement = document.querySelector('.js-date-input');
     const timeInputElement = document.querySelector('.js-time-input');
+    const cStatus = document.querySelector('.check-status');
+    const status = cStatus.textContent;
     const name = toDoInput.value;
     const date = dateInputElement.value;
     const time = timeInputElement.value;
