@@ -2935,7 +2935,7 @@ function renderTodoList()
         const { status, name, date, time } = todoObject;
         const html = 
         `
-            <input type="checkbox" class="js-todo-checkbox">
+            <input type="checkbox" class="js-todo-checkbox" onclick="checkStatus()">
             <div>${name}</div>
             <div>${date}</div>
             <div>${time}</div>
@@ -2989,6 +2989,22 @@ function renderTodoList()
 
 }
 
+function checkStatus()
+{
+    const status = document.querySelector('.js-todo-checkbox');
+
+    if(status.checked)
+    {
+        console.log('Completed');
+        document.querySelector('.check-status').textContent = 'Completed';
+    }
+    else
+    {
+        console.log('not');
+        document.querySelector('.check-status').textContent = 'not';
+    }
+}
+
 document.querySelector('.js-add-btn')
     .addEventListener('click', () =>
     {
@@ -3000,7 +3016,6 @@ function addTodoBtn()
     const toDoInput = document.querySelector(".js-name-input");
     const dateInputElement = document.querySelector('.js-date-input');
     const timeInputElement = document.querySelector('.js-time-input');
-    const status = document.querySelector('.js-todo-checkbox');
     const name = toDoInput.value;
     const date = dateInputElement.value;
     const time = timeInputElement.value;
@@ -3015,19 +3030,6 @@ function addTodoBtn()
         date,
         time
     });
-
-    status.addEventListener('change', () =>
-    {
-        if(status.checked)
-        {
-            document.querySelector('.check-status').innerHTML = 'Completed';
-        }
-        else
-        {
-            document.querySelector('.check-status').style.display = 'none';
-        }
-    });
-
 
 //update this
 // make a checkbox for the to do items
@@ -3045,6 +3047,7 @@ function saveTodoStorage()
 {
     localStorage.setItem('todoList', JSON.stringify(toDoArray))
 }
+
 
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
