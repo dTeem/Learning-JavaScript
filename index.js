@@ -3027,6 +3027,8 @@ function addTodoBtn()
     const date = dateInputElement.value;
     const time = timeInputElement.value;
 
+    // the checkbox status div is not adding the other list
+
     toDoArray.push
     ({
         // name: name, <- the code below is the shortcut for this code
