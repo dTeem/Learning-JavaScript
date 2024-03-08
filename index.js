@@ -2933,15 +2933,15 @@ function renderTodoList()
     
     toDoArray.forEach((todoObject) =>
     {
-        const { status, name, date, time } = todoObject;
+        const { name, date, time } = todoObject;
         const html = 
         `
-            <input type="checkbox" class="js-todo-checkbox" onclick="checkStatus()">
+            <input type="checkbox" class="js-todo-checkbox" onclick="checkboxStatus()">
             <div>${name}</div>
             <div>${date}</div>
             <div>${time}</div>
             <button class="delete-todo-btn js-delete-btn">Delete</button>
-            <div class="check-status">${status}</div>
+            <div class="check-status">status</div>
         `;
 
         todoListHTML += html;
@@ -2972,7 +2972,6 @@ function renderTodoList()
     // }
     document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 
-
     //.querySelectorAll - will give us all the elements that has the same class
     document.querySelectorAll('.js-delete-btn')
     // Everytime we loop this code, forEach needs 2 parameters
@@ -2987,15 +2986,18 @@ function renderTodoList()
                 saveTodoStorage();
             });
         });
-
 }
 
+// const cStatus = document.querySelector('.js-todo-checkbox');
 
-function checkStatus()
+// cStatus.addEventListener('click', () =>
+// {
+function checkboxStatus()
 {
     const cStatus = document.querySelector('.js-todo-checkbox');
+    // document.querySelector('.check-status').textContent = null;
 
-    document.querySelector('.check-status').textContent = null;
+    console.log(cStatus.checked);
 
     if(cStatus.checked)
     {
@@ -3010,8 +3012,7 @@ function checkStatus()
     }
 }
 
-document.querySelector('.js-add-btn')
-    .addEventListener('click', () =>
+document.querySelector('.js-add-btn').addEventListener('click', () =>
     {
         addTodoBtn()
     });
@@ -3021,12 +3022,17 @@ function addTodoBtn()
     const toDoInput = document.querySelector(".js-name-input");
     const dateInputElement = document.querySelector('.js-date-input');
     const timeInputElement = document.querySelector('.js-time-input');
-    const cStatus = document.querySelector('.check-status');
-    const status = cStatus.textContent;
+    // const checkboxStatus = document.querySelector('.js-todo-checkbox');
+    const status = '';
     const name = toDoInput.value;
     const date = dateInputElement.value;
     const time = timeInputElement.value;
 
+    // if(checkboxStatus.checked === false)
+    // {
+    //     console.log(checkboxStatus.checked.value);
+    //     document.querySelector('.check-status').textContent = 'not';
+    // }
     // the checkbox status div is not adding the other list
 
     toDoArray.push
@@ -3046,6 +3052,8 @@ function addTodoBtn()
     toDoInput.value = null;
     dateInputElement.value = null;
     timeInputElement.value = null;
+    // cStatus.textContent = 'not';
+
 
     saveTodoStorage();
 
