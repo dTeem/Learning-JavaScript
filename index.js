@@ -2936,12 +2936,14 @@ function renderTodoList()
         const { name, date, time } = todoObject;
         const html = 
         `
-            <input type="checkbox" class="js-todo-checkbox" onclick="checkboxStatus()">
-            <div>${name}</div>
-            <div>${date}</div>
-            <div>${time}</div>
-            <button class="delete-todo-btn js-delete-btn">Delete</button>
-            <div class="check-status">status</div>
+            <div id="task">
+                <input type="checkbox" class="js-todo-checkbox" onchange="checkboxStatus()">
+                <div>${name}</div>
+                <div>${date}</div>
+                <div>${time}</div>
+                <button class="delete-todo-btn js-delete-btn">Delete</button>
+                <div class="check-status">status</div>
+            </div>
         `;
 
         todoListHTML += html;
@@ -2995,6 +2997,7 @@ function renderTodoList()
 function checkboxStatus()
 {
     const cStatus = document.querySelector('.js-todo-checkbox');
+    const taskStatus = document.querySelector('.check-status');
     // document.querySelector('.check-status').textContent = null;
 
     console.log(cStatus.checked);
@@ -3002,13 +3005,13 @@ function checkboxStatus()
     if(cStatus.checked)
     {
         console.log('Completed');
-        document.querySelector('.check-status').style.display = 'grid';
-        document.querySelector('.check-status').textContent = 'Completed';
+        taskStatus.style.display = 'grid';
+        taskStatus.textContent = 'Completed';
     }
     else
     {
         console.log('not');
-        document.querySelector('.check-status').textContent = null;
+        taskStatus.textContent = null;
     }
 }
 
