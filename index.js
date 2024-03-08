@@ -3085,8 +3085,37 @@ function addTask()
     if(!taskText || !dateTime)
     {
         todoAlert.textContent = 'Please enter a task and select a date and time!';
+        return;
     }
+
+    //Create a new list item element
+    const listItem = document.createElement('li');
+
+    //Format the date and time for display
+    const formattedDateTime = dateTime.toLocaleString();
+
+    //Create the content of the list item
+    listItem.textContent = `${taskText} - ${formattedDateTime}`;
+
+    //Add a button to remove the task
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () =>
+    {
+        todoList.removeChild(listItem);
+    });
+
+    listItem.appendChild(removeButton);
+
+    //Add the list item to the list
+    todoList.appendChild(listItem);
+
+    //Create the input fields
+    newTaskInput.value = '';
+    dateTimeInput.value = '';
 }
+
+addTodoBtnv3.addEventListener('click', addTask);
 
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
