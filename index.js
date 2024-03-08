@@ -2936,14 +2936,12 @@ function renderTodoList()
         const { name, date, time } = todoObject;
         const html = 
         `
-            <div id="task">
-                <input type="checkbox" class="js-todo-checkbox" onchange="checkboxStatus()">
-                <div>${name}</div>
-                <div>${date}</div>
-                <div>${time}</div>
-                <button class="delete-todo-btn js-delete-btn">Delete</button>
-                <div class="check-status">status</div>
-            </div>
+            <input type="checkbox" class="js-todo-checkbox" onchange="checkboxStatus()">
+            <div>${name}</div>
+            <div>${date}</div>
+            <div>${time}</div>
+            <button class="delete-todo-btn js-delete-btn">Delete</button>
+            <div class="check-status">status</div>
         `;
 
         todoListHTML += html;
@@ -3007,11 +3005,13 @@ function checkboxStatus()
         console.log('Completed');
         taskStatus.style.display = 'grid';
         taskStatus.textContent = 'Completed';
+        cStatus.classList.add('completed');
     }
     else
     {
         console.log('not');
         taskStatus.textContent = null;
+        cStatus.classList.remove('completed');
     }
 }
 
@@ -3068,6 +3068,25 @@ function saveTodoStorage()
     localStorage.setItem('todoList', JSON.stringify(toDoArray))
 }
 
+//--------------------------------
+// TO DO LIST V3
+const todoAlert = document.querySelector('.todo-alert');
+const todoList = document.getElementById('todoList');
+const newTaskInput = document.getElementById('newTask');
+const dateTimeInput = document.getElementById('dateTime');
+const addTodoBtnv3 = document.getElementById('addTodoBtnv3');
+
+function addTask()
+{
+    const taskText = newTaskInput.value;
+    const dateTime = new Date(dateTimeInput.value);
+
+    //Validate task and date/time
+    if(!taskText || !dateTime)
+    {
+        todoAlert.textContent = 'Please enter a task and select a date and time!';
+    }
+}
 
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================

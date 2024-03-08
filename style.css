@@ -515,6 +515,12 @@ section {
     padding: 10px;
 }
 
+.completed
+{
+    text-decoration: line-through;
+    color: gray;
+}
+
 
 /* ---- TIC TAC TOE---- */
 .tictac-game-container
