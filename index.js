@@ -3070,52 +3070,85 @@ function saveTodoStorage()
 
 //--------------------------------
 // TO DO LIST V3
+
+const addTodo = document.getElementById('addTodoBtnv3');
 const todoAlert = document.querySelector('.todo-alert');
-const todoList = document.getElementById('todoList');
-const newTaskInput = document.getElementById('newTask');
-const dateTimeInput = document.getElementById('dateTime');
-const addTodoBtnv3 = document.getElementById('addTodoBtnv3');
+let todos = [];
 
-function addTask()
+addTodo.addEventListener('click', () =>
 {
-    const taskText = newTaskInput.value;
-    const dateTime = new Date(dateTimeInput.value);
+    const taskInput = document.getElementById('taskInput');
+    const dateInput = document.getElementById('dateInput');
+    const timeInput = document.getElementById('timeInput');
 
-    //Validate task and date/time
-    if(!taskText || !dateTime)
+    // Get task description, date, and time values
+    const task = taskInput.value;
+    const date = dateInput.value;
+    const time = timeInput.value;
+
+    // Check if any field is empty
+    if(!task || !date || !time)
     {
-        todoAlert.textContent = 'Please enter a task and select a date and time!';
+        todoAlert.textContent = 'Please fill in all fields!';
         return;
     }
 
-    //Create a new list item element
-    const listItem = document.createElement('li');
-
-    //Format the date and time for display
-    const formattedDateTime = dateTime.toLocaleString();
-
-    //Create the content of the list item
-    listItem.textContent = `${taskText} - ${formattedDateTime}`;
-
-    //Add a button to remove the task
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () =>
+    // Create a to-do object
+    const todo = 
     {
-        todoList.removeChild(listItem);
-    });
+        task,
+        date,
+        time,
+        completed: false
+    };
 
-    listItem.appendChild(removeButton);
+    // Add the to-do object to the to-do list (replace storage method)
+    todos.push(todo);
 
-    //Add the list item to the list
-    todoList.appendChild(listItem);
+    // Clear the input fields
+    taskInput.value = '';
+    dateInput.value = '';
+    timeInput.value = '';
 
-    //Create the input fields
-    newTaskInput.value = '';
-    dateTimeInput.value = '';
+    // Update the to-do list on the page
+    updateTodoList();
+});
+
+// Function to update the to-do list on the page
+function updateTodoList()
+{
+    const todoList = document.getElementById('todoList');
+    todoList.textContent = ''; // Clear the existing list items
+
+    // Loop through each to-do item
+    for(const todo of todos)
+    {
+        // Create a new item list item element
+        const listItem = document.createElement('li');
+
+        // Create checkbox element
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = todo.completed; // Set checked based on completed state
+
+        // Create a label element for the checkbox
+        const label = document.createElement('label');
+        label.textContent = `${todo.task} - Due: ${todo.date} ${todo.time}`;
+
+        // Event listener for checkbox click to update completed state
+        checkbox.addEventListener('change', () =>
+        {
+            todo.completed = this.checked;
+        });
+
+        // Add checkbox and label to the list item
+        listItem.appendChild(checkbox);
+        listItem.appendChild(label);
+
+        // Add the list item to the to-do list
+        todoList.appendChild(listItem);
+    }
 }
-
-addTodoBtnv3.addEventListener('click', addTask);
 
 // update
 //======================= MORE DETAILS ABOUT ARRAYS =======================
