@@ -3078,7 +3078,7 @@ function addTask()
     const timeInput = document.getElementById("timeInput").value;
     const todoAlert = document.querySelector('.todo-alert');
 
-    if (!taskInput || !dateInput || !timeInput)
+    if(!taskInput || !dateInput || !timeInput)
     {
         todoAlert.textContent = "Please enter a task and select a date/time!";
         return;
@@ -3099,11 +3099,15 @@ function addTask()
     // Create text element for task
     const taskElement = document.createElement("span");
     taskElement.classList.add("todo-text");
-    taskElement.textContent = taskText;
+    taskElement.textContent = taskInput;
 
-    // Create date/time element
-    const dateTimeElement = document.createElement("span");
-    dateTimeElement.textContent = taskDatetime;
+    // Create date element
+    const dateElement = document.createElement("span");
+    dateElement.textContent = dateInput;
+
+    // Create time element
+    const timeElement = document.createElement("span");
+    timeElement.textContent = timeInput;
 
     // Create delete button element
     const deleteButton = document.createElement("button");
@@ -3116,11 +3120,12 @@ function addTask()
     // Append elements to list item
     listItem.appendChild(checkbox);
     listItem.appendChild(taskElement);
-    listItem.appendChild(dateTimeElement);
+    listItem.appendChild(dateElement);
+    listItem.appendChild(timeElement);
     listItem.appendChild(deleteButton);
 
     // Add list item to the list
-    const todoList = document.getElementById("todo-list");
+    const todoList = document.getElementById("todoList");
     todoList.appendChild(listItem);
 
     // Clear input fields

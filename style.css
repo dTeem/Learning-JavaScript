@@ -522,6 +522,35 @@ section {
 }
 
 
+/* ---- To DO LIST V3 ----- */
+#todoList
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.todo-item input[type="checkbox"]
+{
+    margin-right: 10px;
+}
+
+.todo-item.completed .todo-text
+{
+    text-decoration: line-through;
+    color: gray;
+}
+
+
+
 /* ---- TIC TAC TOE---- */
 .tictac-game-container
 {
