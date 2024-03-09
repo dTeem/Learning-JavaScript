@@ -3071,83 +3071,62 @@ function saveTodoStorage()
 //--------------------------------
 // TO DO LIST V3
 
-const addTodo = document.getElementById('addTodoBtnv3');
-const todoAlert = document.querySelector('.todo-alert');
-let todos = [];
-
-addTodo.addEventListener('click', () =>
+function addTask()
 {
-    const taskInput = document.getElementById('taskInput');
-    const dateInput = document.getElementById('dateInput');
-    const timeInput = document.getElementById('timeInput');
+    const taskInput = document.getElementById("taskInput").value;
+    const dateInput = document.getElementById("dateInput").value;
+    const timeInput = document.getElementById("timeInput").value;
+    const todoAlert = document.querySelector('.todo-alert');
 
-    // Get task description, date, and time values
-    const task = taskInput.value;
-    const date = dateInput.value;
-    const time = timeInput.value;
-
-    // Check if any field is empty
-    if(!task || !date || !time)
+    if (!taskInput || !dateInput || !timeInput)
     {
-        todoAlert.textContent = 'Please fill in all fields!';
+        todoAlert.textContent = "Please enter a task and select a date/time!";
         return;
     }
 
-    // Create a to-do object
-    const todo = 
+    // Create list item element
+    const listItem = document.createElement("li");
+    listItem.classList.add("todo-item");
+
+    // Create checkbox element
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", () =>
     {
-        task,
-        date,
-        time,
-        completed: false
-    };
+        listItem.classList.toggle("completed");
+    });
 
-    // Add the to-do object to the to-do list (replace storage method)
-    todos.push(todo);
+    // Create text element for task
+    const taskElement = document.createElement("span");
+    taskElement.classList.add("todo-text");
+    taskElement.textContent = taskText;
 
-    // Clear the input fields
-    taskInput.value = '';
-    dateInput.value = '';
-    timeInput.value = '';
+    // Create date/time element
+    const dateTimeElement = document.createElement("span");
+    dateTimeElement.textContent = taskDatetime;
 
-    // Update the to-do list on the page
-    updateTodoList();
-});
-
-// Function to update the to-do list on the page
-function updateTodoList()
-{
-    const todoList = document.getElementById('todoList');
-    todoList.textContent = ''; // Clear the existing list items
-
-    // Loop through each to-do item
-    for(const todo of todos)
+    // Create delete button element
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () =>
     {
-        // Create a new item list item element
-        const listItem = document.createElement('li');
+        listItem.remove();
+    });
 
-        // Create checkbox element
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = todo.completed; // Set checked based on completed state
+    // Append elements to list item
+    listItem.appendChild(checkbox);
+    listItem.appendChild(taskElement);
+    listItem.appendChild(dateTimeElement);
+    listItem.appendChild(deleteButton);
 
-        // Create a label element for the checkbox
-        const label = document.createElement('label');
-        label.textContent = `${todo.task} - Due: ${todo.date} ${todo.time}`;
+    // Add list item to the list
+    const todoList = document.getElementById("todo-list");
+    todoList.appendChild(listItem);
 
-        // Event listener for checkbox click to update completed state
-        checkbox.addEventListener('change', () =>
-        {
-            todo.completed = this.checked;
-        });
-
-        // Add checkbox and label to the list item
-        listItem.appendChild(checkbox);
-        listItem.appendChild(label);
-
-        // Add the list item to the to-do list
-        todoList.appendChild(listItem);
-    }
+    // Clear input fields
+    document.getElementById("taskInput").value = "";
+    document.getElementById("dateInput").value = "";
+    document.getElementById("timeInput").value = "";
 }
 
 // update
