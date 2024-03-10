@@ -3137,7 +3137,8 @@ function addTask()
 // update
 // update the checkbox
 // add design to to do list
-// css on the designss
+// css on the designs
+// try mo gayahin yung todo list ng notion or ios
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
 // Array is also a reference like object
