@@ -3135,6 +3135,9 @@ function addTask()
 }
 
 // update
+// update the checkbox
+// add design to to do list
+
 //======================= MORE DETAILS ABOUT ARRAYS =======================
 // Array is also a reference like object
 
