@@ -535,7 +535,9 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
     margin-bottom: 5px;
+    list-style: none;
 }
 
 .todo-item input[type="checkbox"]

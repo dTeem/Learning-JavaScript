@@ -3071,6 +3071,8 @@ function saveTodoStorage()
 //--------------------------------
 // TO DO LIST V3
 
+const todoListItem = JSON.parse(localStorage.getItem('taskList')) || '';
+
 function addTask()
 {
     const taskInput = document.getElementById("taskInput").value;
@@ -3134,11 +3136,17 @@ function addTask()
     document.getElementById("timeInput").value = "";
 }
 
+function saveTodoList()
+{
+    localStorage.setItem('taskList', JSON.stringify(todoListItem));
+}
+
 // update
 // update the checkbox
 // add design to to do list
 // css on the designs
 // try mo gayahin yung todo list ng notion or ios
+// add a storage JSON for the to-do list
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
 // Array is also a reference like object
