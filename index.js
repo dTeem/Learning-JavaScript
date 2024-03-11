@@ -3147,6 +3147,7 @@ function saveTodoList()
 // css on the designs
 // try mo gayahin yung todo list ng notion or ios
 // add a storage JSON for the to-do list
+// update the save system for to-do list
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
 // Array is also a reference like object
