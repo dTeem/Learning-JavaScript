@@ -3148,6 +3148,12 @@ function saveTodoList()
 // try mo gayahin yung todo list ng notion or ios
 // add a storage JSON for the to-do list
 // update the save system for to-do list
+// ano ba dpat gawin ko nakakatamad naman kasi
+// sana matulog na lang ang bebe ko na yan
+// di ako mkalaro ng tuloy tuloy hahaha gusto ko na 
+// tapusin yung laro para wala na ako iniisip
+// di ko na alam kung ano pa yung mga gagawin ko
+// pag tapos nito pde na siguro ako mag aral ng js REACT
 
 //======================= MORE DETAILS ABOUT ARRAYS =======================
 // Array is also a reference like object
@@ -4365,4 +4371,5 @@ document.getElementById('playAgain').addEventListener('click', () =>
         })
 })
 
+// save this one for today
 
