@@ -4334,7 +4334,7 @@ function checkWin()
                 boxes[winMoves[i][t]].style.color = "#000"
             }
         }
-    }
+    }ß
 }
 
 function checkDraw()
@@ -4373,3 +4373,4 @@ document.getElementById('playAgain').addEventListener('click', () =>
 
 // save this one for today
 // end this please
+// update on your day offß
