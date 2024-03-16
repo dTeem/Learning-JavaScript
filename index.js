@@ -4371,7 +4371,4 @@ document.getElementById('playAgain').addEventListener('click', () =>
         })
 })
 
-// save this one for today
-// end this please
-// update on your day off
-// when kaya
+// add ka ng code kahit 1 line lang
