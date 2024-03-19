@@ -530,12 +530,17 @@ section {
     margin: 0;
 }
 
+#todoList li
+{
+    margin: 50px;
+}
+
+
 .todo-item
 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: auto;
+    margin-right: 50px;
     margin-bottom: 5px;
     list-style: none;
 }
