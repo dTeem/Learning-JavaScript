@@ -3876,7 +3876,7 @@ ex.
 //               - needs 2 parameters value and index
 
 //  2. .map()    - works the same as forEach and filter
-//               - 
+//               - transforms an array into another array
 
 /*
 ex. we have na array that we want to copy but remove the negative numbers
